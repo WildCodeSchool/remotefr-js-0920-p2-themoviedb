@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
+
+Link,
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+.content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+Header {
+  background-color: #222;
+  position: relative;
+  padding: 0.5em;
+  font-family: 'Mouse Memoirs', sans-serif;
+  font-size: 2.5em;
+  color: #eee;
+  text-align: center;
+  z-index: 50;
+  height: 15%;
+}
+
+Footer {
+  background-color: #222;
+  position: fixed;
+  width: 100%;
+  bottom: 0%;
+  font-family: 'Montserrat', sans-serif;
+  height: 5%;
+}
+
+Footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 1em;
+}
+
+Footer a {
+  color: #fff;
+}
