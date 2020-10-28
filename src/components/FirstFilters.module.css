@@ -50,7 +50,7 @@ article .bigButton a {
 article .bigButton a:focus {
   animation-name: zoomHover;
   animation-duration: 0.4s;
-  animation-fill-direction: forward;
+  animation-fill-mode: forward;
 }
 
 article .bigButton:nth-child(1) {
