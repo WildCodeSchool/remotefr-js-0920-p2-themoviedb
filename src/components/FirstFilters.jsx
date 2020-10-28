@@ -5,19 +5,21 @@ import styles from './FirstFilters.module.css';
 const FirstFilters = () => {
   return (
     <article>
-      <Link to="/jeveuxtrouver" title="" className={styles.bigButton}>
-        Je veux trouver THE film&nbsp;!
-      </Link>
-      <Link to="/partage" title="" className={styles.bigButton}>
-        J’ai trouvé&nbsp;: je partage&nbsp;!
-      </Link>
-      <Link
-        to="/nouveautes"
-        title="Voir les nouveautés"
-        className={styles.bigButton}
-      >
-        Je veux voir les dernières sorties
-      </Link>
+      <div className={styles.bigButton}>
+        <Link to="/jeveuxtrouver" title="">
+          Je veux trouver THE film&nbsp;!
+        </Link>
+      </div>
+      <div className={styles.bigButton}>
+        <Link to="/partage" title="Je partage le film que je veux regarder">
+          J’ai trouvé&nbsp;: je partage&nbsp;!
+        </Link>
+      </div>
+      <div className={styles.bigButton}>
+        <Link to="/nouveautes" title="Voir les nouveautés">
+          Je veux voir les dernières sorties
+        </Link>
+      </div>
     </article>
   );
 };

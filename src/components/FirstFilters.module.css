@@ -27,6 +27,14 @@ article .bigButton {
   position: relative;
   color: inherit;
 }
+article .bigButton a {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: inherit;
+}
 
 article .bigButton:nth-child(1) {
   background-color: rgb(255, 238, 0);
@@ -67,5 +75,8 @@ article .bigButton:nth-child(3) {
   }
   article .bigButton:nth-child(3) {
     padding-left: 2%;
+  }
+  article .bigButton a {
+    width: 98%;
   }
 }
