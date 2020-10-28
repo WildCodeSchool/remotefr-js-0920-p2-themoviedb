@@ -3,10 +3,6 @@ a {
   text-decoration: none;
 }
 
-.bigButton a {
-  color: inherit;
-}
-
 article {
   font-size: 3em;
   font-family: 'Mouse Memoirs', sans-serif;
@@ -20,7 +16,7 @@ article {
   overflow: hidden;
 }
 
-article div {
+article .bigButton {
   height: 33%;
   text-align: center;
   margin: 0.5% 0;
@@ -29,9 +25,10 @@ article div {
   align-items: center;
   justify-content: space-around;
   position: relative;
+  color: inherit;
 }
 
-article div:nth-child(1) {
+article .bigButton:nth-child(1) {
   background-color: rgb(255, 238, 0);
   color: #111;
   margin-top: 0;
@@ -39,13 +36,13 @@ article div:nth-child(1) {
   height: 100%;
 }
 
-article div:nth-child(2) {
+article .bigButton:nth-child(2) {
   background-color: rgb(253, 63, 5);
   color: #fff;
   height: 100%;
 }
 
-article div:nth-child(3) {
+article .bigButton:nth-child(3) {
   background-color: rgb(162, 0, 255);
   color: #fff;
   height: 100%;
@@ -59,24 +56,16 @@ article div:nth-child(3) {
     left: -2%;
     font-size: 6em;
   }
-  article div {
+  article .bigButton {
     height: 100%;
     width: 33%;
     transform: skewX(-5deg);
     margin: 0 0.2%;
   }
-  article div:nth-child(1) {
+  article .bigButton:nth-child(1) {
     padding-right: 2%;
   }
-  article div:nth-child(3) {
+  article .bigButton:nth-child(3) {
     padding-left: 2%;
-  }
-  article p {
-    padding: 20%;
-  }
-  article div:nth-child(1),
-  article div:nth-child(2),
-  article div:nth-child(3) {
-    height: 100%;
   }
 }
