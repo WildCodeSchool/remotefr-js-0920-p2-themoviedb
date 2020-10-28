@@ -12,7 +12,7 @@ const FirstFilters = () => {
       </div>
       <div className={styles.bigButton}>
         <Link to="/partage" title="">
-          J ai trouvé&nbsp;: je partage&nbsp;!
+          J’ai trouvé&nbsp;: je partage&nbsp;!
         </Link>
       </div>
       <div className={styles.bigButton}>
