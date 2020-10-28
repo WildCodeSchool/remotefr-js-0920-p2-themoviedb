@@ -35,6 +35,23 @@ article .bigButton a {
   justify-content: center;
   color: inherit;
 }
+@keyframes zoomHover {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.05);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+}
+article .bigButton a:focus {
+  animation-name: zoomHover;
+  animation-duration: 0.4s;
+  animation-fill-direction: forward;
+}
 
 article .bigButton:nth-child(1) {
   background-color: rgb(255, 238, 0);
