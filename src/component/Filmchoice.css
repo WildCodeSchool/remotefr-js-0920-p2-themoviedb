@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  background: rgb(162, 0, 255);
+  display: flex;
+  justify-content: center;
+}
+/** barre de recherche **/
+.research {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchbar {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 20%;
+  justify-content: center;
+}
+.bar {
+  width: 35%;
+}
+/**selection de film**/
+article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.filmview {
+  border-style: double;
+  border-color: black;
+  display: flex;
+  width: 40%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: burlywood;
+}
+
+.cover {
+  width: 60%;
+  align-self: center;
+}
+.filmtitle {
+  align-self: center;
+}
