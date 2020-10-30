@@ -1,0 +1,100 @@
+Link,
+a {
+  text-decoration: none;
+}
+
+article {
+  font-size: 3em;
+  font-family: 'Mouse Memoirs', sans-serif;
+  transform: skewY(-3deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85%;
+  position: relative;
+  top: -4%;
+  overflow: hidden;
+}
+
+article .bigButton {
+  height: 33%;
+  text-align: center;
+  margin: 0.5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  color: inherit;
+}
+article .bigButton a {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: inherit;
+}
+@keyframes zoomHover {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.05);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+}
+article .bigButton a:focus {
+  animation-name: zoomHover;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+article .bigButton:nth-child(1) {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  margin-top: 0;
+  top: 0;
+  height: 100%;
+}
+
+article .bigButton:nth-child(2) {
+  background-color: rgb(253, 63, 5);
+  color: #fff;
+  height: 100%;
+}
+
+article .bigButton:nth-child(3) {
+  background-color: rgb(162, 0, 255);
+  color: #fff;
+  height: 100%;
+}
+
+@media only screen and (min-width: 80em) {
+  article {
+    flex-direction: row-reverse;
+    transform: none;
+    width: 106%;
+    left: -3%;
+    font-size: 6em;
+  }
+  article .bigButton {
+    height: 100%;
+    width: 33%;
+    transform: skewX(-5deg);
+    margin: 0 0.2%;
+  }
+  article .bigButton:nth-child(1) {
+    padding-right: 2%;
+  }
+  article .bigButton:nth-child(3) {
+    padding-left: 2%;
+  }
+  article .bigButton a {
+    width: 80%;
+    padding: 10%;
+  }
+}
