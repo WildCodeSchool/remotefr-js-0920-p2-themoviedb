@@ -1,17 +1,14 @@
 import './App.css';
-import Filmchoice from './component/Filmchoice';
-import Selection from './component/Selection';
+import { Switch, Route } from 'react-router-dom';
+import Filmchoice from './components/Filmchoice';
 
 function App() {
   return (
-    <div className="research">
-      <Filmchoice />
-
-      <article>
-        <Selection />
-        <Selection />
-      </article>
-    </div>
+    <Switch>
+      <Route path="/fais-ta-selection">
+        <Filmchoice />
+      </Route>
+    </Switch>
   );
 }
 
