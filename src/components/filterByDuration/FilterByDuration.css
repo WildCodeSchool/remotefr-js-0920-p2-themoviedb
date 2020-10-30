@@ -31,6 +31,10 @@ body {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
+  outline: none;
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

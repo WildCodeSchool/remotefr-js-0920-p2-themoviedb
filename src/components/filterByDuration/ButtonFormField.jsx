@@ -1,18 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-function ButtonFormField({ onClick }) {
+function ButtonFormField() {
   return (
     <div className="form-group">
-      <button className="btn" type="button" onClick={onClick}>
+      <Link to="/" className="btn">
         Suivant
-      </button>
+      </Link>
     </div>
   );
 }
-
-ButtonFormField.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default ButtonFormField;
