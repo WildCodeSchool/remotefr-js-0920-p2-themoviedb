@@ -5,16 +5,11 @@ import ButtonFormField from './ButtonFormField';
 import './FilterByDuration.css';
 
 class FilterByDuration extends React.Component {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    // const data = JSON.stringify(this.state);
-    return this.state;
-  };
-
   render() {
     const { startTime, endTime, handleChange } = this.props;
     return (
       <form className="container" onSubmit={this.handleSubmit}>
+        <h2>Je planifie ma soirée</h2>
         <InputFormField
           name="startTime"
           value={startTime}
@@ -26,7 +21,7 @@ class FilterByDuration extends React.Component {
           à :
         </InputFormField>
 
-        <ButtonFormField onClick={this.handleSubmit} />
+        <ButtonFormField />
       </form>
     );
   }

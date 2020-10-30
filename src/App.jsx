@@ -1,7 +1,10 @@
 import React from 'react';
-import './App.css';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
+import Header from './components/Header';
+import FirstFilters from './components/FirstFilters';
+import Footer from './components/Footer';
+import styles from './App.module.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,21 +51,21 @@ class App extends React.Component {
   render() {
     const { startTime, endTime, runtime } = this.state;
     return (
-      <div className="App">
-        <h1>Je planifie ma soiréeq</h1>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/filter-by-duration">
-              <FilterByDuration
-                startTime={startTime}
-                endTime={endTime}
-                runtime={runtime}
-                handleChange={this.handleChange}
-              />
-            </Route>
-            {JSON.stringify({ startTime, endTime, runtime })}
-          </Switch>
-        </BrowserRouter>
+      <div className={styles.content}>
+        <Header />
+
+        <Switch>
+          <Route path="/filter-by-duration">
+            <FilterByDuration
+              startTime={startTime}
+              endTime={endTime}
+              runtime={runtime}
+              handleChange={this.handleChange}
+            />
+          </Route>
+          <Route path="/" component={FirstFilters} />
+        </Switch>
+        <Footer />
       </div>
     );
   }
