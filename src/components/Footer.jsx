@@ -1,14 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer>
       <ul>
         <li>
-          <a href="/en-savoir-plus">En savoir plus</a>
+          <Link to="/en-savoir-plus" title="En savoir plus">
+            En savoir plus
+          </Link>
         </li>
         <li>
-          <a href="/contact">Nous contacter</a>
+          <Link to="/contact" title="Nous contacter">
+            Nous contacter
+          </Link>
         </li>
       </ul>
     </footer>
