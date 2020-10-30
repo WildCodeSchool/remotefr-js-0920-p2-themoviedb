@@ -21,7 +21,8 @@ function InputFormField({ name, value, onChange, children }) {
 
 InputFormField.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
 };
