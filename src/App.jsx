@@ -23,12 +23,12 @@ class App extends React.Component {
    * be used to filter during the request to the API
    */
   calculruntime() {
-    const { startTime, endTime } = this.state;
+    const { startTime, endTime, runtime } = this.state;
     // calculation of the maximum length of the film
     const xstart =
       Number(startTime.substr(0, 2)) * 60 + Number(startTime.substr(3));
     const xend = Number(endTime.substr(0, 2)) * 60 + Number(endTime.substr(3));
-    if (xstart > xend) {
+    if (runtime < 0) {
       this.setState({
         runtime: 1440 - xstart + xend,
       });
