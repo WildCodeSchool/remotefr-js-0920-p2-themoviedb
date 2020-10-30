@@ -49,7 +49,7 @@ class App extends React.Component {
     const { startTime, endTime, runtime } = this.state;
     return (
       <div className="App">
-        <h1>entre amis</h1>
+        <h1>Je planifie ma soiréeq</h1>
         <BrowserRouter>
           <Switch>
             <Route path="/filter-by-duration">
