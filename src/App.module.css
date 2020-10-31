@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
+
+Link,
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+.content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+Header {
+  background-color: #222;
+  position: relative;
+  padding: 0.5em;
+  font-family: 'Mouse Memoirs', sans-serif;
+  font-size: 2.5em;
+  color: #eee;
+  text-align: center;
+  z-index: 50;
+  height: 15%;
+  -webkit-box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=10, Color='rgba(0, 0, 0, 0.300)', Positive='true');
+  zoom: 1;
+  box-shadow: 0px 10px 20px 3px rgba(0, 0, 0, 0.3);
+}
+
+Footer {
+  background-color: #222;
+  position: fixed;
+  width: 100%;
+  bottom: 0%;
+  font-family: 'Montserrat', sans-serif;
+  height: 5%;
+  -webkit-box-shadow: 0px -25px 20px 3px rgba(87, 37, 37, 0.3);
+  -moz-box-shadow: 0px -25px 20px 3px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
+  zoom: 1;
+  box-shadow: 0px -25px 20px 3px rgba(0, 0, 0, 0.3);
+}
+
+Footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  line-height: 100%;
+}
+
+Footer a {
+  color: #fff;
+}
