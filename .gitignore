@@ -26,5 +26,11 @@ yarn-error.log*
 yarn.lock
 package-loc
 
+<<<<<<< HEAD
 #apiKey
 apiKey.js
+=======
+#Api-Key
+apiKey.js
+
+>>>>>>> 244aa18acd3753a3e008bafc5f91c0c16d21230c

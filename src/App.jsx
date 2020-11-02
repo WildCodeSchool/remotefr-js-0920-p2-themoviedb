@@ -5,6 +5,7 @@ import Header from './components/Header';
 import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
 import styles from './App.module.css';
+import Filmchoice from './components/Filmchoice';
 
 class App extends React.Component {
   constructor(props) {
@@ -63,8 +64,12 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
+          <Route path="/les-elus">
+            <Filmchoice />
+          </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>
+
         <Footer />
       </div>
     );
