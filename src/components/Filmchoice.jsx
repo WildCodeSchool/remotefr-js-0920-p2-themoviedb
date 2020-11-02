@@ -42,7 +42,7 @@ class Filmchoice extends React.Component {
               onChange={this.movieSearch}
             />
           </form>
-          <cover className="view">
+          <article className="view">
             {results.map((resultat) => (
               <result className="resultat">
                 <button
@@ -59,7 +59,7 @@ class Filmchoice extends React.Component {
                 </button>
               </result>
             ))}
-          </cover>
+          </article>
 
           <cards className="filmview">
             <h2 className="filmtitle">Jean Rambo </h2>

@@ -1,12 +1,12 @@
 body {
   margin: 0;
-  background: rgb(83, 82, 196);
 }
 /** barre de recherche **/
 .research {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: rgb(83, 82, 196);
 }
 
 .searchbar {
@@ -20,7 +20,7 @@ body {
   border-radius: 10px;
 }
 /**selection de film**/
-article {
+.research article {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
