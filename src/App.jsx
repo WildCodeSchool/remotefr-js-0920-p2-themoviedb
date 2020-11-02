@@ -6,6 +6,7 @@ import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
+import Nouveautes from './components/Nouveautes';
 
 class App extends React.Component {
   constructor(props) {
@@ -66,6 +67,9 @@ class App extends React.Component {
           </Route>
           <Route path="/les-elus">
             <Filmchoice />
+          </Route>
+          <Route path="/nouveautes">
+            <Nouveautes />
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>
