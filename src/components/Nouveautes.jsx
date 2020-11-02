@@ -5,7 +5,7 @@ const Nouveautes = () => {
   return (
     <article className={styles.nouveautes}>
       <h2>L’actualité des films&nbsp;!</h2>
-      <div className="newMovies">Affiches de films ici</div>
+      <div className={styles.newMovies}>Affiches de films ici</div>
     </article>
   );
 };
