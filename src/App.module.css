@@ -21,7 +21,7 @@ Header {
   position: relative;
   padding: 0.5em;
   font-family: 'Mouse Memoirs', sans-serif;
-  font-size: 2.5em;
+  font-size: 2em;
   color: #eee;
   text-align: center;
   z-index: 50;
@@ -60,4 +60,10 @@ Footer ul {
 
 Footer a {
   color: #fff;
+}
+
+@media only screen and (min-width: 80em) {
+  Header {
+    font-size: 2.5em;
+  }
 }
