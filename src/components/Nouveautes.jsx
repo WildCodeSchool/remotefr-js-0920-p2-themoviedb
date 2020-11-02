@@ -1,12 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Nouveautes.module.css';
 
-const Nouveautes = () => {
+function Nouveautes(props) {
+  const { title, posterPath } = props;
+
   return (
-    <article className={styles.nouveautes}>
-      <h2>L’actualité des films&nbsp;!</h2>
-      <div className={styles.newMovies}>Affiches de films ici</div>
-    </article>
+    <div className={styles.newMovies}>
+      <img
+        src={`https://image.tmdb.org/t/p/w440_and_h660_face${posterPath}`}
+        alt={title}
+      />
+      <p>{title}</p>
+    </div>
   );
+}
+
+Nouveautes.propTypes = {
+  title: PropTypes.string.isRequired,
+  posterPath: PropTypes.string.isRequired,
 };
+
+// Nouveautes.defaultProps = {
+//   title: '',
+//   posterPath: '',
+// };
+
 export default Nouveautes;

@@ -1,0 +1,50 @@
+.NouveautesList {
+  font-size: 2.5em !important;
+  justify-content: flex-start;
+  transform: skewY(-3deg);
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  position: relative;
+  top: -3%;
+  overflow: hidden;
+}
+
+.NouveautesList h2 {
+  height: 20%;
+  margin: 0.5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  color: inherit;
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  margin-top: 0;
+  top: 0;
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.NouveautesList .areaOfNouveautes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  top: 1%;
+  min-height: 80%;
+  background-color: rgb(255, 238, 0);
+}
+
+@media only screen and (min-width: 80em) {
+  .NouveautesList {
+    top: -6%;
+  }
+  .NouveautesList h2 {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 2%;
+  }
+}
