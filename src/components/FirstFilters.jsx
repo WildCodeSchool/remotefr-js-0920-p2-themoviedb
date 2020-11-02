@@ -4,7 +4,7 @@ import styles from './FirstFilters.module.css';
 
 const FirstFilters = () => {
   return (
-    <article>
+    <article className={styles.homepage}>
       <div className={styles.bigButton}>
         <Link to="/jeveuxtrouver" title="">
           Je veux trouver THE film&nbsp;!
