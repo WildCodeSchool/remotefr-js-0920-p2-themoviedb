@@ -11,7 +11,7 @@ const FirstFilters = () => {
         </Link>
       </div>
       <div className={styles.bigButton}>
-        <Link to="/filmChoice" title="Je partage le film que je veux regarder">
+        <Link to="/les-elus" title="Je partage le film que je veux regarder">
           J’ai déjà l’idée&nbsp;: je partage&nbsp;!
         </Link>
       </div>
