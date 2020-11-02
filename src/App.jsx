@@ -64,13 +64,12 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
-          <Route path="/" component={FirstFilters} />
-        </Switch>
-        <Switch>
-          <Route path="/fais-ta-selection">
+          <Route path="/les-elus">
             <Filmchoice />
           </Route>
+          <Route path="/" component={FirstFilters} />
         </Switch>
+
         <Footer />
       </div>
     );
