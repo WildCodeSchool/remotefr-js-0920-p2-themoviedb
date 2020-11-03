@@ -36,6 +36,9 @@ class NouveautesList extends React.Component {
     const { chosenValue } = this.state;
     const genreMovies = `&with_genres=${chosenValue}`;
     this.setState({ chosenValue: click.target.value });
+    this.setState({
+      titleGenre: `Les nouveautés pour inspirer ma soirée ${click.target.innerText} :`,
+    });
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}${genreMovies}`;
     axios
       .get(url)
@@ -48,11 +51,13 @@ class NouveautesList extends React.Component {
   }
 
   render() {
-    const { listNewMovies } = this.state;
+    const { listNewMovies, titleGenre } = this.state;
+
     return (
       <article className={styles.NouveautesList}>
         <h2>L’actualité des films&nbsp;!</h2>
         <div className={styles.areaOfNouveautes}>
+          <h3>{titleGenre}</h3>
           {listNewMovies.map((newMovie) => (
             <Nouveautes
               title={newMovie.title}
@@ -69,10 +74,10 @@ class NouveautesList extends React.Component {
               Aventure
             </button>
             <button type="button" value="16" onClick={this.chosenGenre}>
-              Animation
+              Films d’animation
             </button>
             <button type="button" value="35" onClick={this.chosenGenre}>
-              Comédie
+              Humour
             </button>
             <button type="button" value="80" onClick={this.chosenGenre}>
               Crime
@@ -102,7 +107,7 @@ class NouveautesList extends React.Component {
               Mystère
             </button>
             <button type="button" value="10749" onClick={this.chosenGenre}>
-              Romance
+              Amour
             </button>
             <button type="button" value="878" onClick={this.chosenGenre}>
               S.F.
@@ -133,9 +138,9 @@ class NouveautesList extends React.Component {
 //   ),
 // };
 
-// NouveautesList.defaultProps = {
-//   listNewMovies: [],
-// };
+NouveautesList.defaultProps = {
+  titleGenre: '',
+};
 //   title: '',
 //   posterPath: 'https://via.placeholder.com/190x285.png',
 // };
