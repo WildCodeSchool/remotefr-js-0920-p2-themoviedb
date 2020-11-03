@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
 import Header from './components/Header';
 import FirstFilters from './components/FirstFilters';
@@ -7,7 +8,6 @@ import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
-import axios from 'axios';
 import apiKey from './components/apiKey';
 
 // const arrayOfNewMovies = [
@@ -42,6 +42,39 @@ class App extends React.Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchNouveautes();
+    console.log('componentDidMount');
+  }
+
+  // const currentYear = new Date();
+  // console.log(currentYear.getFullYear());
+  // appel de l'API
+  // const myResults = `https://api.themoviedb.org/3/discover/movie?api_key=74d5a2d9e7e8b509e4235d8ff4524d48&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}`;
+
+  fetchNouveautes = () => {
+    const currentYear = new Date().getFullYear();
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}&with_genres=9648`;
+    axios
+      .get(url)
+      .then((response) => response.data.results)
+      .then((nouveautesArray) => {
+        this.setState({
+          listNewMovies: nouveautesArray,
+        });
+      });
+  };
+
+  handleChange(event) {
+    const { name } = event.target;
+    this.setState(
+      {
+        [name]: event.target.value,
+      },
+      this.calculruntime,
+    );
+  }
+
   /**
    * This method allows you to calculate the maximum duration of a film which will
    * be used to filter during the request to the API
@@ -61,39 +94,6 @@ class App extends React.Component {
       runtime: xend - xstart,
     });
   }
-
-  handleChange(event) {
-    const { name } = event.target;
-    this.setState(
-      {
-        [name]: event.target.value,
-      },
-      this.calculruntime,
-    );
-  }
-
-  componentDidMount() {
-    this.fetchNouveautes();
-    console.log('componentDidMount');
-  }
-
-  // const currentYear = new Date();
-  // console.log(currentYear.getFullYear());
-  // appel de l'API
-  // const myResults = `https://api.themoviedb.org/3/discover/movie?api_key=74d5a2d9e7e8b509e4235d8ff4524d48&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}`;
-
-  fetchNouveautes = () => {
-    const currentYear = new Date().getFullYear();
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}`;
-    axios
-      .get(url)
-      .then((response) => response.data.results)
-      .then((nouveautesArray) => {
-        this.setState({
-          listNewMovies: nouveautesArray,
-        });
-      });
-  };
 
   render() {
     console.log('render');
