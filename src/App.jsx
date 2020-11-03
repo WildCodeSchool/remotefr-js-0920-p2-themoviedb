@@ -9,84 +9,84 @@ import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
 
-// const listGenres = [
-//   {
-//     id: 28,
-//     name: 'Action',
-//   },
-//   {
-//     id: 12,
-//     name: 'Aventure',
-//   },
-//   {
-//     id: 16,
-//     name: 'Animation',
-//   },
-//   {
-//     id: 35,
-//     name: 'Comédie',
-//   },
-//   {
-//     id: 80,
-//     name: 'Crime',
-//   },
-//   {
-//     id: 99,
-//     name: 'Documentaire',
-//   },
-//   {
-//     id: 18,
-//     name: 'Drame',
-//   },
-//   {
-//     id: 10751,
-//     name: 'Familial',
-//   },
-//   {
-//     id: 14,
-//     name: 'Fantastique',
-//   },
-//   {
-//     id: 36,
-//     name: 'Histoire',
-//   },
-//   {
-//     id: 27,
-//     name: 'Horreur',
-//   },
-//   {
-//     id: 10402,
-//     name: 'Musique',
-//   },
-//   {
-//     id: 9648,
-//     name: 'Mystère',
-//   },
-//   {
-//     id: 10749,
-//     name: 'Romance',
-//   },
-//   {
-//     id: 878,
-//     name: 'Science-Fiction',
-//   },
-//   {
-//     id: 10770,
-//     name: 'Téléfilm',
-//   },
-//   {
-//     id: 53,
-//     name: 'Thriller',
-//   },
-//   {
-//     id: 10752,
-//     name: 'Guerre',
-//   },
-//   {
-//     id: 37,
-//     name: 'Western',
-//   },
-// ];
+const listGenres = [
+  {
+    id: 28,
+    name: 'Action',
+  },
+  {
+    id: 12,
+    name: 'Aventure',
+  },
+  {
+    id: 16,
+    name: 'Animation',
+  },
+  {
+    id: 35,
+    name: 'Comédie',
+  },
+  {
+    id: 80,
+    name: 'Crime',
+  },
+  {
+    id: 99,
+    name: 'Documentaire',
+  },
+  {
+    id: 18,
+    name: 'Drame',
+  },
+  {
+    id: 10751,
+    name: 'Familial',
+  },
+  {
+    id: 14,
+    name: 'Fantastique',
+  },
+  {
+    id: 36,
+    name: 'Histoire',
+  },
+  {
+    id: 27,
+    name: 'Horreur',
+  },
+  {
+    id: 10402,
+    name: 'Musique',
+  },
+  {
+    id: 9648,
+    name: 'Mystère',
+  },
+  {
+    id: 10749,
+    name: 'Romance',
+  },
+  {
+    id: 878,
+    name: 'Science-Fiction',
+  },
+  {
+    id: 10770,
+    name: 'Téléfilm',
+  },
+  {
+    id: 53,
+    name: 'Thriller',
+  },
+  {
+    id: 10752,
+    name: 'Guerre',
+  },
+  {
+    id: 37,
+    name: 'Western',
+  },
+];
 
 class App extends React.Component {
   constructor(props) {
@@ -158,7 +158,12 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/filter-by-genre">
-            <FilterByGenre id={28} name="Action" />
+            <h3>Genres : </h3>
+            <ul>
+              {listGenres.map((genre) => (
+                <FilterByGenre key={genre.id} id={genre.id} name={genre.name} />
+              ))}
+            </ul>
           </Route>
           <Route path="/les-elus">
             <Filmchoice />

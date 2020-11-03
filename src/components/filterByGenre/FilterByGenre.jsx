@@ -5,12 +5,9 @@ function FilterByGenre(props) {
   const { name, id } = props;
   return (
     <div className="FilterByGenre">
-      <h3>Genres : </h3>
-      <ul>
-        <li>
-          {id} : {name}
-        </li>
-      </ul>
+      <li>
+        {id} : {name}
+      </li>
     </div>
   );
 }
