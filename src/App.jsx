@@ -2,7 +2,7 @@ import React from 'react';
 // import axios from 'axios';
 import { Switch, Route } from 'react-router-dom';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
-import FilterByGenre from './components/filterByGenre/FilterByGenre';
+import GenreList from './components/filterByGenre/GenreList';
 import Header from './components/Header';
 import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
@@ -158,12 +158,7 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/filter-by-genre">
-            <h3>Genres : </h3>
-            <ul>
-              {listGenres.map((genre) => (
-                <FilterByGenre key={genre.id} id={genre.id} name={genre.name} />
-              ))}
-            </ul>
+            <GenreList listGenre={listGenres} />
           </Route>
           <Route path="/les-elus">
             <Filmchoice />
