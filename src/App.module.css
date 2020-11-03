@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
 
+html {
+  scrollbar-color: #000 rgba(82, 82, 82, 0.15);
+  scrollbar-width: thin;
+}
+
 Link,
 a {
   text-decoration: none;

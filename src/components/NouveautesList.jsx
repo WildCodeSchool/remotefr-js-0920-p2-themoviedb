@@ -16,8 +16,8 @@ function NouveautesList(props) {
             key={newMovie.poster_path}
           />
         ))}
-        <div>
-          <p>J’ai envie d’en découvrir plus&nbsp;!</p>
+        <div className={styles.divButtons}>
+          <p>Je veux voir les nouveautés en&nbsp;:</p>
           <button type="button" value="28">
             Action
           </button>
