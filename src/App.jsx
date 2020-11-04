@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     const { startTime, endTime, runtime } = this.state;
     return (
-      <div className={styles.content}>
+      <div className="homepage">
         <Header />
 
         <Switch>
@@ -71,7 +71,9 @@ class App extends React.Component {
           <Route path="/nouveautes">
             <Nouveautes />
           </Route>
-          <Route path="/" component={FirstFilters} />
+          <div className={styles.content}>
+            <Route path="/" component={FirstFilters} />
+          </div>
         </Switch>
 
         <Footer />
