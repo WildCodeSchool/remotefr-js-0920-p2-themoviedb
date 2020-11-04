@@ -9,7 +9,7 @@ class NouveautesList extends React.Component {
     super(props);
     this.state = {
       listNewMovies: [],
-      chosenValue: '',
+      newChosenValue: '',
     };
     this.chosenGenre = this.chosenGenre.bind(this);
   }
@@ -33,11 +33,11 @@ class NouveautesList extends React.Component {
 
   chosenGenre(click) {
     const { currentYear } = new Date().getFullYear();
-    const { chosenValue } = this.state;
-    const genreMovies = `&with_genres=${chosenValue}`;
-    this.setState({ chosenValue: click.target.value });
+    const newChosenValue = click.target.value;
+    const genreMovies = `&with_genres=${newChosenValue}`;
     this.setState({
       titleGenre: `Les nouveautés pour inspirer ma soirée ${click.target.innerText} :`,
+      newChosenValue: newChosenValue,
     });
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}${genreMovies}`;
     axios
