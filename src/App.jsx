@@ -8,6 +8,7 @@ import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
+import apiKey from './components/apiKey';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class App extends React.Component {
   fetchGenres = () => {
     axios
       .get(
-        'https://api.themoviedb.org/3/genre/movie/list?api_key=74d5a2d9e7e8b509e4235d8ff4524d48&language=fr',
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr`,
       )
       .then((response) => response.data)
       .then((data) => {

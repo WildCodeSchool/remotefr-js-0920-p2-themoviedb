@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 function ButtonFormField() {
   return (
     <div className="form-group">
-      <Link to="/" className="btn" title="passer au filtre suivant">
+      <Link
+        to="/jeveuxtrouver/filter-by-genre"
+        className="btn"
+        title="passer au filtre suivant"
+      >
         Suivant
       </Link>
     </div>
