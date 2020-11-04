@@ -57,6 +57,7 @@ body {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: center;
+  position: absolute;
 }
 .hide {
   display: none;
@@ -127,6 +128,24 @@ body {
   align-self: center;
   color: white;
   font-size: 60%;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  text-align: center;
+}
+
+.delete {
+  width: 15%;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-size: 1em;
+  color: aliceblue;
+  align-self: flex-end;
 }
 
 @media (min-width: 768px) {

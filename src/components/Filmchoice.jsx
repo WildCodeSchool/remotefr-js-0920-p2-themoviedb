@@ -6,7 +6,13 @@ import apiKey from './apiKey';
 class Filmchoice extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', results: [], like: [], clicked: 'view' };
+    this.state = {
+      value: '',
+      results: [],
+      like: [],
+      clicked: 'view',
+      choosenOne: 'invisible',
+    };
     this.movieSearch = this.movieSearch.bind(this);
   }
   /** deuxième clès resolve ou elect
@@ -30,6 +36,7 @@ class Filmchoice extends React.Component {
         ? prevState.like.filter((mov) => mov !== resultat)
         : [...prevState.like, resultat];
       this.setState({ clicked: 'hide' });
+      this.setState({ choosenOne: 'visible' });
       return { like: newlike };
     });
   };
@@ -39,7 +46,7 @@ class Filmchoice extends React.Component {
   }
 
   render() {
-    const { value, results, like, clicked } = this.state;
+    const { value, results, like, clicked, choosenOne } = this.state;
     return (
       <div className="research">
         <div className="selection">
@@ -66,19 +73,21 @@ class Filmchoice extends React.Component {
                     src={`https://image.tmdb.org/t/p/w440_and_h660_face${resultat.poster_path}`}
                   />
                   <h3 className="titre">{resultat.original_title}</h3>
-                  <p className="note">
-                    Note moyenne {resultat.vote_average}/10{' '}
-                  </p>
+                  <p className="note">{resultat.vote_average}/10 </p>
                 </button>
               </div>
             ))}
           </div>
 
           {/* film selectionné */}
+          <h2 className={choosenOne}> Les Elus </h2>
           <div className="theOne">
             {like.map((liked) => (
               <cards className="filmview">
-                <h2 className="filmtitle">{liked.original_title} </h2>
+                <button type="button" className="delete">
+                  ✂
+                </button>
+                <h3 className="filmtitle">{liked.original_title} </h3>
                 <img
                   alt="Cover"
                   className="cover"
