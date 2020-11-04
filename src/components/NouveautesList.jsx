@@ -19,8 +19,26 @@ class NouveautesList extends React.Component {
   }
 
   fetchNouveautes = () => {
-    const { currentYear } = new Date().getFullYear();
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}`;
+    const todayYear00 = new Date().getFullYear();
+    const todayMonth = new Date().getMonth() + 1;
+    const todayMonth00 = todayMonth.toString().padStart(2, '0');
+    const todayDate = new Date().getDate();
+    const todayDate00 = todayDate.toString().padStart(2, '0');
+    let pastMonth00;
+    let pastYear00;
+
+    if (todayMonth >= 6) {
+      pastMonth00 = (todayMonth00 - 6).toString().padStart(2, '0');
+      pastYear00 = todayYear00;
+    } else {
+      pastMonth00 = parseInt(todayMonth, 16) + 6;
+      pastYear00 = todayYear00 - 1;
+    }
+
+    const todayFullDate = `${todayYear00}-${todayMonth00}-${todayDate00}`;
+    const pastFullDate = `${pastYear00}-${pastMonth00}-${todayDate00}`;
+
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&release_date.gte=${pastFullDate}&release_date.lte=${todayFullDate}`;
     axios
       .get(url)
       .then((response) => response.data.results)
@@ -32,14 +50,32 @@ class NouveautesList extends React.Component {
   };
 
   chosenGenre(click) {
-    const { currentYear } = new Date().getFullYear();
+    const todayYear00 = new Date().getFullYear();
+    const todayMonth = new Date().getMonth() + 1;
+    const todayMonth00 = todayMonth.toString().padStart(2, '0');
+    const todayDate = new Date().getDate();
+    const todayDate00 = todayDate.toString().padStart(2, '0');
+    let pastMonth00;
+    let pastYear00;
+
+    if (todayMonth >= 6) {
+      pastMonth00 = (todayMonth00 - 6).toString().padStart(2, '0');
+      pastYear00 = todayYear00;
+    } else {
+      pastMonth00 = parseInt(todayMonth, 12) + 6;
+      pastYear00 = todayYear00 - 1;
+    }
+
+    const todayFullDate = `${todayYear00}-${todayMonth00}-${todayDate00}`;
+    const pastFullDate = `${pastYear00}-${pastMonth00}-${todayDate00}`;
+
     const newChosenValue = click.target.value;
     const genreMovies = `&with_genres=${newChosenValue}`;
     this.setState({
       titleGenre: `Les nouveautés pour inspirer ma soirée ${click.target.innerText} :`,
       chosenValue: newChosenValue,
     });
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${currentYear}${genreMovies}`;
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&release_date.gte=${pastFullDate}&release_date.lte=${todayFullDate}${genreMovies}`;
     axios
       .get(url)
       .then((response) => response.data.results)
@@ -62,7 +98,7 @@ class NouveautesList extends React.Component {
             <Nouveautes
               title={newMovie.title}
               posterPath={newMovie.poster_path}
-              key={newMovie.poster_path}
+              key={newMovie.title}
             />
           ))}
           <div className={styles.divButtons}>
@@ -141,8 +177,5 @@ class NouveautesList extends React.Component {
 NouveautesList.defaultProps = {
   titleGenre: '',
 };
-//   title: '',
-//   posterPath: 'https://via.placeholder.com/190x285.png',
-// };
 
 export default NouveautesList;
