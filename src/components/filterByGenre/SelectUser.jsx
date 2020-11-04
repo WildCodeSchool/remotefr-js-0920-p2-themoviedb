@@ -5,7 +5,7 @@ function SelectUser(props) {
   const { posterPath, originalTitle } = props;
   return (
     <div className="SelectUser">
-      <img alt="filmcover" className="mini" src={posterPath} />
+      <img alt="filmcover" className="cover" src={posterPath} />
       <h3 className="titre">{originalTitle}</h3>
     </div>
   );

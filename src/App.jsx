@@ -1,14 +1,12 @@
 import React from 'react';
-import axios from 'axios';
 import { Switch, Route } from 'react-router-dom';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
-import GenreList from './components/filterByGenre/GenreList';
+import FilterByGenre from './components/filterByGenre/FilterByGenre';
 import Header from './components/Header';
 import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
-import apiKey from './components/apiKey';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,26 +15,10 @@ class App extends React.Component {
       startTime: '20:00',
       endTime: '22:00',
       runtime: 120,
-      listGenre: [],
     };
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  componentDidMount() {
-    this.fetchGenres();
-  }
-
-  fetchGenres = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr`,
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ listGenre: data.genres });
-      });
-  };
 
   /**
    * This method allows you to calculate the maximum duration of a film which will
@@ -69,7 +51,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { startTime, endTime, runtime, listGenre } = this.state;
+    const { startTime, endTime, runtime } = this.state;
     return (
       <div className={styles.content}>
         <Header />
@@ -84,7 +66,7 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/filter-by-genre">
-            <GenreList listGenre={listGenre} />
+            <FilterByGenre runtime={runtime} />
           </Route>
           <Route path="/les-elus">
             <Filmchoice />

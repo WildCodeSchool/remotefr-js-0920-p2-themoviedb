@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterByGenre from './FilterByGenre';
-import SelectUser from './SelectUser';
+import SelectGenre from './SelectGenre';
 import './GenreList.css';
+import './SelectUser.css';
 
 function GenreList(props) {
   const { listGenre } = props;
   return (
-    <div>
+    <div className="GenreList">
       <div className="FilterByGenre">
-        <p>Genres : </p>
+        <p className="pGenre">Genres : </p>
         {listGenre.map((genre) => (
           <button type="button" className="btn" id={genre.name}>
-            <FilterByGenre key={genre.id} id={genre.id} name={genre.name} />
+            <SelectGenre key={genre.id} id={genre.id} name={genre.name} />
           </button>
         ))}
-      </div>
-      <div>
-        <SelectUser
-          originalTitle="Ni une ni deux"
-          posterPath="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pT7JrBn0NBHYyFZx3hAl2clHjq8.jpg"
-        />
       </div>
     </div>
   );

@@ -1,0 +1,32 @@
+.SelectUser {
+  flex-grow: 1;
+  width: 19%;
+  align-content: center;
+}
+
+.SelectUserList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.SelectionUser {
+  border: solid 1px black;
+  width: 100%;
+  flex-direction: row;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transform: skewY(-3deg);
+}
+
+.cover {
+  width: 20%;
+  align-self: center;
+}
+.filmtitle {
+  align-self: center;
+}

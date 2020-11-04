@@ -2,4 +2,29 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  /* justify-content: flex-end; */
+  transform: skewY(-3deg);
+  margin: 0.2em auto;
+  border-bottom: solid 2px white;
+}
+
+.pGenre {
+  margin: 0;
+}
+
+.GenreList {
+  margin: 10px;
+}
+.btn {
+  margin: 0.2em;
+  padding: 0 auto;
+  background-color: turquoise;
+}
+
+.btn:hover {
+  background-color: blue;
+}
+
+.btn:active {
+  background-color: grey;
 }
