@@ -69,7 +69,7 @@ class NouveautesList extends React.Component {
     const todayFullDate = `${todayYear00}-${todayMonth00}-${todayDate00}`;
     const pastFullDate = `${pastYear00}-${pastMonth00}-${todayDate00}`;
 
-    const newChosenValue = click.target.value;
+    const newChosenValue = click.target.name;
     const genreMovies = `&with_genres=${newChosenValue}`;
     this.setState({
       titleGenre: `Les nouveautés pour inspirer ma soirée ${click.target.innerText} :`,
@@ -104,58 +104,58 @@ class NouveautesList extends React.Component {
         </div>
         <div className={styles.divButtons}>
           <p>Je veux voir les nouveautés en&nbsp;:</p>
-          <button type="button" value="28" onClick={this.chosenGenre}>
+          <button type="button" name="28" onClick={this.chosenGenre}>
             Action
           </button>
-          <button type="button" value="12" onClick={this.chosenGenre}>
+          <button type="button" name="12" onClick={this.chosenGenre}>
             Aventure
           </button>
-          <button type="button" value="16" onClick={this.chosenGenre}>
+          <button type="button" name="16" onClick={this.chosenGenre}>
             Films d’animation
           </button>
-          <button type="button" value="35" onClick={this.chosenGenre}>
+          <button type="button" name="35" onClick={this.chosenGenre}>
             Humour
           </button>
-          <button type="button" value="80" onClick={this.chosenGenre}>
+          <button type="button" name="80" onClick={this.chosenGenre}>
             Crime
           </button>
-          <button type="button" value="18" onClick={this.chosenGenre}>
+          <button type="button" name="18" onClick={this.chosenGenre}>
             Drame
           </button>
-          <button type="button" value="10751" onClick={this.chosenGenre}>
+          <button type="button" name="10751" onClick={this.chosenGenre}>
             Familial
           </button>
-          <button type="button" value="14" onClick={this.chosenGenre}>
+          <button type="button" name="14" onClick={this.chosenGenre}>
             Fantastique
           </button>
-          <button type="button" value="36" onClick={this.chosenGenre}>
+          <button type="button" name="36" onClick={this.chosenGenre}>
             Histoire
           </button>
-          <button type="button" value="27" onClick={this.chosenGenre}>
+          <button type="button" name="27" onClick={this.chosenGenre}>
             Horreur
           </button>
-          <button type="button" value="10402" onClick={this.chosenGenre}>
+          <button type="button" name="10402" onClick={this.chosenGenre}>
             Musique
           </button>
-          <button type="button" value="9648" onClick={this.chosenGenre}>
+          <button type="button" name="9648" onClick={this.chosenGenre}>
             Mystère
           </button>
-          <button type="button" value="10749" onClick={this.chosenGenre}>
+          <button type="button" name="10749" onClick={this.chosenGenre}>
             Amour
           </button>
-          <button type="button" value="878" onClick={this.chosenGenre}>
+          <button type="button" name="878" onClick={this.chosenGenre}>
             S.F.
           </button>
-          <button type="button" value="10770" onClick={this.chosenGenre}>
+          <button type="button" name="10770" onClick={this.chosenGenre}>
             Téléfilm
           </button>
-          <button type="button" value="53" onClick={this.chosenGenre}>
+          <button type="button" name="53" onClick={this.chosenGenre}>
             Thriller
           </button>
-          <button type="button" value="10752" onClick={this.chosenGenre}>
+          <button type="button" name="10752" onClick={this.chosenGenre}>
             Guerre
           </button>
-          <button type="button" value="37" onClick={this.chosenGenre}>
+          <button type="button" name="37" onClick={this.chosenGenre}>
             Western
           </button>
         </div>
