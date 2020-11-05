@@ -1,20 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SelectGenre(props) {
-  const { name, id, eventListener } = props;
-  return (
-    <div className={id}>
-      <button
-        type="button"
-        className="btn status-active"
-        id={id}
-        onClick={eventListener}
-      >
-        {name}
-      </button>
-    </div>
-  );
+class SelectGenre extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectGenre: true,
+    };
+  }
+
+  eventListener(event) {
+    const { selectGenre } = this.state;
+    const genre = !selectGenre;
+    const { eventListener } = this.props;
+    this.setState({ selectGenre: genre });
+    eventListener(event);
+  }
+
+  render() {
+    const { name, id } = this.props;
+    const { selectGenre } = this.state;
+    return (
+      <div className={id}>
+        <button
+          type="button"
+          className={selectGenre ? 'btn status-active' : 'btn status-inactive'}
+          id={id}
+          onClick={(event) => this.eventListener(event)}
+        >
+          {name}
+        </button>
+      </div>
+    );
+  }
 }
 
 SelectGenre.propTypes = {
