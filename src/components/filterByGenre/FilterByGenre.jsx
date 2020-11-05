@@ -10,6 +10,7 @@ class FilterByGenre extends React.Component {
     super(props);
     this.state = {
       listGenre: [],
+      withoutGenres: [],
       arrayResult: [],
     };
   }
@@ -20,8 +21,16 @@ class FilterByGenre extends React.Component {
   };
 
   getMovieList = () => {
+    const { withoutGenres } = this.state;
     const { runtime } = this.props;
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&certification=Action&include_adult=false&include_video=false&page=2&with_runtime.lte=${runtime}&with_original_language=fr`;
+    let url = '';
+    if (withoutGenres === []) {
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_runtime.lte=${runtime}&with_original_language=fr`;
+    } else {
+      const filterGenre = `&without_genres=${withoutGenres.toString()}`;
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1${filterGenre}&with_runtime.lte=${runtime}&with_original_language=fr`;
+    }
+
     axios
       .get(url)
       .then((response) => response.data)
@@ -41,12 +50,22 @@ class FilterByGenre extends React.Component {
       });
   };
 
+  eventListener = (event) => {
+    const { id } = event.target;
+    this.setState((prevState) => {
+      const newGenre = prevState.withoutGenres.includes(id)
+        ? prevState.withoutGenres.filter((array) => array !== id)
+        : [...prevState.withoutGenres, id];
+      return { withoutGenres: newGenre };
+    }, this.getMovieList);
+  };
+
   render() {
     const { listGenre, arrayResult } = this.state;
 
     return (
       <div className="FilterByGenre">
-        <GenreList listGenre={listGenre} />
+        <GenreList listGenre={listGenre} eventListener={this.eventListener} />
 
         <SelectUserList arrayResult={arrayResult} />
       </div>

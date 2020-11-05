@@ -5,15 +5,18 @@ import './GenreList.css';
 import './SelectUser.css';
 
 function GenreList(props) {
-  const { listGenre } = props;
+  const { listGenre, eventListener } = props;
   return (
     <div className="GenreList">
       <div className="FilterByGenre">
         <p className="pGenre">Genres : </p>
         {listGenre.map((genre) => (
-          <button type="button" className="btn" id={genre.name}>
-            <SelectGenre key={genre.id} id={genre.id} name={genre.name} />
-          </button>
+          <SelectGenre
+            id={genre.id}
+            name={genre.name}
+            eventListener={eventListener}
+            key={genre.id}
+          />
         ))}
       </div>
     </div>
@@ -27,6 +30,7 @@ GenreList.propTypes = {
       name: PropTypes.string,
     }),
   ).isRequired,
+  eventListener: PropTypes.func.isRequired,
 };
 
 export default GenreList;

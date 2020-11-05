@@ -18,13 +18,20 @@
 .btn {
   margin: 0.2em;
   padding: 0 auto;
-  background-color: turquoise;
 }
 
-.btn:hover {
-  background-color: blue;
+.status-active {
+  background-color: #40e0d0;
 }
 
-.btn:active {
-  background-color: grey;
+.status-inactive {
+  background-color: #808080;
 }
+
+/* .status-inactive:hover {
+  background: #40e0d0;
+}
+
+.status-active:hover {
+  background-color: #808080;
+} */
