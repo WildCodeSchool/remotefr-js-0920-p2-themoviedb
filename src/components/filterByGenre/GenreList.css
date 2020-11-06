@@ -26,12 +26,9 @@
 
 .status-inactive {
   background-color: #808080;
+  opacity: 0.3;
 }
 
-/* .status-inactive:hover {
-  background: #40e0d0;
+.btn:hover {
+  transform: skew(20deg, 10deg);
 }
-
-.status-active:hover {
-  background-color: #808080;
-} */

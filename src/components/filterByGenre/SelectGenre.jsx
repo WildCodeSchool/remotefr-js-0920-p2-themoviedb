@@ -27,6 +27,7 @@ class SelectGenre extends React.Component {
           className={selectGenre ? 'btn status-active' : 'btn status-inactive'}
           id={id}
           onClick={(event) => this.eventListener(event)}
+          title={`Retirer le genre ${name}`}
         >
           {name}
         </button>

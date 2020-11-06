@@ -9,13 +9,15 @@ function UserList(props) {
   return (
     <div className="SelectUserList">
       <div className="SelectionUser">
-        {arrayResult.map((movie) => (
-          <SelectUser
-            key={movie.id}
-            originalTitle={movie.title}
-            posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`}
-          />
-        ))}
+        {arrayResult
+          .filter((moviecover) => moviecover.poster_path != null)
+          .map((movie) => (
+            <SelectUser
+              key={movie.id}
+              originalTitle={movie.title}
+              posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`}
+            />
+          ))}
       </div>
     </div>
   );
