@@ -13,7 +13,6 @@ class Filmchoice extends React.Component {
       like: [],
       clicked: 'view',
       choosenOne: 'invisible',
-      zoomFilm: [],
     };
     this.movieSearch = this.movieSearch.bind(this);
   }
@@ -45,6 +44,10 @@ class Filmchoice extends React.Component {
 
   movieSearch(event) {
     this.setState({ value: event.target.value });
+  }
+
+  moreInfo(liked) {
+    this.setState({ zoomFilm: liked });
   }
 
   render() {
@@ -96,7 +99,7 @@ class Filmchoice extends React.Component {
                 <button
                   type="button"
                   className="more"
-                  onClick={() => zoomFilm(liked)}
+                  onClick={() => this.moreInfo(liked)}
                 >
                   <h3 className="filmtitle">{liked.original_title} </h3>
                   <img
