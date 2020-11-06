@@ -164,13 +164,6 @@ class NouveautesList extends React.Component {
   }
 }
 
-// NouveautesList.propTypes = {
-//   listNewMovies: PropTypes.arrayOf(
-//     PropTypes.shape({ title: PropTypes.string, posterPath: PropTypes.string })
-//       .isRequired,
-//   ),
-// };
-
 NouveautesList.defaultProps = {
   titleGenre: '',
 };
