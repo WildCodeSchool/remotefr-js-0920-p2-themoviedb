@@ -24,7 +24,7 @@ yarn-error.log*
 
 # WCS-specific (lock files => merge conflict hell)
 yarn.lock
-package-lock.json
+package-loc
 
 #Api-Key
 apiKey.js

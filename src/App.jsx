@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
+import FilterByGenre from './components/filterByGenre/FilterByGenre';
 import Header from './components/Header';
 import FirstFilters from './components/FirstFilters';
 import Footer from './components/Footer';
@@ -35,12 +36,12 @@ class App extends React.Component {
    * be used to filter during the request to the API
    */
   calculruntime() {
-    const { startTime, endTime } = this.state;
+    const { startTime, endTime, runtime } = this.state;
     // calculation of the maximum length of the film
     const xstart =
       Number(startTime.substr(0, 2)) * 60 + Number(startTime.substr(3));
     const xend = Number(endTime.substr(0, 2)) * 60 + Number(endTime.substr(3));
-    if (xstart > xend) {
+    if (runtime < 0) {
       this.setState({
         runtime: 1440 - xstart + xend,
       });
@@ -64,6 +65,9 @@ class App extends React.Component {
               runtime={runtime}
               handleChange={this.handleChange}
             />
+          </Route>
+          <Route path="/filter-by-genre">
+            <FilterByGenre runtime={runtime} />
           </Route>
           <Route path="/les-elus">
             <Filmchoice />
