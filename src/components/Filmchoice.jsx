@@ -2,6 +2,7 @@ import React from 'react';
 import './Filmchoice.css';
 import axios from 'axios';
 import apiKey from './apiKey';
+import FilmZoom from './FilmZoom';
 
 class Filmchoice extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Filmchoice extends React.Component {
       like: [],
       clicked: 'view',
       choosenOne: 'invisible',
+      zoomFilm: [],
     };
     this.movieSearch = this.movieSearch.bind(this);
   }
@@ -46,7 +48,7 @@ class Filmchoice extends React.Component {
   }
 
   render() {
-    const { value, results, like, clicked, choosenOne } = this.state;
+    const { value, results, like, clicked, choosenOne, zoomFilm } = this.state;
     return (
       <div className="research">
         <div className="selection">
@@ -84,18 +86,29 @@ class Filmchoice extends React.Component {
           <div className="theOne">
             {like.map((liked) => (
               <cards className="filmview">
-                <button type="button" className="delete">
+                <button
+                  type="button"
+                  className="delete"
+                  onClick={() => this.movieSelect(liked)}
+                >
                   ✂
                 </button>
-                <h3 className="filmtitle">{liked.original_title} </h3>
-                <img
-                  alt="Cover"
-                  className="cover"
-                  src={`https://image.tmdb.org/t/p/w440_and_h660_face${liked.poster_path}`}
-                />
-                <h3 className="vote">{liked.vote_average}/10</h3>
+                <button
+                  type="button"
+                  className="more"
+                  onClick={() => zoomFilm(liked)}
+                >
+                  <h3 className="filmtitle">{liked.original_title} </h3>
+                  <img
+                    alt="Cover"
+                    className="cover"
+                    src={`https://image.tmdb.org/t/p/w440_and_h660_face${liked.poster_path}`}
+                  />
+                  <h3 className="vote">{liked.vote_average}/10</h3>
+                </button>
               </cards>
             ))}
+            {zoomFilm && <FilmZoom film={zoomFilm} />}
           </div>
         </div>
       </div>
