@@ -100,7 +100,7 @@ class App extends React.Component {
     const { startTime, endTime, runtime } = this.state;
     const { listNewMovies } = this.state;
     return (
-      <div className={styles.content}>
+      <div className="homepage">
         <Header />
         <Switch>
           <Route path="/filter-by-duration">
@@ -117,7 +117,9 @@ class App extends React.Component {
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
-          <Route path="/" component={FirstFilters} />
+          <div className={styles.content}>
+            <Route path="/" component={FirstFilters} />
+          </div>
         </Switch>
 
         <Footer />
