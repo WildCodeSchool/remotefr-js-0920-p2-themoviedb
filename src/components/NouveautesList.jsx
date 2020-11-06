@@ -81,7 +81,9 @@ class NouveautesList extends React.Component {
       .then((response) => response.data.results)
       .then((nouveautesArray) => {
         this.setState({
-          listNewMovies: nouveautesArray,
+          listNewMovies: nouveautesArray.filter(
+            (moviecover) => moviecover.poster_path != null,
+          ),
         });
       });
   }
