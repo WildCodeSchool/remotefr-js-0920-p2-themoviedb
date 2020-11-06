@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <h1>
         <Link to="/." title="Retour à la page d'accueil">
-          Je suis ton FILM.
+          Je&nbsp;suis&nbsp;ton&nbsp;FILM.
         </Link>
       </h1>
     </header>

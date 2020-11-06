@@ -21,9 +21,4 @@ Nouveautes.propTypes = {
   posterPath: PropTypes.string.isRequired,
 };
 
-// Nouveautes.defaultProps = {
-//   title: '',
-//   posterPath: '',
-// };
-
 export default Nouveautes;
