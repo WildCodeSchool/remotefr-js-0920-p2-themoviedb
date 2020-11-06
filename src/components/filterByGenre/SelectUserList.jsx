@@ -10,7 +10,8 @@ function UserList(props) {
     <div className="SelectUserList">
       <div className="SelectionUser">
         {arrayResult
-          .filter((moviecover) => moviecover.poster_path != null)
+          .filter((moviecover) => moviecover.poster_path !== null)
+          .filter((movieGenreNull) => movieGenreNull.genre_ids.length !== 0)
           .map((movie) => (
             <SelectUser
               key={movie.id}
