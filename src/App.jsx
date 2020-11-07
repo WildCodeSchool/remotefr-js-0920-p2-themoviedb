@@ -55,7 +55,7 @@ class App extends React.Component {
     const { startTime, endTime, runtime } = this.state;
     const { listNewMovies } = this.state;
     return (
-      <div className="homepage">
+      <div className={styles.content}>
         <Header />
         <Switch>
           <Route path="/filter-by-duration">
