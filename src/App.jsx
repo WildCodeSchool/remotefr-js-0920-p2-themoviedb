@@ -75,9 +75,7 @@ class App extends React.Component {
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
-          <div className={styles.content}>
-            <Route path="/" component={FirstFilters} />
-          </div>
+          <Route path="/" component={FirstFilters} />
         </Switch>
 
         <Footer />
