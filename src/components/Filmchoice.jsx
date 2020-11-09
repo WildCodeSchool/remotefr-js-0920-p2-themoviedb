@@ -42,12 +42,14 @@ class Filmchoice extends React.Component {
     });
   };
 
+  moreInfo = (liked) => {
+    this.setState({
+      zoomFilm: [liked],
+    });
+  };
+
   movieSearch(event) {
     this.setState({ value: event.target.value });
-  }
-
-  moreInfo(liked) {
-    this.setState({ zoomFilm: liked });
   }
 
   render() {
@@ -111,7 +113,14 @@ class Filmchoice extends React.Component {
                 </button>
               </cards>
             ))}
-            {zoomFilm && <FilmZoom film={zoomFilm} />}
+            {zoomFilm && (
+              <FilmZoom
+                titre={zoomFilm.original_title}
+                poster={zoomFilm.poster_path}
+                synopsis={zoomFilm.overview}
+                note={zoomFilm.vote_average}
+              />
+            )}
           </div>
         </div>
       </div>
