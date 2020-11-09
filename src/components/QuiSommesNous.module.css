@@ -87,14 +87,18 @@
 }
 
 .QuiSommesNous .developpers > div {
-  width: 30%;
+  width: 33%;
   padding: 2%;
 }
+.QuiSommesNous .developpers div > img {
+  width: 100%;
+}
+
 .QuiSommesNous h4 {
   text-align: center;
   margin: 0.2em 0 0 0;
   font-family: 'Mouse Memoirs', sans-serif;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 @media only screen and (min-width: 60em) {
@@ -107,6 +111,9 @@
   .QuiSommesNous {
     top: -4em;
     height: 110%;
+  }
+  .QuiSommesNous h4 {
+    font-size: 2em;
   }
   .QuiSommesNous h2 {
     padding-top: 100px;
