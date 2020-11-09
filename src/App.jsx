@@ -8,6 +8,10 @@ import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
+import WithWhoList from './components/filterByWho/WithWhoList';
+import FilterByAge from './components/FilterByAge/FilterByAge';
+
+const arrayData = ['Entre amis', 'En Famille', 'En couple', 'Seul'];
 
 class App extends React.Component {
   constructor(props) {
@@ -68,6 +72,12 @@ class App extends React.Component {
           </Route>
           <Route path="/filter-by-genre">
             <FilterByGenre runtime={runtime} />
+          </Route>
+          <Route path="/with-who">
+            <WithWhoList arrayData={arrayData} />
+          </Route>
+          <Route path="/select-age">
+            <FilterByAge />
           </Route>
           <Route path="/les-elus">
             <Filmchoice />

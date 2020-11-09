@@ -1,0 +1,96 @@
+Link,
+a {
+  text-decoration: none;
+}
+
+.FilterByAge {
+  font-size: 3em;
+  font-family: 'Mouse Memoirs', sans-serif;
+  transform: skewY(-3deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: absolute;
+  top: 1.5em;
+  overflow: hidden;
+  width: 100%;
+}
+
+.FilterByAge .bigButton {
+  height: 33%;
+  text-align: center;
+  margin: 0.5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  color: inherit;
+}
+.FilterByAge .bigButton a {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: inherit;
+}
+@keyframes zoomHover {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.05);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+}
+.FilterByAge .bigButton a:focus {
+  animation-name: zoomHover;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.FilterByAge .bigButton:nth-child(1) {
+  background-color: rgb(253, 63, 5);
+  color: #111;
+  margin-top: 0;
+  top: 0;
+  height: 33%;
+}
+
+.FilterByAge .bigButton:nth-child(2) {
+  background-color: rgb(252, 145, 145);
+  color: #fff;
+  height: 66%;
+}
+
+@media only screen and (min-width: 80em) {
+  .FilterByAge {
+    flex-direction: row-reverse;
+    transform: none;
+    width: 106%;
+    left: -3%;
+    font-size: 6em;
+    top: 0;
+  }
+  .FilterByAge .bigButton {
+    height: 100%;
+    width: 33%;
+    transform: skewX(-5deg);
+    margin: 0 0.2%;
+  }
+  .FilterByAge .bigButton:nth-child(1) {
+    padding-right: 2%;
+  }
+  .FilterByAge .bigButton:nth-child(2) {
+    padding-left: 2%;
+  }
+  .FilterByAge .bigButton a {
+    width: 80%;
+    padding: 10%;
+  }
+}

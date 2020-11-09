@@ -8,10 +8,12 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "prop-types": "^15.7.2",
+    "rc-slider": "^9.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
+    "react-smooth-range-input": "^0.3.1",
     "react-time": "^4.3.0"
   },
   "scripts": {
