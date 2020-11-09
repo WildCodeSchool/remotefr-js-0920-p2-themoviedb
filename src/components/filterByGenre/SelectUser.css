@@ -1,0 +1,36 @@
+.SelectUser {
+  flex-grow: 1;
+  width: 19%;
+  align-content: center;
+}
+
+.SelectUserList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: skewY(-3deg);
+  width: 100%;
+  height: 120%;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.SelectionUser {
+  border: solid 1px black;
+  width: 100%;
+  flex-direction: row;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cover {
+  width: 20%;
+  align-self: center;
+}
+.filmtitle {
+  align-self: center;
+}

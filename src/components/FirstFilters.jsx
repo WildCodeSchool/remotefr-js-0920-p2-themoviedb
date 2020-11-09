@@ -4,14 +4,14 @@ import styles from './FirstFilters.module.css';
 
 const FirstFilters = () => {
   return (
-    <article>
+    <article className={styles.homepage}>
       <div className={styles.bigButton}>
         <Link to="/jeveuxtrouver" title="">
           Je veux trouver THE film&nbsp;!
         </Link>
       </div>
       <div className={styles.bigButton}>
-        <Link to="/filmChoice" title="Je partage le film que je veux regarder">
+        <Link to="/les-elus" title="Je partage le film que je veux regarder">
           J’ai déjà l’idée&nbsp;: je partage&nbsp;!
         </Link>
       </div>

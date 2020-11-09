@@ -1,0 +1,102 @@
+.NouveautesList {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.NouveautesList h2 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 3.5em;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 1.5em;
+}
+
+.NouveautesList .areaOfNouveautes {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.NouveautesList h3 {
+  width: 100%;
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: center;
+  background-color: rgb(255, 238, 0);
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.NouveautesList .divButtons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-start;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Monserrat', sans-serif;
+  top: 0;
+  height: auto;
+  margin-top: 0em;
+  padding: 0.5em;
+  font-size: 0.5em;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.NouveautesList .divButtons p {
+  width: 100%;
+  margin: 0.8em;
+}
+
+.NouveautesList .areaOfNouveautes .divButtons button {
+  width: 32%;
+  max-width: 100%;
+  margin: 0.5%;
+  padding: 0.3em 0;
+  font-size: 0.8em;
+  position: relative;
+}
+
+@media only screen and (min-width: 60em) {
+  .NouveautesList h2 {
+    height: 4em;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .NouveautesList {
+    top: -4em;
+    height: 110%;
+  }
+  .NouveautesList h2 {
+    padding-top: 100px;
+    font-size: 1.6em;
+  }
+  .NouveautesList .divButtons {
+    padding-bottom: 160px;
+  }
+  .NouveautesList .divButtons button {
+    width: 10%;
+  }
+}
