@@ -9,6 +9,7 @@ class NouveautesList extends React.Component {
     super(props);
     this.state = {
       listNewMovies: [],
+      // eslint-disable-next-line react/no-unused-state
       chosenValue: '',
     };
     this.chosenGenre = this.chosenGenre.bind(this);
@@ -73,6 +74,7 @@ class NouveautesList extends React.Component {
     const genreMovies = `&with_genres=${newChosenValue}`;
     this.setState({
       titleGenre: `Les nouveautés pour inspirer ma soirée ${click.target.innerText} :`,
+      // eslint-disable-next-line react/no-unused-state
       chosenValue: newChosenValue,
     });
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&release_date.gte=${pastFullDate}&release_date.lte=${todayFullDate}${genreMovies}`;
