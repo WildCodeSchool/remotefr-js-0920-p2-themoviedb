@@ -10,9 +10,12 @@ class Contact extends React.Component {
       email: '',
       message: '',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    alert('Formulaire envoyé !');
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;
