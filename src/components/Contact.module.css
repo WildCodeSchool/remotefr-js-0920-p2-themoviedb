@@ -54,6 +54,7 @@
 }
 
 .Contact .areaOfText form label {
+  width: 100%;
   font-size: 0.5em;
 }
 
@@ -61,7 +62,7 @@
 .Contact .areaOfText textarea {
   width: 98%;
   padding: 1%;
-  font-size: 0.5em;
+  font-size: 1em;
   font-family: 'Monserrat', sans-serif;
 }
 
