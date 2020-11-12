@@ -3,7 +3,7 @@ a {
   text-decoration: none;
 }
 
-.FilterByAge {
+.FilterByEmotion {
   font-size: 3em;
   font-family: 'Mouse Memoirs', sans-serif;
   transform: skewY(-3deg);
@@ -17,7 +17,7 @@ a {
   width: 100%;
 }
 
-.FilterByAge .bigButton {
+.FilterByEmotion .bigButton {
   height: 33%;
   text-align: center;
   margin: 0.5% 0;
@@ -28,7 +28,7 @@ a {
   position: relative;
   color: inherit;
 }
-.FilterByAge .bigButton a {
+.FilterByEmotion .bigButton a {
   width: 95%;
   height: 100%;
   display: flex;
@@ -48,55 +48,76 @@ a {
     transform: scale(0.9);
   }
 }
-.FilterByAge .bigButton a:focus {
+.FilterByEmotion .bigButton a:focus {
   animation-name: zoomHover;
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
 }
 
-.FilterByAge .bigButton:nth-child(1) {
-  background-color: rgb(253, 63, 5);
+.FilterByEmotion .bigButton:nth-child(1) {
+  background-color: rgb(255, 238, 0);
   color: #111;
+  margin-top: 0;
   top: 0;
-  height: 33%;
+  height: 100%;
 }
 
-.FilterByAge .bigButton:nth-child(2) {
-  background-color: rgb(252, 145, 145);
+.FilterByEmotion .bigButton:nth-child(2) {
+  background-color: rgb(253, 174, 5);
   color: #fff;
-  height: 66%;
+  height: 100%;
+}
+
+.FilterByEmotion .bigButton:nth-child(3) {
+  background-color: rgb(253, 63, 5);
+  color: #fff;
+  height: 100%;
+}
+.FilterByEmotion .bigButton:nth-child(4) {
+  background-color: rgb(162, 0, 255);
+  color: #fff;
+  height: 100%;
+}
+.FilterByEmotion .bigButton:nth-child(5) {
+  background-color: rgb(68, 0, 255);
+  color: #fff;
+  height: 100%;
+}
+.FilterByEmotion .bigButton:nth-child(6) {
+  background-color: rgb(0, 255, 128);
+  color: #fff;
+  height: 100%;
+}
+
+.FilterByEmotion .bigButton:last-child {
+  background-color: rgb(234, 0, 255);
+  color: #fff;
+  height: 100%;
+  padding-bottom: 2em;
 }
 
 @media only screen and (min-width: 80em) {
-  .FilterByAge {
-    flex-direction: row;
+  .FilterByEmotion {
+    flex-direction: row-reverse;
     transform: none;
     width: 106%;
     left: -3%;
     font-size: 6em;
     top: 0;
   }
-  .FilterByAge .bigButton:nth-child(1) {
+  .FilterByEmotion .bigButton {
     height: 100%;
-    width: 49%;
+    width: 33%;
     transform: skewX(-5deg);
     margin: 0 0.2%;
   }
-
-  .FilterByAge .bigButton:nth-child(2) {
-    height: 100%;
-    width: 49%;
-    transform: skewX(-5deg);
-    margin: 0 0.2%;
-  }
-
-  .FilterByAge .bigButton:nth-child(1) {
+  .FilterByEmotion .bigButton:nth-child(1) {
     padding-right: 2%;
   }
-  .FilterByAge .bigButton:nth-child(2) {
+  .FilterByEmotion .bigButton:nth-child(4) {
     padding-left: 2%;
   }
-  .FilterByAge .bigButton a {
+  .FilterByEmotion .bigButton a {
     width: 80%;
     padding: 10%;
   }

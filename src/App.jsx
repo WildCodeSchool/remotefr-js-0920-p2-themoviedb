@@ -1,5 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import Data from './Data/DataGenre';
 import FilterByDuration from './components/filterByDuration/FilterByDuration';
 import FilterByGenre from './components/filterByGenre/FilterByGenre';
 import Header from './components/Header';
@@ -10,8 +12,9 @@ import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
 import WithWhoList from './components/filterByWho/WithWhoList';
 import FilterByAge from './components/FilterByAge/FilterByAge';
+import ListEmotions from './components/FilterByEmotion/ListEmotion';
 
-const arrayData = ['Entre amis', 'En Famille', 'En couple', 'Seul'];
+const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
 
 class App extends React.Component {
   constructor(props) {
@@ -20,9 +23,11 @@ class App extends React.Component {
       startTime: '20:00',
       endTime: '22:00',
       runtime: 120,
+      selectWithWho: '',
+      data: Data,
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -40,12 +45,12 @@ class App extends React.Component {
    * be used to filter during the request to the API
    */
   calculruntime() {
-    const { startTime, endTime, runtime } = this.state;
+    const { startTime, endTime } = this.state;
     // calculation of the maximum length of the film
     const xstart =
       Number(startTime.substr(0, 2)) * 60 + Number(startTime.substr(3));
     const xend = Number(endTime.substr(0, 2)) * 60 + Number(endTime.substr(3));
-    if (runtime < 0) {
+    if (xend - xstart < 0) {
       this.setState({
         runtime: 1440 - xstart + xend,
       });
@@ -55,14 +60,38 @@ class App extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('handleSubmit');
+    this.setState({
+      selectWithWho: event.target.id,
+    });
+  }
+
   render() {
-    const { startTime, endTime, runtime } = this.state;
+    const { startTime, endTime, runtime, selectWithWho, data } = this.state;
     const { listNewMovies } = this.state;
     return (
       <div className={styles.content}>
         <Header />
         <Switch>
-          <Route path="/filter-by-duration">
+          <Route path="/jeveuxtrouver/:who/:emotion/genres">
+            <FilterByGenre runtime={runtime} />
+          </Route>
+
+          <Route path="/jeveuxtrouver/:who/select-emotions">
+            <ListEmotions selectWithWho={selectWithWho} data={data} />
+          </Route>
+          <Route path="/les-elus">
+            <Filmchoice />
+          </Route>
+          <Route path="/nouveautes">
+            <NouveautesList listNewMovies={listNewMovies} />
+          </Route>
+          <Route path="/jeveuxtrouver/:who/age">
+            <FilterByAge />
+          </Route>
+          <Route path="/jeveuxtrouver/:who/duree">
             <FilterByDuration
               startTime={startTime}
               endTime={endTime}
@@ -70,20 +99,11 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
-          <Route path="/filter-by-genre">
-            <FilterByGenre runtime={runtime} />
-          </Route>
-          <Route path="/with-who">
-            <WithWhoList arrayData={arrayData} />
-          </Route>
-          <Route path="/select-age">
-            <FilterByAge />
-          </Route>
-          <Route path="/les-elus">
-            <Filmchoice />
-          </Route>
-          <Route path="/nouveautes">
-            <NouveautesList listNewMovies={listNewMovies} />
+          <Route path="/jeveuxtrouver">
+            <WithWhoList
+              arrayData={arrayData.who}
+              handleSubmit={this.handleSubmit}
+            />
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>

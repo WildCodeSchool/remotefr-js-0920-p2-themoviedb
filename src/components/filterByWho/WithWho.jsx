@@ -5,14 +5,16 @@ import stylesWithWho from './WithWhoList.module.css';
 
 function WithWho(props) {
   const { who } = props;
-  let path = '/select-emotions';
+  const whoUrl = who.replace(/ /g, '-');
+
+  let path = `/jeveuxtrouver/${whoUrl}/duree`;
   if (who === 'En Famille') {
-    path = '/select-age';
+    path = `/jeveuxtrouver/${whoUrl}/age`;
   }
-  // const path = who === 'En Famille' ? '/select-age' : '/select-emotions';
+
   return (
     <div className={stylesWithWho.bigButton}>
-      <Link to={path} title="">
+      <Link to={path} title="" id={who}>
         {who}
       </Link>
     </div>
@@ -21,6 +23,7 @@ function WithWho(props) {
 
 WithWho.propTypes = {
   who: PropTypes.string.isRequired,
+  // handleSubmit: PropTypes.func.isRequired,
 };
 
 export default WithWho;

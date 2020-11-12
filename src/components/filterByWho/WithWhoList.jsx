@@ -4,11 +4,12 @@ import WithWho from './WithWho';
 import stylesWithWho from './WithWhoList.module.css';
 
 function WithWhoList(props) {
-  const { arrayData } = props;
+  const { arrayData, handleSubmit } = props;
+
   return (
     <article className={stylesWithWho.withwhom}>
       {arrayData.map((item) => (
-        <WithWho key={item} who={item} />
+        <WithWho key={item} who={item} id={item} onClick={handleSubmit} />
       ))}
     </article>
   );
@@ -16,6 +17,7 @@ function WithWhoList(props) {
 
 WithWhoList.propTypes = {
   arrayData: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default WithWhoList;
