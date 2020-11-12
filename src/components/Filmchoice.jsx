@@ -1,8 +1,16 @@
 import React from 'react';
 import './Filmchoice.css';
 import axios from 'axios';
+import Rating from 'react-rating';
+import Modal from 'react-modal';
 import apiKey from './apiKey';
 import FilmZoom from './FilmZoom';
+
+const customStyles = {
+  overlay: {
+    zIndex: 100,
+  },
+};
 
 class Filmchoice extends React.Component {
   constructor(props) {
@@ -13,6 +21,7 @@ class Filmchoice extends React.Component {
       like: [],
       clicked: 'view',
       choosenOne: 'invisible',
+      zoomFilm: null,
     };
     this.movieSearch = this.movieSearch.bind(this);
   }
@@ -44,7 +53,7 @@ class Filmchoice extends React.Component {
 
   moreInfo = (liked) => {
     this.setState({
-      zoomFilm: [liked],
+      zoomFilm: liked,
     });
   };
 
@@ -80,7 +89,28 @@ class Filmchoice extends React.Component {
                     src={`https://image.tmdb.org/t/p/w440_and_h660_face${resultat.poster_path}`}
                   />
                   <h3 className="titre">{resultat.original_title}</h3>
-                  <p className="note">{resultat.vote_average}/10 </p>
+                  <Rating
+                    className="rating"
+                    name="small"
+                    initialRating={resultat.vote_average / 2}
+                    precision={0.5}
+                    size="large"
+                    emptySymbol={
+                      <img
+                        src="/stars/star-empty.png"
+                        alt="stars"
+                        className="icon"
+                      />
+                    }
+                    fullSymbol={
+                      <img
+                        src="/stars/star-full.png"
+                        alt="stars"
+                        className="icon"
+                      />
+                    }
+                    readonly
+                  />
                 </button>
               </div>
             ))}
@@ -109,18 +139,48 @@ class Filmchoice extends React.Component {
                     className="cover"
                     src={`https://image.tmdb.org/t/p/w440_and_h660_face${liked.poster_path}`}
                   />
-                  <h3 className="vote">{liked.vote_average}/10</h3>
+                  <Rating
+                    className="rating"
+                    name="rating"
+                    initialRating={liked.vote_average / 2}
+                    precision={0.5}
+                    size="small"
+                    emptySymbol={
+                      <img
+                        src="/stars/star-empty.png"
+                        alt="note"
+                        className="icon"
+                      />
+                    }
+                    fullSymbol={
+                      <img
+                        src="/stars/star-full.png"
+                        alt="note"
+                        className="icon"
+                      />
+                    }
+                    readonly
+                  />
                 </button>
               </cards>
             ))}
-            {zoomFilm && (
-              <FilmZoom
-                titre={zoomFilm.original_title}
-                poster={zoomFilm.poster_path}
-                synopsis={zoomFilm.overview}
-                note={zoomFilm.vote_average}
-              />
-            )}
+
+            <Modal
+              isOpen={!!zoomFilm}
+              style={customStyles}
+              onRequestClose={() => this.setState({ zoomFilm: null })}
+            >
+              <div className="details">
+                {zoomFilm && (
+                  <FilmZoom
+                    titre={zoomFilm.original_title}
+                    poster={zoomFilm.poster_path}
+                    synopsis={zoomFilm.overview}
+                    note={zoomFilm.vote_average}
+                  />
+                )}
+              </div>
+            </Modal>
           </div>
         </div>
       </div>
