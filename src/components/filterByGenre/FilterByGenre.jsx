@@ -6,7 +6,6 @@ import apiKey from '../apiKey';
 import GenreList from './GenreList';
 import SelectUserList from './SelectUserList';
 import MovieGenreDetail from '../../Data/MovieGenreDetail';
-// import Data from '../../Data/DataGenre';
 
 // const dataGenres = Data;
 const ListGenre = [
@@ -84,7 +83,6 @@ class FilterByGenre extends React.Component {
     const genreFilmSelected = MovieGenreDetail.filter(
       (genre) => genre.name === emotion,
     );
-    console.log(emotion, genreFilmSelected[0].name);
 
     const { listGenre, arrayResult } = this.state;
 
