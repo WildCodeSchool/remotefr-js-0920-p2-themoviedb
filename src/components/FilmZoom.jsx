@@ -1,21 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Rating from 'react-rating';
 
-function zoom(zoomFilm) {
-  return (
-    <cards className="filmview">
-      <button type="button" className="delete">
-        ✂
-      </button>
-      <h3 className="filmtitle">{zoomFilm.original_title} </h3>
-      <img
-        alt="Cover"
-        className="cover"
-        src={`https://image.tmdb.org/t/p/w440_and_h660_face${zoomFilm.poster_path}`}
-      />
-      <p className="synopsis">{zoomFilm.overview}</p>
-      <h3 className="vote">{zoomFilm.vote_average}/10</h3>
-    </cards>
-  );
+class FilmZoom extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    const { titre, poster, synopsis, note } = this.props;
+    return (
+      <cards className="moreinfo">
+        <h3 className="leTitre">{titre} </h3>
+        <img
+          alt="Cover"
+          className="affiche"
+          src={`https://image.tmdb.org/t/p/w440_and_h660_face${poster}`}
+        />
+        <p className="resume">{synopsis}</p>
+        <Rating
+          className="evaluation"
+          name="rating"
+          initialRating={note / 2}
+          precision={0.5}
+          size="small"
+          emptySymbol={
+            <img src="/stars/star-empty.png" alt="star" className="icon" />
+          }
+          fullSymbol={
+            <img src="/stars/star-full.png" alt="star" className="icon" />
+          }
+          readonly
+        />
+      </cards>
+    );
+  }
 }
+FilmZoom.propTypes = {
+  titre: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+  synopsis: PropTypes.string.isRequired,
+  note: PropTypes.number.isRequired,
+};
 
-export default zoom;
+export default FilmZoom;
