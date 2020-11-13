@@ -9,6 +9,7 @@ import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
 import QuiSommesNous from './components/QuiSommesNous';
+import Contact from './components/Contact';
 
 class App extends React.Component {
   constructor(props) {
@@ -78,6 +79,9 @@ class App extends React.Component {
           </Route>
           <Route path="/qui-sommes-nous">
             <QuiSommesNous />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>
