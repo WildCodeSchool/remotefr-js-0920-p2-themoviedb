@@ -75,6 +75,7 @@ class Filmchoice extends React.Component {
               onChange={this.movieSearch}
             />
           </form>
+
           <div className={clicked}>
             {results.map((resultat) => (
               <div className="resultat">
