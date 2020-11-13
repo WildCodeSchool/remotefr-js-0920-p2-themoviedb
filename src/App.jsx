@@ -10,11 +10,14 @@ import Footer from './components/Footer';
 import styles from './App.module.css';
 import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
+import QuiSommesNous from './components/QuiSommesNous';
+import Contact from './components/Contact';
 import WithWhoList from './components/filterByWho/WithWhoList';
 import FilterByAge from './components/FilterByAge/FilterByAge';
 import ListEmotions from './components/FilterByEmotion/ListEmotion';
 
 const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
+
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +91,7 @@ class App extends React.Component {
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
+
           <Route path="/jeveuxtrouver/:who/age">
             <FilterByAge />
           </Route>
@@ -104,6 +108,14 @@ class App extends React.Component {
               arrayData={arrayData.who}
               handleSubmit={this.handleSubmit}
             />
+           </Route>
+
+          <Route path="/qui-sommes-nous">
+            <QuiSommesNous />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>
