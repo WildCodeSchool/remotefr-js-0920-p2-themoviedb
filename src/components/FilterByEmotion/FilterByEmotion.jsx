@@ -6,7 +6,6 @@ import stylesEmotion from './FilterByEmotion.module.css';
 function FilterByEmotion(props) {
   const { genre, whom } = props;
   const who = whom.replace(/ /g, '-');
-  console.log(genre);
   const genres = genre.replace(/ /g, '-');
   const path = `/jeveuxtrouver/${who}/${genres}/genres`;
 

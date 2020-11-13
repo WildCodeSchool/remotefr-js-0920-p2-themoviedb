@@ -1,22 +1,37 @@
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import apiKey from '../apiKey';
 import GenreList from './GenreList';
 import SelectUserList from './SelectUserList';
+import MovieGenreDetail from '../../Data/MovieGenreDetail';
+// import Data from '../../Data/DataGenre';
+
+// const dataGenres = Data;
+const ListGenre = [
+  "Comédies, films d'animation",
+  'dessins animés',
+  'Horreur',
+  'Amour',
+  'Policier, suspense',
+  'Fantastique, Science-fiction, Action',
+  'Guerre, histoire',
+  'Western',
+];
 
 class FilterByGenre extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listGenre: [],
+      listGenre: ListGenre,
       withoutGenres: [],
       arrayResult: [],
     };
   }
 
   componentDidMount = () => {
-    this.fetchGenres();
+    // this.fetchGenres();
     this.getMovieList();
   };
 
@@ -39,16 +54,16 @@ class FilterByGenre extends React.Component {
       });
   };
 
-  fetchGenres = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr`,
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ listGenre: data.genres });
-      });
-  };
+  // fetchGenres = () => {
+  //   axios
+  //     .get(
+  //       `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr`,
+  //     )
+  //     .then((response) => response.data)
+  //     .then((data) => {
+  //       this.setState({ listGenre: data.genres });
+  //     });
+  // };
 
   eventListener = (event) => {
     const { id } = event.target;
@@ -61,11 +76,26 @@ class FilterByGenre extends React.Component {
   };
 
   render() {
+    const { match } = this.props;
+    const { url } = match;
+    const dataUrl = url.split('/');
+    // const who = dataUrl[2];
+    const emotion = dataUrl[3].replace(/-/g, ' ');
+    const genreFilmSelected = MovieGenreDetail.filter(
+      (genre) => genre.name === emotion,
+    );
+    console.log(emotion, genreFilmSelected[0].name);
+
     const { listGenre, arrayResult } = this.state;
 
     return (
       <div className="FilterByGenre">
-        <GenreList listGenre={listGenre} eventListener={this.eventListener} />
+        <GenreList
+          listGenre={listGenre}
+          eventListener={this.eventListener}
+          genreFilmSelected={genreFilmSelected[0].name}
+          // url={url}
+        />
 
         <SelectUserList arrayResult={arrayResult} />
       </div>
@@ -75,6 +105,7 @@ class FilterByGenre extends React.Component {
 
 FilterByGenre.propTypes = {
   runtime: PropTypes.number.isRequired,
+  match: PropTypes.shape.isRequired,
 };
 
-export default FilterByGenre;
+export default withRouter(FilterByGenre);

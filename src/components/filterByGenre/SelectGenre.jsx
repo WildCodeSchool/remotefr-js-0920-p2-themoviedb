@@ -5,7 +5,7 @@ class SelectGenre extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectGenre: true,
+      selectGenre: false,
     };
   }
 
@@ -18,13 +18,18 @@ class SelectGenre extends React.Component {
   }
 
   render() {
-    const { name, id } = this.props;
-    const { selectGenre } = this.state;
+    const { id, name, genreFilmSelected } = this.props;
+    // const { selectGenre } = this.state;
+    console.log(genreFilmSelected, id);
     return (
       <div className={id}>
         <button
           type="button"
-          className={selectGenre ? 'btn status-active' : 'btn status-inactive'}
+          className={
+            id === genreFilmSelected
+              ? 'btn status-active'
+              : 'btn status-inactive'
+          }
           id={id}
           onClick={(event) => this.eventListener(event)}
           title={`Retirer le genre ${name}`}
@@ -37,8 +42,9 @@ class SelectGenre extends React.Component {
 }
 
 SelectGenre.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  genreFilmSelected: PropTypes.string.isRequired,
   eventListener: PropTypes.func.isRequired,
 };
 
