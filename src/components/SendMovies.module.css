@@ -1,0 +1,47 @@
+.SendMovies {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.SendMovies h2 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 3.5em;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 1.5em;
+}
+
+.SendMovies .areaOfSendForm {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.SendMovies .modal {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  index: 90;
+}

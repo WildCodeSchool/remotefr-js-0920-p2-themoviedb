@@ -18,7 +18,6 @@ import ListEmotions from './components/FilterByEmotion/ListEmotion';
 
 const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -108,14 +107,13 @@ class App extends React.Component {
               arrayData={arrayData.who}
               handleSubmit={this.handleSubmit}
             />
-           </Route>
+          </Route>
 
           <Route path="/qui-sommes-nous">
             <QuiSommesNous />
           </Route>
           <Route path="/contact">
             <Contact />
-
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>
