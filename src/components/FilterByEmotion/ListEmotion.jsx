@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import stylesEmotion from './FilterByEmotion.module.css';
 import FilterByEmotion from './FilterByEmotion';
 
-function ListEmotion({ data, match }) {
+function ListEmotion(props) {
   // const x = data.Family.list_genres_name;
-  const { params } = match;
-  const whom = params.who.replace(/-/g, ' ');
+  const { match, data } = props;
+  const whom = match.params.who.replace(/-/g, ' ');
   let arrayMap = null;
   if (data.Friends.name === whom) {
     arrayMap = data.Friends.list_genres_name;
@@ -22,7 +22,11 @@ function ListEmotion({ data, match }) {
   return (
     <article className={stylesEmotion.FilterByEmotion}>
       {arrayMap.map((item) => (
-        <FilterByEmotion key={item.name} genre={item.name} whom={params.who} />
+        <FilterByEmotion
+          key={item.name}
+          genre={item.name}
+          whom={match.params.who}
+        />
       ))}
     </article>
   );
@@ -40,7 +44,12 @@ ListEmotion.propTypes = {
     }),
   ).isRequired,
   match: PropTypes.shape({
-    params: PropTypes.shape,
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      who: PropTypes.string,
+    }),
   }).isRequired,
 };
 

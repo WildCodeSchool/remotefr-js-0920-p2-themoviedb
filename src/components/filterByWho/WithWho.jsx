@@ -7,9 +7,9 @@ function WithWho(props) {
   const { who } = props;
   const whoUrl = who.replace(/ /g, '-');
 
-  let path = `/jeveuxtrouver/${whoUrl}/duree`;
+  let path = `/jeveuxtrouver/${whoUrl}`;
   if (who === 'En Famille') {
-    path = `/jeveuxtrouver/${whoUrl}/age`;
+    path = `/jeveuxtrouver/En-Famille`;
   }
 
   return (

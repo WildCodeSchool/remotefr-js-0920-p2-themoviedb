@@ -79,7 +79,7 @@ class FilterByGenre extends React.Component {
     const { url } = match;
     const dataUrl = url.split('/');
     // const who = dataUrl[2];
-    const emotion = dataUrl[3].replace(/-/g, ' ');
+    const emotion = dataUrl[4].replace(/-/g, ' ');
     const genreFilmSelected = MovieGenreDetail.filter(
       (genre) => genre.name === emotion,
     );
@@ -103,7 +103,14 @@ class FilterByGenre extends React.Component {
 
 FilterByGenre.propTypes = {
   runtime: PropTypes.number.isRequired,
-  match: PropTypes.shape.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      who: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default withRouter(FilterByGenre);

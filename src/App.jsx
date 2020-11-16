@@ -18,7 +18,6 @@ import ListEmotions from './components/FilterByEmotion/ListEmotion';
 
 const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -78,24 +77,23 @@ class App extends React.Component {
       <div className={styles.content}>
         <Header />
         <Switch>
-          <Route path="/jeveuxtrouver/:who/:emotion/genres">
-            <FilterByGenre runtime={runtime} />
-          </Route>
-
-          <Route path="/jeveuxtrouver/:who/select-emotions">
-            <ListEmotions selectWithWho={selectWithWho} data={data} />
-          </Route>
           <Route path="/les-elus">
             <Filmchoice />
           </Route>
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
+          <Route path="/jeveuxtrouver/:who/:duree/:genre">
+            <FilterByGenre runtime={runtime} />
+          </Route>
 
-          <Route path="/jeveuxtrouver/:who/age">
+          <Route exact path="/jeveuxtrouver/En-Famille">
             <FilterByAge />
           </Route>
-          <Route path="/jeveuxtrouver/:who/duree">
+          <Route
+            exact
+            path={['/jeveuxtrouver/En-Famille/:Age/', '/jeveuxtrouver/:who']}
+          >
             <FilterByDuration
               startTime={startTime}
               endTime={endTime}
@@ -103,19 +101,21 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
+          <Route path="/jeveuxtrouver/:who/:duree">
+            <ListEmotions selectWithWho={selectWithWho} data={data} />
+          </Route>
           <Route path="/jeveuxtrouver">
             <WithWhoList
               arrayData={arrayData.who}
               handleSubmit={this.handleSubmit}
             />
-           </Route>
+          </Route>
 
           <Route path="/qui-sommes-nous">
             <QuiSommesNous />
           </Route>
           <Route path="/contact">
             <Contact />
-
           </Route>
           <Route path="/" component={FirstFilters} />
         </Switch>

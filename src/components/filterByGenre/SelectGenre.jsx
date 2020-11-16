@@ -20,7 +20,7 @@ class SelectGenre extends React.Component {
   render() {
     const { id, name, genreFilmSelected } = this.props;
     // const { selectGenre } = this.state;
-    console.log(genreFilmSelected, id);
+
     return (
       <div className={id}>
         <button

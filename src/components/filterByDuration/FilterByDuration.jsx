@@ -24,7 +24,7 @@ class FilterByDuration extends React.Component {
           à :
         </InputFormField>
 
-        <ButtonFormField url={url} />
+        <ButtonFormField url={url} startTime={startTime} endTime={endTime} />
       </form>
     );
   }
