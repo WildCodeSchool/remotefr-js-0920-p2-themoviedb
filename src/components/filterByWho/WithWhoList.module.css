@@ -92,15 +92,15 @@ a {
   }
   .withwhom .bigButton {
     height: 100%;
-    width: 33%;
+    width: 25%;
     transform: skewX(-5deg);
     margin: 0 0.2%;
   }
   .withwhom .bigButton:nth-child(1) {
-    padding-right: 2%;
+    padding: 0 2% 0 0;
   }
   .withwhom .bigButton:nth-child(4) {
-    padding-left: 2%;
+    padding: 0 0 0 2%;
   }
   .withwhom .bigButton a {
     width: 80%;
