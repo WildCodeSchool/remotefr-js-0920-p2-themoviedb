@@ -2,6 +2,12 @@ import React from 'react';
 import Modal from 'react-modal';
 import styles from './SendMovies.module.css';
 
+const customStyles = {
+  overlay: {
+    zIndex: 100,
+  },
+};
+
 class SendMovies extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +21,6 @@ class SendMovies extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert('Votre sélection de film(s) a été envoyée !');
   };
 
   handleChange = (event) => {
@@ -28,50 +33,72 @@ class SendMovies extends React.Component {
   render() {
     const { myEmail, listEmails, myMessage } = this.state;
     return (
-      <Modal style={styles.modal}>
+      <Modal
+        className={styles.SendMoviesModal}
+        isOpen
+        ariaHideApp={false}
+        style={customStyles}
+      >
         <article className={styles.SendMovies}>
-          <h2>J’envoie mon choix</h2>
+          <h2>J’ai choisi, je partage !</h2>
           <div className={styles.areaOfSendForm}>
-            <label htmlFor="myMessage">
-              Mon message* :
-              <textarea
-                type="text"
-                id="myMessage"
-                name="myMessage"
-                placeholder="Viens voter pour le film de ce soir !"
-                value={myMessage}
-                onChange={this.handleChange}
-              />
-            </label>
+            <form>
+              <div className={styles.divEmail}>
+                <label htmlFor="myEmail">
+                  Mon email* :
+                  <input
+                    type="email"
+                    id="myEmail"
+                    name="myEmail"
+                    placeholder="email@email.fr"
+                    value={myEmail}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.divMessage}>
+                <label htmlFor="myMessage">
+                  Mon message* :
+                  <textarea
+                    type="text"
+                    id="myMessage"
+                    name="myMessage"
+                    placeholder="Viens voter pour notre prochaine soirée film !"
+                    value={myMessage}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <p className={styles.requiredFields}>
+                  (n’oublie pas de signer ton message !)
+                </p>
+              </div>
 
-            <label htmlFor="listEmails">
-              Destinataire(s)* :
-              <input
-                type="email"
-                id="listEmails"
-                name="listEmails"
-                placeholder="email@email.fr"
-                value={listEmails}
-                onChange={this.handleChange}
-              />
-              <button type="button" onSubmit={this.handleSubmit}>
-                Ajouter un ami
+              <div className={styles.divEmails}>
+                <label htmlFor="listEmails">
+                  Mes invités* :
+                  <input
+                    type="email"
+                    id="listEmails"
+                    name="listEmails"
+                    placeholder="email@email.fr"
+                    value={listEmails}
+                    onChange={this.handleChange}
+                  />
+                  <button type="button" onSubmit={this.handleSubmit}>
+                    J’ajoute un ami
+                  </button>
+                </label>
+                <p className={styles.requiredFields}>*Champs obligatoires</p>
+              </div>
+
+              <button
+                className={styles.btnSend}
+                type="button"
+                onSubmit={this.handleSubmit}
+              >
+                J’envoie&nbsp;!
               </button>
-            </label>
-
-            <label htmlFor="myEmail">
-              Mon email* :
-              <input
-                type="email"
-                id="myEmail"
-                name="myEmail"
-                placeholder="email@email.fr"
-                value={myEmail}
-                onChange={this.handleChange}
-              />
-            </label>
-
-            <p>*Champs obligatoires</p>
+            </form>
           </div>
         </article>
       </Modal>
