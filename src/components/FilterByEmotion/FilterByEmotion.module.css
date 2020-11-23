@@ -7,14 +7,16 @@ a {
   font-size: 2em;
   font-family: 'Mouse Memoirs', sans-serif;
   transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 87%;
   position: absolute;
-  top: 3.2em;
   overflow: hidden;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .FilterByEmotion .bigButton {

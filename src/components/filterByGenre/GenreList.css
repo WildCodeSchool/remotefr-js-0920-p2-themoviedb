@@ -13,22 +13,7 @@
 }
 
 .GenreList {
-  margin: 10px 26em 10px 10px;
-}
-.btn {
-  margin: 0.2em;
-  padding: 0 auto;
-}
-
-.status-active {
-  background-color: #40e0d0;
-}
-
-.status-inactive {
-  background-color: #808080;
-  opacity: 0.3;
-}
-
-.btn:hover {
-  transform: skew(20deg, 10deg);
+  /* margin: 10px; */
+  height: 175px;
+  background-color: rgb(255, 238, 0);
 }
