@@ -9,8 +9,8 @@ function GenreList(props) {
 
   return (
     <div className="GenreList">
+      <h2 className="pGenre">Genres : </h2>
       <div className="FilterByGenre">
-        <p className="pGenre">Genres : </p>
         {listGenre.map((genre) => (
           <SelectGenre
             id={genre}

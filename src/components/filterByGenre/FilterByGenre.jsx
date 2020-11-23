@@ -23,7 +23,6 @@ class FilterByGenre extends React.Component {
 
   componentDidMount = () => {
     const { match } = this.props;
-    // const { arrayResultMovie, arrayResultTv } = this.state;
     const genre = match.params.genre
       .replace(/-/g, ' ')
       .replace(/Science fiction/g, 'Science-fiction');
@@ -49,12 +48,6 @@ class FilterByGenre extends React.Component {
         return { withTvGenres: newGenre };
       }, this.getTVList),
     );
-    // console.log(arrayResult);
-    // this.setState({
-    //   arrayResult: arrayResultMovie.concat(arrayResultTv),
-    // });
-    // this.fetchGenres();
-    // this.getMovieList();
   };
 
   getMovieList = () => {
@@ -85,9 +78,7 @@ class FilterByGenre extends React.Component {
     const filterGenre = `&with_genres=${withTvGenres
       .toString()
       .replace(/,/g, '|')}`;
-    console.log(filterGenre);
     const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&page=1&${filterGenre}&&with_runtime.lte=${runtime}&include_null_first_air_dates=false&with_original_language=fr`;
-    // https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&page=1&${filterGenre}&&with_runtime.lte=${runtime}&include_null_first_air_dates=false&with_original_language=fr
 
     axios
       .get(url)
@@ -100,19 +91,7 @@ class FilterByGenre extends React.Component {
       });
   };
 
-  // fetchGenres = () => {
-  //   axios
-  //     .get(
-  //       `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=fr`,
-  //     )
-  //     .then((response) => response.data)
-  //     .then((data) => {
-  //       this.setState({ listGenre: data.genres });
-  //     });
-  // };
-
   eventListener = (event) => {
-    // event.target.id = "Comédies, films d'animation"
     const { id } = event.target;
     const genreFilmSelected = MovieGenreDetail.filter(
       (genre) => genre.name === id,
@@ -153,14 +132,12 @@ class FilterByGenre extends React.Component {
     );
 
     const { listGenre, arrayResult } = this.state;
-    console.log(arrayResult);
     return (
       <div className="FilterByGenre">
         <GenreList
           listGenre={listGenre}
           eventListener={this.eventListener}
           genreFilmSelected={genreFilmSelected[0]}
-          // url={url}
         />
 
         <SelectUserList arrayResult={arrayResult} />
