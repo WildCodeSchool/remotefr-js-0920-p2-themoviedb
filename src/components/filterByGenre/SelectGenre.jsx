@@ -20,15 +20,14 @@ class SelectGenre extends React.Component {
   render() {
     const { id, name, genreFilmSelected } = this.props;
     // const { selectGenre } = this.state;
-    console.log(genreFilmSelected, id);
+    const genreName = genreFilmSelected.name;
+    console.log(id, genreName);
     return (
       <div className={id}>
         <button
           type="button"
           className={
-            id === genreFilmSelected
-              ? 'btn status-active'
-              : 'btn status-inactive'
+            id === genreName ? 'btn status-active' : 'btn status-inactive'
           }
           id={id}
           onClick={(event) => this.eventListener(event)}
@@ -44,7 +43,11 @@ class SelectGenre extends React.Component {
 SelectGenre.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  genreFilmSelected: PropTypes.string.isRequired,
+  genreFilmSelected: PropTypes.shape({
+    name: PropTypes.string,
+    movie_genres_ids: PropTypes.arrayOf(PropTypes.number),
+    tv_genres_ids: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
   eventListener: PropTypes.func.isRequired,
 };
 

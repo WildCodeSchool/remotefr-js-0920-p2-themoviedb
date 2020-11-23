@@ -48,7 +48,7 @@ const Western = {
 
 const DATA_EMOTION_BY_WHO = {
   Family: {
-    name: 'En famille',
+    name: 'En Famille',
     list_genres_name: [ComediesGenre, Cartoons, Fantasy],
   },
   Friends: {

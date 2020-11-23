@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import stylesEmotion from './FilterByEmotion.module.css';
 
 function FilterByEmotion(props) {
-  const { genre, whom } = props;
-  const who = whom.replace(/ /g, '-');
+  const { genre, match } = props;
+
   const genres = genre.replace(/ /g, '-');
-  const path = `/jeveuxtrouver/${who}/${genres}/genres`;
+  const path = `${match.url}/${genres}/genres`;
 
   return (
     <div className={stylesEmotion.bigButton}>
@@ -20,7 +20,14 @@ function FilterByEmotion(props) {
 
 FilterByEmotion.propTypes = {
   genre: PropTypes.string.isRequired,
-  whom: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      who: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
-export default FilterByEmotion;
+export default withRouter(FilterByEmotion);

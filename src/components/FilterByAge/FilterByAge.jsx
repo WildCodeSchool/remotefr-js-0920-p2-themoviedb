@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import stylesFilterByAge from './FilterByAge.module.css';
 import AgeOfTheYoungest from './AgeOfTheYoungest';
 
@@ -11,27 +12,24 @@ class FilterByAge extends React.Component {
   }
 
   handleChange(event) {
-    this.setState(
-      {
-        ageValue: event.target.value,
-      },
-      this.calculruntime,
-    );
+    this.setState({
+      ageValue: event,
+    });
   }
 
   render() {
     const { ageValue } = this.state;
+    const { match } = this.props;
     return (
       <article className={stylesFilterByAge.FilterByAge}>
-        <div className={stylesFilterByAge.bigButton}>
-          <Link to="/famille" title="">
-            En Famille
-          </Link>
-        </div>
+        <div className={stylesFilterByAge.bigButton}>En Famille</div>
         <div className={stylesFilterByAge.bigButton}>
           <p>Sélectionner l&apos;age du plus jeune</p>
           <AgeOfTheYoungest handleChange={this.handleChange} value={ageValue} />
-          <button type="submit">Suivant</button>
+
+          <Link to={`${match.url}/age-${ageValue}/`} title="">
+            Suivant
+          </Link>
           <p> </p>
         </div>
       </article>
@@ -39,4 +37,15 @@ class FilterByAge extends React.Component {
   }
 }
 
-export default FilterByAge;
+FilterByAge.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      who: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
+export default withRouter(FilterByAge);
