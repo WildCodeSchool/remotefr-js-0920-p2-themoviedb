@@ -15,12 +15,14 @@ class SendMovies extends React.Component {
       myEmail: '',
       listEmails: '',
       myMessage: '',
+      allNewFriends: ['0'],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    alert('Ton message a bien été envoyé à tes amis ! Bonne soirée film ;)');
   };
 
   handleChange = (event) => {
@@ -30,8 +32,16 @@ class SendMovies extends React.Component {
     });
   };
 
+  handleAddFriend = (click) => {
+    click.preventDefault();
+    const { allNewFriends } = this.state;
+    this.setState({
+      allNewFriends: [...allNewFriends, ''],
+    });
+  };
+
   render() {
-    const { myEmail, listEmails, myMessage } = this.state;
+    const { myEmail, listEmails, myMessage, allNewFriends } = this.state;
     return (
       <Modal
         className={styles.SendMoviesModal}
@@ -42,7 +52,7 @@ class SendMovies extends React.Component {
         <article className={styles.SendMovies}>
           <h2>J’ai choisi, je partage !</h2>
           <div className={styles.areaOfSendForm}>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className={styles.divEmail}>
                 <label htmlFor="myEmail">
                   Mon email* :
@@ -74,28 +84,27 @@ class SendMovies extends React.Component {
               </div>
 
               <div className={styles.divEmails}>
-                <label htmlFor="listEmails">
+                <label htmlFor="listEmails" id="myfriends">
                   Mes invités* :
-                  <input
-                    type="email"
-                    id="listEmails"
-                    name="listEmails"
-                    placeholder="email@email.fr"
-                    value={listEmails}
-                    onChange={this.handleChange}
-                  />
-                  <button type="button" onSubmit={this.handleSubmit}>
+                  {allNewFriends.map((newFriend) => (
+                    <input
+                      key={newFriend.index}
+                      type="email"
+                      id="listEmails"
+                      name={`listEmails[${newFriend.index}]`}
+                      placeholder="email@email.fr"
+                      value={listEmails}
+                      onChange={this.handleChange}
+                    />
+                  ))}
+                  <button type="button" onClick={this.handleAddFriend}>
                     J’ajoute un ami
                   </button>
                 </label>
                 <p className={styles.requiredFields}>*Champs obligatoires</p>
               </div>
 
-              <button
-                className={styles.btnSend}
-                type="button"
-                onSubmit={this.handleSubmit}
-              >
+              <button className={styles.btnSend} type="submit">
                 J’envoie&nbsp;!
               </button>
             </form>
