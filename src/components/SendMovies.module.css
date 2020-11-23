@@ -2,11 +2,11 @@
   font-size: 2.5em;
   transform: skewY(-3deg);
   position: relative;
-  top: -2em;
+  top: -11em;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 130%;
+  height: 260%;
   overflow-y: scroll;
 }
 
@@ -17,12 +17,35 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: flex-start;
-  height: 3.5em;
+  justify-content: space-between;
+  height: 3em;
   font-size: 100%;
   padding-left: 1em;
   margin-bottom: 0.1em;
-  padding-top: 1.5em;
+  padding-top: 10em;
+  padding-bottom: 0.2em;
+}
+
+.SendMovies .close {
+  width: 1.3em;
+  cursor: pointer;
+  transform: skewY(3deg);
+  padding-right: 0.5em;
+  filter: brightness(50%);
+  -webkit-filter: brightness(0%);
+  -moz-filter: brightness(0%);
+  -o-filter: brightness(0%);
+  -ms-filter: brightness(0%);
+  transition: filter 0.5s;
+}
+
+.SendMovies .close:hover {
+  filter: brightness(0%);
+  -webkit-filter: brightness(100%);
+  -moz-filter: brightness(100%);
+  -o-filter: brightness(100%);
+  -ms-filter: brightness(100%);
+  transition: filter 0.5s;
 }
 
 .SendMovies .areaOfSendForm {
@@ -89,6 +112,7 @@
   -webkit-box-shadow: 0px 25px 20px 3px rgba(87, 37, 37, 0.3);
   -moz-box-shadow: 0px 25px 20px 3px rgba(0, 0, 0, 0.3);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
+  cursor: pointer;
 }
 
 .SendMovies .areaOfSendForm button:hover {
@@ -103,20 +127,25 @@
 
 @media only screen and (min-width: 60em) {
   .SendMovies h2 {
+    top: -2em;
     height: 4em;
+  }
+  .SendMovies .close {
+    top: 3em;
   }
 }
 
 @media only screen and (min-width: 80em) {
   .SendMovies {
-    top: -3em;
-    height: 140%;
+    top: -5em;
+    height: 200%;
     overflow: hidden;
   }
 
   .SendMovies h2 {
     padding-top: 100px;
     font-size: 1.6em;
+    padding-bottom: 0;
   }
 
   .SendMovies .areaOfSendForm {
@@ -154,5 +183,11 @@
   }
   .btnSend {
     order: 4;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .SendMovies {
+    overflow: scrollY;
   }
 }

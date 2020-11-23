@@ -18,9 +18,9 @@ class SendMovies extends React.Component {
     super(props);
     this.state = {
       myEmail: '',
-      listEmails: '',
       myMessage: '',
       allNewFriends: [''],
+      share: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,6 +37,16 @@ class SendMovies extends React.Component {
     });
   };
 
+  handleChangeEmailFriends = (event, index) => {
+    const { value } = event.target;
+    const { allNewFriends } = this.state;
+    const copyAllNewFriends = [...allNewFriends];
+    copyAllNewFriends.splice(index, 1, value);
+    this.setState({
+      allNewFriends: copyAllNewFriends,
+    });
+  };
+
   handleAddFriend = (click) => {
     click.preventDefault();
     const { allNewFriends } = this.state;
@@ -45,17 +55,30 @@ class SendMovies extends React.Component {
     });
   };
 
+  closeSendMovies = () => {
+    this.setState({
+      share: false,
+    });
+  };
+
   render() {
-    const { myEmail, listEmails, myMessage, allNewFriends } = this.state;
+    const { myEmail, myMessage, allNewFriends, share } = this.state;
     return (
-      <Modal
-        className={styles.SendMoviesModal}
-        isOpen
-        ariaHideApp={false}
-        style={customStyles}
-      >
+      <Modal isOpen={!!share} ariaHideApp={false} style={customStyles}>
         <article className={styles.SendMovies}>
-          <h2>J’ai choisi, je partage !</h2>
+          <h2>
+            J’ai choisi, <br />
+            je&nbsp;partage&nbsp;!{' '}
+            <button type="button">
+              <img
+                className={styles.close}
+                src="/fermer.svg"
+                onClick={this.closeSendMovies}
+                onFocus={this.closeSendMovies}
+                alt="Fermer la fenêtre d'envoi"
+              />
+            </button>
+          </h2>
           <div className={styles.areaOfSendForm}>
             <form onSubmit={this.handleSubmit}>
               <div className={styles.divEmail}>
@@ -91,15 +114,17 @@ class SendMovies extends React.Component {
               <div className={styles.divEmails}>
                 <label htmlFor="listEmails" id="myfriends">
                   Mes invités* :
-                  {allNewFriends.map((newFriend) => (
+                  {allNewFriends.map((newFriend, index) => (
                     <input
-                      key={newFriend.index}
+                      key={index}
                       type="email"
                       id="listEmails"
                       name="listEmails"
                       placeholder="email@email.fr"
-                      value={listEmails}
-                      onChange={this.handleChange}
+                      value={newFriend}
+                      onChange={(event) =>
+                        this.handleChangeEmailFriends(event, index)
+                      }
                     />
                   ))}
                   <button type="button" onClick={this.handleAddFriend}>
