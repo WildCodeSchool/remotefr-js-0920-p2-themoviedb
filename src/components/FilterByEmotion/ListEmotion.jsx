@@ -8,6 +8,7 @@ function ListEmotion(props) {
   // const x = data.Family.list_genres_name;
   const { match, data } = props;
   const whom = match.params.who.replace(/-/g, ' ');
+
   let arrayMap = null;
   if (data.Friends.name === whom) {
     arrayMap = data.Friends.list_genres_name;

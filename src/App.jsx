@@ -52,19 +52,20 @@ class App extends React.Component {
     const xstart =
       Number(startTime.substr(0, 2)) * 60 + Number(startTime.substr(3));
     const xend = Number(endTime.substr(0, 2)) * 60 + Number(endTime.substr(3));
-    if (xend - xstart < 0) {
+    const calruntime = xend - xstart;
+    if (calruntime < 0) {
       this.setState({
         runtime: 1440 - xstart + xend,
       });
+    } else {
+      this.setState({
+        runtime: xend - xstart,
+      });
     }
-    this.setState({
-      runtime: xend - xstart,
-    });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('handleSubmit');
     this.setState({
       selectWithWho: event.target.id,
     });

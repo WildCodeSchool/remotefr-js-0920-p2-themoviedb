@@ -28,7 +28,11 @@ function GenreList(props) {
 GenreList.propTypes = {
   listGenre: PropTypes.arrayOf(PropTypes.string).isRequired,
   eventListener: PropTypes.func.isRequired,
-  genreFilmSelected: PropTypes.string.isRequired,
+  genreFilmSelected: PropTypes.shape({
+    name: PropTypes.string,
+    movie_genres_ids: PropTypes.arrayOf(PropTypes.number),
+    tv_genres_ids: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
 };
 
 export default GenreList;
