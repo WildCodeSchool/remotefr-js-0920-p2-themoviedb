@@ -6,6 +6,11 @@ const customStyles = {
   overlay: {
     zIndex: 100,
   },
+  content: {
+    overflow: 'hidden',
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
 };
 
 class SendMovies extends React.Component {
@@ -15,7 +20,7 @@ class SendMovies extends React.Component {
       myEmail: '',
       listEmails: '',
       myMessage: '',
-      allNewFriends: ['0'],
+      allNewFriends: [''],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -91,7 +96,7 @@ class SendMovies extends React.Component {
                       key={newFriend.index}
                       type="email"
                       id="listEmails"
-                      name={`listEmails[${newFriend.index}]`}
+                      name="listEmails"
                       placeholder="email@email.fr"
                       value={listEmails}
                       onChange={this.handleChange}
@@ -101,13 +106,13 @@ class SendMovies extends React.Component {
                     J’ajoute un ami
                   </button>
                 </label>
-                <p className={styles.requiredFields}>*Champs obligatoires</p>
               </div>
 
               <button className={styles.btnSend} type="submit">
                 J’envoie&nbsp;!
               </button>
             </form>
+            <p className={styles.requiredFields}>*Champs obligatoires</p>
           </div>
         </article>
       </Modal>

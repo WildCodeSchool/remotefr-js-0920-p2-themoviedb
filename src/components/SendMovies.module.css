@@ -96,7 +96,7 @@
 }
 
 .SendMovies .requiredFields {
-  font-size: 0.3em;
+  font-size: 0.4em;
   text-align: center;
   margin: 0 0 1em 0;
 }
@@ -109,8 +109,9 @@
 
 @media only screen and (min-width: 80em) {
   .SendMovies {
-    top: -4em;
-    height: 110%;
+    top: -3em;
+    height: 140%;
+    overflow: hidden;
   }
 
   .SendMovies h2 {
@@ -119,7 +120,7 @@
   }
 
   .SendMovies .areaOfSendForm {
-    padding-bottom: 6em;
+    padding-bottom: 16em;
   }
 
   .SendMovies input,
