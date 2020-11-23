@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <Link to="/en-savoir-plus" title="En savoir plus">
+          <Link to="/qui-sommes-nous" title="En savoir plus">
             En savoir plus
           </Link>
         </li>

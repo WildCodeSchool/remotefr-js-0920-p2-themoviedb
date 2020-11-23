@@ -5,17 +5,19 @@ import './GenreList.css';
 import './SelectUser.css';
 
 function GenreList(props) {
-  const { listGenre, eventListener } = props;
+  const { listGenre, eventListener, genreFilmSelected } = props;
+
   return (
     <div className="GenreList">
       <div className="FilterByGenre">
         <p className="pGenre">Genres : </p>
         {listGenre.map((genre) => (
           <SelectGenre
-            id={genre.id}
-            name={genre.name}
+            id={genre}
+            name={genre}
             eventListener={eventListener}
-            key={genre.id}
+            key={genre}
+            genreFilmSelected={genreFilmSelected}
           />
         ))}
       </div>
@@ -24,13 +26,13 @@ function GenreList(props) {
 }
 
 GenreList.propTypes = {
-  listGenre: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-    }),
-  ).isRequired,
+  listGenre: PropTypes.arrayOf(PropTypes.string).isRequired,
   eventListener: PropTypes.func.isRequired,
+  genreFilmSelected: PropTypes.shape({
+    name: PropTypes.string,
+    movie_genres_ids: PropTypes.arrayOf(PropTypes.number),
+    tv_genres_ids: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
 };
 
 export default GenreList;
