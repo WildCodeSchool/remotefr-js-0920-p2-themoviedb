@@ -55,10 +55,28 @@ class SendMovies extends React.Component {
     });
   };
 
+  handleAddFriendByKeyboard = (event) => {
+    event.preventDefault();
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      const { allNewFriends } = this.state;
+      this.setState({
+        allNewFriends: [...allNewFriends, ''],
+      });
+    }
+  };
+
   closeSendMovies = () => {
     this.setState({
       share: false,
     });
+  };
+
+  closeSendMoviesByKeyboard = (event) => {
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      this.setState({
+        share: false,
+      });
+    }
   };
 
   render() {
@@ -69,14 +87,13 @@ class SendMovies extends React.Component {
           <h2>
             J’ai choisi, <br />
             je&nbsp;partage&nbsp;!{' '}
-            <button type="button">
-              <img
-                className={styles.close}
-                src="/fermer.svg"
-                onClick={this.closeSendMovies}
-                onFocus={this.closeSendMovies}
-                alt="Fermer la fenêtre d'envoi"
-              />
+            <button
+              type="button"
+              onClick={this.closeSendMovies}
+              onKeyDown={this.closeSendMoviesByKeyboard}
+              className={styles.close}
+            >
+              <img src="/fermer.svg" alt="Fermer la fenêtre d'envoi" />
             </button>
           </h2>
           <div className={styles.areaOfSendForm}>
@@ -127,7 +144,11 @@ class SendMovies extends React.Component {
                       }
                     />
                   ))}
-                  <button type="button" onClick={this.handleAddFriend}>
+                  <button
+                    type="button"
+                    onClick={this.handleAddFriend}
+                    onKeyDown={this.handleAddFriendByKeyboard}
+                  >
                     J’ajoute un ami
                   </button>
                 </label>

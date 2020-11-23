@@ -25,11 +25,16 @@
   padding-top: 10em;
   padding-bottom: 0.2em;
 }
-
 .SendMovies .close {
-  width: 1.3em;
-  cursor: pointer;
+  position: relative;
+  width: 60px;
   transform: skewY(3deg);
+  background: none;
+  border: none;
+}
+.SendMovies .close img {
+  width: 100%;
+  cursor: pointer;
   padding-right: 0.5em;
   filter: brightness(50%);
   -webkit-filter: brightness(0%);
@@ -39,7 +44,7 @@
   transition: filter 0.5s;
 }
 
-.SendMovies .close:hover {
+.SendMovies .close img:hover {
   filter: brightness(0%);
   -webkit-filter: brightness(100%);
   -moz-filter: brightness(100%);
@@ -131,7 +136,7 @@
     height: 4em;
   }
   .SendMovies .close {
-    top: 3em;
+    top: 0em;
   }
 }
 
