@@ -94,6 +94,7 @@ a {
     padding-right: 2%;
   }
   .homepage .bigButton:nth-child(3) {
+    margin-right: 0.5%;
     padding-left: 2%;
   }
   .homepage .bigButton a {
