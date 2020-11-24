@@ -9,24 +9,34 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  top: -4em;
+  height: 110%;
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .searchbar {
   display: flex;
-  margin-bottom: 1%;
+
   justify-content: center;
-  background-image: url(https://db3pap006files.storage.live.com/y4mAPnlYTclEYc8cRdVUEz-DBayClIbHXP_1iccs1cHYe4s8VrQJZHiexyVojSK4Zm6t7Aso4_MklMSxH8hdH5nR6ObpLtnsYZ5hs8dL7oLSv0K_7In0tV3ABoHnM1_JYFxq2Xf4M3jzUrRQj6a86_LksBpxRoqI7MyZORtE9Q7BvW13HKN04VEey8TjDhe-5A6?width=640&height=426&cropmode=none);
+  background-color: rgb(255, 238, 0);
   background-size: cover;
-  height: 5em;
+  height: 4em;
   align-items: center;
-  margin-bottom: 2%;
 }
 .bar {
   width: 35%;
   border-radius: 10px;
+  position: relative;
   height: 2em;
+  top: 2em;
 }
-/**selection de film**/
 
 .resultat {
   display: flex;
@@ -35,30 +45,11 @@ body {
   justify-content: space-around;
 }
 
-.cover {
-  width: 60%;
-  align-self: center;
-}
-.filmtitle {
-  align-self: center;
-}
-
-/** sugestions de résultats*/
-
-.view {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: space-between;
-  justify-content: center;
-  position: absolute;
-  height: 100%;
-  overflow-y: scroll;
-  background-color: #fff;
-}
 .hide {
   display: none;
 }
+
+/** sugestions de résultats*/
 .resultat {
   width: 30%;
   margin-bottom: 3%;
@@ -87,7 +78,7 @@ body {
   width: 80%;
 }
 
-.ratiing {
+.rating {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -96,8 +87,24 @@ body {
   margin: 0;
   width: 15px;
 }
+.view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #fff;
+}
 
 /* séléction */
+
+.selection {
+  overflow-y: scroll;
+  position: relative;
+}
 .note {
   font-size: 60%;
   margin: 0;
@@ -109,19 +116,26 @@ body {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: center;
-  height: 100%;
-  overflow-y: scroll;
+  align-items: flex-start;
+  height: 100vh;
+  position: relative;
+
+  background-color: rgb(255, 238, 0);
 }
 .filmview {
-  width: 45%;
-  height: 5%;
-  background-color: white;
-  background-size: cover;
+  width: 40vw;
+  height: 35vh;
+  background-color: rgb(255, 238, 0);
+  background-size: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   border-radius: 8px;
-  border: none;
   margin: 2%;
+  margin-bottom: 0;
+  position: relative;
+
+  margin-top: 0;
 }
 .cover {
   width: 90%;
@@ -131,6 +145,11 @@ body {
   margin: 0;
   color: black;
   font-size: 90%;
+  margin-bottom: 8%;
+  align-self: center;
+}
+.more {
+  height: 15vh;
 }
 
 .vote {
@@ -138,6 +157,19 @@ body {
   align-self: center;
 
   font-size: 60%;
+  margin-bottom: 0%;
+}
+.delete {
+  width: 10%;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.5em;
+  color: black;
+  align-self: flex-start;
+  position: absolute;
+  right: 1em;
+  text-align: right;
 }
 
 /* css film details */
@@ -150,20 +182,11 @@ body {
   text-align: center;
   background-color: black;
   color: white;
-  width: 30%;
-  margin: auto;
-  border-radius: 8px;
-}
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0%;
 
-.delete {
-  width: 13%;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  font-size: 1em;
-  color: black;
-  align-self: flex-start;
-  justify-self: end;
+  font-size: 0.5em;
 }
 
 .more {
@@ -197,6 +220,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 60vh;
   }
 
   .resultat {
@@ -204,12 +228,15 @@ body {
   }
   .bouton {
     width: 100%;
+    margin-bottom: 13vh;
   }
   .mini {
     width: 80%;
   }
   .filmview {
     width: 20%;
+  }
+  .theOne {
   }
 }
 

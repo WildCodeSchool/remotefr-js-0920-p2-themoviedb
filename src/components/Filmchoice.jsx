@@ -92,21 +92,23 @@ class Filmchoice extends React.Component {
                   <h3 className="titre">{resultat.original_title}</h3>
                   <Rating
                     className="rating"
-                    name="small"
-                    initialRating={resultat.vote_average / 2}
-                    precision={0.5}
-                    size="large"
+                    name="rating"
+                    initialRating={Math.round(resultat.vote_average)}
+                    start={0}
+                    stop={10}
+                    step={2}
+                    fractions={2}
                     emptySymbol={
                       <img
                         src="/stars/star-empty.png"
-                        alt="stars"
+                        alt="star"
                         className="icon"
                       />
                     }
                     fullSymbol={
                       <img
                         src="/stars/star-full.png"
-                        alt="stars"
+                        alt="star"
                         className="icon"
                       />
                     }
@@ -141,22 +143,24 @@ class Filmchoice extends React.Component {
                     src={`https://image.tmdb.org/t/p/w440_and_h660_face${liked.poster_path}`}
                   />
                   <Rating
-                    className="rating"
+                    className="evaluation"
                     name="rating"
-                    initialRating={liked.vote_average / 2}
-                    precision={0.5}
-                    size="small"
+                    initialRating={liked.vote_average}
+                    start={0}
+                    stop={10}
+                    step={2}
+                    fractions={2}
                     emptySymbol={
                       <img
                         src="/stars/star-empty.png"
-                        alt="note"
+                        alt="star"
                         className="icon"
                       />
                     }
                     fullSymbol={
                       <img
                         src="/stars/star-full.png"
-                        alt="note"
+                        alt="star"
                         className="icon"
                       />
                     }
