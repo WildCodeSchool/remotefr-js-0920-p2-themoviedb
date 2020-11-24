@@ -174,6 +174,53 @@ body {
 
 /* css film details */
 
+.moreinfo div {
+  overflow: hidden;
+  padding: 0;
+  padding-bottom: -4em;
+}
+.moreinfo {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.moreinfo h3 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 1.5em;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+.moreinfo article {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 4em;
+  margin-bottom: 0;
+}
+.moreinfo img {
+  max-height: 100vh;
+  width: auto;
+}
+
 .invisible {
   display: none;
 }
