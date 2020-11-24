@@ -6,6 +6,7 @@ import './SelectUserList.css';
 
 function SelectUserList(props) {
   const { arrayResult } = props;
+
   return (
     <div className="SelectUserList">
       <div className="SelectionUser">
@@ -21,6 +22,9 @@ function SelectUserList(props) {
               movie={movie}
             />
           ))}
+        <button type="button" className="more" onClick={() => {}}>
+          Suivant
+        </button>
       </div>
     </div>
   );
