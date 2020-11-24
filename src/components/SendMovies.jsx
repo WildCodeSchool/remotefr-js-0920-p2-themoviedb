@@ -133,6 +133,7 @@ class SendMovies extends React.Component {
                   Mes invités* :
                   {allNewFriends.map((newFriend, index) => (
                     <input
+                      // eslint-disable-next-line react/no-array-index-key
                       key={index}
                       type="email"
                       id="listEmails"
