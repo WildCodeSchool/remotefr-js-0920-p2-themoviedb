@@ -1,0 +1,31 @@
+.divButtons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-start;
+  color: #fff;
+  font-family: 'Monserrat', sans-serif;
+  top: 0;
+  margin-top: 0em;
+  padding: 0.5em;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.btn {
+  padding: 0 auto;
+}
+
+.status-active {
+  background-color: #40e0d0;
+}
+
+.status-inactive {
+  background-color: #808080;
+  opacity: 0.3;
+}
+
+.btn:hover {
+  transform: skew(10deg, 10deg);
+}

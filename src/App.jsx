@@ -82,9 +82,11 @@ class App extends React.Component {
           <Route path="/les-elus">
             <Filmchoice />
           </Route>
+
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
+
           <Route path="/jeveuxtrouver/:who/:duree/:genre">
             <FilterByGenre runtime={runtime} />
           </Route>
@@ -92,6 +94,7 @@ class App extends React.Component {
           <Route exact path="/jeveuxtrouver/En-Famille">
             <FilterByAge />
           </Route>
+
           <Route
             exact
             path={['/jeveuxtrouver/En-Famille/:Age/', '/jeveuxtrouver/:who']}
@@ -103,6 +106,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
+
           <Route path="/jeveuxtrouver/:who/:duree">
             <ListEmotions selectWithWho={selectWithWho} data={data} />
           </Route>
