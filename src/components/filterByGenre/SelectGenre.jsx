@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './SelectGenre.css';
 
 class SelectGenre extends React.Component {
   constructor(props) {
@@ -8,6 +9,16 @@ class SelectGenre extends React.Component {
       selectGenre: false,
     };
   }
+
+  componentDidMount = () => {
+    const { id, genreFilmSelected } = this.props;
+    const genreName = genreFilmSelected.name;
+    const { selectGenre } = this.state;
+    const genre = !selectGenre;
+    if (id === genreName) {
+      this.setState({ selectGenre: genre });
+    }
+  };
 
   eventListener(event) {
     const { selectGenre } = this.state;
@@ -18,17 +29,14 @@ class SelectGenre extends React.Component {
   }
 
   render() {
-    const { id, name, genreFilmSelected } = this.props;
-    // const { selectGenre } = this.state;
-    const genreName = genreFilmSelected.name;
-    console.log(id, genreName);
+    const { id, name } = this.props;
+    const { selectGenre } = this.state;
+
     return (
-      <div className={id}>
+      <div className="divButtons">
         <button
           type="button"
-          className={
-            id === genreName ? 'btn status-active' : 'btn status-inactive'
-          }
+          className={selectGenre ? 'btn status-active' : 'btn status-inactive'}
           id={id}
           onClick={(event) => this.eventListener(event)}
           title={`Retirer le genre ${name}`}

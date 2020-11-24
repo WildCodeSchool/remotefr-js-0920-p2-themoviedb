@@ -12,6 +12,7 @@ import Filmchoice from './components/Filmchoice';
 import NouveautesList from './components/NouveautesList';
 import QuiSommesNous from './components/QuiSommesNous';
 import Contact from './components/Contact';
+import SendMovies from './components/SendMovies';
 import WithWhoList from './components/filterByWho/WithWhoList';
 import FilterByAge from './components/FilterByAge/FilterByAge';
 import ListEmotions from './components/FilterByEmotion/ListEmotion';
@@ -81,9 +82,11 @@ class App extends React.Component {
           <Route path="/les-elus">
             <Filmchoice />
           </Route>
+
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
           </Route>
+
           <Route path="/jeveuxtrouver/:who/:duree/:genre">
             <FilterByGenre runtime={runtime} />
           </Route>
@@ -91,6 +94,7 @@ class App extends React.Component {
           <Route exact path="/jeveuxtrouver/En-Famille">
             <FilterByAge />
           </Route>
+
           <Route
             exact
             path={['/jeveuxtrouver/En-Famille/:Age/', '/jeveuxtrouver/:who']}
@@ -102,6 +106,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
           </Route>
+
           <Route path="/jeveuxtrouver/:who/:duree">
             <ListEmotions selectWithWho={selectWithWho} data={data} />
           </Route>
@@ -118,6 +123,7 @@ class App extends React.Component {
           <Route path="/contact">
             <Contact />
           </Route>
+          <Route path="/partage" component={SendMovies} />
           <Route path="/" component={FirstFilters} />
         </Switch>
 
