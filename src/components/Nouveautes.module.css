@@ -12,6 +12,8 @@
   font-size: 0.45em;
   font-weight: bold;
   text-align: center;
+  background: none;
+  border: none;
 }
 .newMovies:hover {
   background-color: #fff;
