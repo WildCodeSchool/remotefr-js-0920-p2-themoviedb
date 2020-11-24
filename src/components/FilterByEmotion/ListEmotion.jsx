@@ -7,6 +7,7 @@ import FilterByEmotion from './FilterByEmotion';
 function ListEmotion(props) {
   // const x = data.Family.list_genres_name;
   const { match, data } = props;
+
   const whom = match.params.who.replace(/-/g, ' ');
 
   let arrayMap = null;

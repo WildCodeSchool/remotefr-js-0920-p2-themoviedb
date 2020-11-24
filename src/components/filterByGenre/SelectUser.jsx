@@ -12,7 +12,6 @@ const customStyles = {
 function SelectUser(props) {
   // handleLike={handleLike}
   const { posterPath, originalTitle, originalName, movie, handleLike } = props;
-  const { id } = movie;
 
   const title = originalTitle === '' ? originalName : originalTitle;
 
@@ -34,7 +33,7 @@ function SelectUser(props) {
         className="btn"
         onClick={() => {
           setFavorite(!favorite);
-          handleLike(id);
+          handleLike(movie);
         }}
       >
         <span className={favorite ? 'is-favorite' : ''}>&#9733;</span>
