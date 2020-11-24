@@ -5,7 +5,7 @@ import './GenreList.css';
 import './SelectUserList.css';
 
 function SelectUserList(props) {
-  const { arrayResult } = props;
+  const { arrayResult, handleLike, Increment } = props;
 
   return (
     <div className="SelectUserList">
@@ -20,9 +20,10 @@ function SelectUserList(props) {
               originalName={movie.name}
               posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`}
               movie={movie}
+              handleLike={handleLike}
             />
           ))}
-        <button type="button" className="more" onClick={() => {}}>
+        <button type="button" className="btn" onClick={Increment}>
           Suivant
         </button>
       </div>
@@ -37,6 +38,8 @@ SelectUserList.propTypes = {
       name: PropTypes.string,
     }),
   ).isRequired,
+  handleLike: PropTypes.func.isRequired,
+  Increment: PropTypes.func.isRequired,
 };
 
 export default SelectUserList;

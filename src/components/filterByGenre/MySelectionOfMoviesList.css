@@ -1,0 +1,40 @@
+.MySelectionOfMoviesList {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.MySelectionOfMovie {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.MySelectionOfMoviesList .MySelectionOfMovie {
+  width: 100%;
+  max-width: 100%;
+  margin: 0.5%;
+  padding: 0.3em 0;
+  font-size: 0.8em;
+  position: relative;
+}
+
+.cover {
+  width: 20%;
+  align-self: center;
+}
+.filmtitle {
+  align-self: center;
+}
