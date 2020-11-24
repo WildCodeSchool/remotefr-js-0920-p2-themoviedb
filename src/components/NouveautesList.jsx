@@ -98,6 +98,8 @@ class NouveautesList extends React.Component {
             <Nouveautes
               title={newMovie.title}
               posterPath={newMovie.poster_path}
+              voteAverage={newMovie.vote_average}
+              overview={newMovie.overview}
               key={newMovie.title}
             />
           ))}
