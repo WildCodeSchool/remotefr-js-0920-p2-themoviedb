@@ -13,14 +13,8 @@ class FilmZoom extends React.Component {
     return (
       <cards className="moreinfo">
         <div>
-          <h3 className="leTitre">{titre} </h3>
-          <article>
-            <img
-              alt="Cover"
-              className="affiche"
-              src={`https://image.tmdb.org/t/p/w440_and_h660_face${poster}`}
-            />
-            <p className="resume">{synopsis}</p>
+          <h3 className="leTitre">
+            {titre}
             <Rating
               className="evaluation"
               name="rating"
@@ -37,6 +31,14 @@ class FilmZoom extends React.Component {
               }
               readonly
             />
+          </h3>
+          <article>
+            <img
+              alt="Cover"
+              className="affiche"
+              src={`https://image.tmdb.org/t/p/w440_and_h660_face${poster}`}
+            />
+            <p className="resume">{synopsis}</p>
           </article>
         </div>
       </cards>
