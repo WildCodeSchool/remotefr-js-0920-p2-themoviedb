@@ -22,9 +22,11 @@ class FilmZoom extends React.Component {
         <Rating
           className="evaluation"
           name="rating"
-          initialRating={note / 2}
-          precision={0.5}
-          size="small"
+          initialRating={note}
+          start={0}
+          stop={10}
+          step={2}
+          fractions={2}
           emptySymbol={
             <img src="/stars/star-empty.png" alt="star" className="icon" />
           }
