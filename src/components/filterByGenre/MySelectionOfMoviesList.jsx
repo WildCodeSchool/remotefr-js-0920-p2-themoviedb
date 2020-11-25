@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import MySelectionOfMovies from './MySelectionOfMovies';
 import './MySelectionOfMoviesList.css';
 
@@ -13,21 +14,29 @@ function MySelectionOfMoviesList(props) {
         {movieLiked.map((singleMovie) => (
           <MySelectionOfMovies
             key={singleMovie.id}
-            title={singleMovie.title}
+            title={
+              singleMovie.title === undefined
+                ? singleMovie.name
+                : singleMovie.title
+            }
             posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${singleMovie.poster_path}`}
-            tagline={singleMovie.tagline}
           />
         ))}
-        <button type="button" className="btn">
-          Envoyer ma sélection
-        </button>
+        <Link to="/partage">Envoyer ma sélection</Link>
       </div>
     </div>
   );
 }
 
 MySelectionOfMoviesList.propTypes = {
-  movieLiked: PropTypes.arrayOf(PropTypes.number),
+  movieLiked: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ),
 };
 
 MySelectionOfMoviesList.defaultProps = {
