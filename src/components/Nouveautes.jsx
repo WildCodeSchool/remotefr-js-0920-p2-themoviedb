@@ -8,6 +8,9 @@ const customStyles = {
   overlay: {
     zIndex: 100,
   },
+  content: {
+    padding: 0,
+  },
 };
 
 class Nouveautes extends React.Component {
