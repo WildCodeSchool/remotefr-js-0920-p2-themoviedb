@@ -10,6 +10,9 @@ const customStyles = {
   overlay: {
     zIndex: 100,
   },
+  content: {
+    padding: 0,
+  },
 };
 
 class Filmchoice extends React.Component {
