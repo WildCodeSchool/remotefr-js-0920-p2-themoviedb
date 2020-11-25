@@ -1,49 +1,105 @@
-body {
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
+
+.FilterByDuration {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
 }
 
-.container {
-  width: 98%;
-  padding-right: 1%;
-  padding-left: 1%;
+.FilterByDuration h2 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 3.5em;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 1.5em;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-control {
-  display: block;
+.FilterByDuration .areaOfForm {
   width: 100%;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  height: 300%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  padding-bottom: 3em;
 }
 
-.btn {
-  display: inline-block;
-  font-weight: 400;
+.FilterByDuration .areaOfForm .form-group label {
+  width: 100%;
+  margin: 1em 0 0 0;
+  font-size: 1em;
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  outline: none;
-  text-decoration: none;
-  background-color: lightgray;
-  color: black;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.25rem 0, 25rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+.FilterByDuration .areaOfForm .form-group label span {
+  color: #000;
+}
+.FilterByDuration input {
+  font-size: 2em;
+  text-align: center;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.FilterByDuration .form-group {
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#startTime,
+#endTime {
+  font-family: 'Mouse Memoirs', sans-serif;
+  color: rgb(0, 103, 129);
+}
+.FilterByDuration .btn {
+  width: 100%;
+  background-color: rgb(0, 103, 129);
+  color: #fff;
+  border: none;
+  font-family: 'Mouse Memoirs', sans-serif;
+  font-size: 1em;
+  padding: 0.3em;
+  -webkit-box-shadow: 0px 25px 20px 3px rgba(87, 37, 37, 0.3);
+  -moz-box-shadow: 0px 25px 20px 3px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
+  cursor: pointer;
+}
+
+.FilterByDuration .btn:hover {
+  background-color: #0472a5;
+}
+
+@media only screen and (min-width: 60em) {
+  .FilterByDuration h2 {
+    height: 4em;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .FilterByDuration {
+    top: -4em;
+    height: 110%;
+  }
+  .FilterByDuration h2 {
+    padding-top: 100px;
+    font-size: 1.6em;
+  }
 }
