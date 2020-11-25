@@ -98,6 +98,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   background-color: rgb(255, 238, 0);
+  z-index: 500;
 }
 
 /* séléction */
@@ -105,6 +106,8 @@ body {
 .selection {
   overflow-y: scroll;
   position: relative;
+  height: 150vh;
+  padding-bottom: 7vh;
 }
 .note {
   font-size: 60%;
