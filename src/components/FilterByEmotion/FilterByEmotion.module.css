@@ -84,13 +84,13 @@ a {
   height: 100%;
 }
 .FilterByEmotion .bigButton:nth-child(6) {
-  background-color: rgb(0, 255, 128);
+  background-color: rgb(0, 202, 101);
   color: #fff;
   height: 100%;
 }
 
 .FilterByEmotion .bigButton:last-child {
-  background-color: rgb(234, 0, 255);
+  background-color: rgb(0, 138, 7);
   color: #fff;
   height: 100%;
   padding-bottom: 2.5em;
