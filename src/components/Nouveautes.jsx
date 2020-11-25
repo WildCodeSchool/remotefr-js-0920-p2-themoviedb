@@ -18,6 +18,7 @@ class Nouveautes extends React.Component {
     super(props);
     this.state = {
       zoomFilm: null,
+      favorite: false,
     };
   }
 
@@ -27,23 +28,44 @@ class Nouveautes extends React.Component {
     });
   };
 
+  setFavorite = () => {
+    const { favorite } = this.state;
+    this.setState({
+      favorite: !favorite,
+    });
+  };
+
   render() {
     const { title, posterPath, overview, voteAverage } = this.props;
-    const { zoomFilm } = this.state;
+    const { zoomFilm, favorite } = this.state;
     return (
-      <button
-        type="button"
-        className={styles.newMovies}
-        onClick={() => this.moreInfo()}
-      >
-        <img
-          src={`https://image.tmdb.org/t/p/w440_and_h660_face${posterPath}`}
-          alt={title}
-        />
-        <p>{title}</p>
+      <div className={styles.newMovies}>
+        <button
+          type="button"
+          onClick={() => this.moreInfo()}
+          title="Voir plus d'infos"
+        >
+          <div className={styles.plusDinfo}>👁</div>
+          <img
+            src={`https://image.tmdb.org/t/p/w440_and_h660_face${posterPath}`}
+            alt={title}
+          />
+          <p>{title}</p>
+        </button>
+
+        <button
+          type="button"
+          title="Ajouter à mes favoris"
+          className={styles.favoriteSelected}
+          onClick={this.setFavorite}
+        >
+          <span className={styles.favoriteHeart}>{favorite ? '💗' : '💛'}</span>
+        </button>
+
         <Modal
           isOpen={!!zoomFilm}
           style={customStyles}
+          ariaHideApp={false}
           onRequestClose={() => this.setState({ zoomFilm: null })}
         >
           <div className="details">
@@ -57,7 +79,7 @@ class Nouveautes extends React.Component {
             )}
           </div>
         </Modal>
-      </button>
+      </div>
     );
   }
 }

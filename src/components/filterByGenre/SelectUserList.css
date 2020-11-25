@@ -1,15 +1,3 @@
-.SelectUserList {
-  font-size: 2.5em;
-  transform: skewY(-3deg);
-  position: relative;
-  top: -2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  overflow-y: scroll;
-}
-
 .SelectionUser {
   width: 100%;
   background-color: rgb(255, 238, 0);

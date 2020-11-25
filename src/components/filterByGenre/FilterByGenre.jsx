@@ -8,6 +8,7 @@ import SelectUserList from './SelectUserList';
 import MovieGenreDetail from '../../Data/MovieGenreDetail';
 import ListGenre from '../../Data/ListGenre';
 import MySelectionOfMoviesList from './MySelectionOfMoviesList';
+import './GenreList.css';
 
 function FilterByGenre(props) {
   const { match, handleLike, like } = props;

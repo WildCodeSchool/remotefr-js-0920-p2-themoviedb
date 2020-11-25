@@ -8,7 +8,7 @@ function MySelectionOfMoviesList(props) {
 
   return (
     <div className="MySelectionOfMoviesList">
-      <h2>Ma selection de film : </h2>
+      <h2>Tu as choisi&nbsp;: </h2>
       <div className="MySelectionOfMovie">
         {movieLiked.map((singleMovie) => (
           <MySelectionOfMovies
@@ -19,7 +19,7 @@ function MySelectionOfMoviesList(props) {
           />
         ))}
         <button type="button" className="btn">
-          Envoyer ma sélection
+          Envoie ta sélection&nbsp;!
         </button>
       </div>
     </div>
