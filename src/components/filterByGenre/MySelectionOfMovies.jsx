@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './MySelectionOfMovies.css';
 
 function MySelectionOfMovies(props) {
   const { title, posterPath } = props;
@@ -7,7 +8,7 @@ function MySelectionOfMovies(props) {
     <div className="MySelectionOfMovies">
       <div>
         <img src={posterPath} alt="filmcover" className="cover" />
-        <p className={title}>title</p>
+        <p className={title}>{title}</p>
       </div>
     </div>
   );

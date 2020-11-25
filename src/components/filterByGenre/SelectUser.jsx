@@ -10,7 +10,9 @@ const customStyles = {
 };
 
 function SelectUser(props) {
-  const { posterPath, originalTitle, originalName, movie } = props;
+  // handleLike={handleLike}
+  const { posterPath, originalTitle, originalName, movie, handleLike } = props;
+
   const title = originalTitle === '' ? originalName : originalTitle;
 
   const [zoomFilm, setInfo] = useState(null);
@@ -20,16 +22,6 @@ function SelectUser(props) {
 
   const [favorite, setFavorite] = useState(false);
 
-  // const [like, setLike] = useState([]);
-  // const handleLike = (movId) => {
-  //   setLike((prevState) => {
-  //     const newLike = prevState.like.includes(movId)
-  //       ? prevState.like.filter((m) => m !== movId)
-  //       : [...prevState.like, movId];
-  //     return { like: newLike };
-  //   });
-  // };
-
   return (
     <div className="SelectUser">
       <button type="button" className="more" onClick={() => OpenModal(movie)}>
@@ -38,10 +30,10 @@ function SelectUser(props) {
       </button>
       <button
         type="button"
-        className="more"
+        className="btn"
         onClick={() => {
           setFavorite(!favorite);
-          // handleLike(id);
+          handleLike(movie);
         }}
       >
         <span className={favorite ? 'is-favorite' : ''}>&#9733;</span>
@@ -84,7 +76,7 @@ SelectUser.propTypes = {
   originalTitle: PropTypes.string,
   originalName: PropTypes.string,
   movie: PropTypes.shape().isRequired,
-  // id: PropTypes.number.isRequired,
+  handleLike: PropTypes.func.isRequired,
 };
 
 SelectUser.defaultProps = {
