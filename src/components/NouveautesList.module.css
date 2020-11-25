@@ -69,13 +69,19 @@
   margin: 0.8em;
 }
 
-.NouveautesList .areaOfNouveautes .divButtons button {
+.NouveautesList .divButtons button {
   width: 32%;
   max-width: 100%;
   margin: 0.5%;
   padding: 0.3em 0;
   font-size: 0.8em;
   position: relative;
+  cursor: pointer;
+  background-color: rgb(173, 173, 173);
+  border: none;
+}
+.NouveautesList .divButtons button:hover {
+  background-color: #eee;
 }
 
 @media only screen and (min-width: 60em) {
@@ -90,13 +96,15 @@
     height: 110%;
   }
   .NouveautesList h2 {
-    padding-top: 100px;
+    padding-top: 110px;
     font-size: 1.6em;
   }
   .NouveautesList .divButtons {
-    padding-bottom: 160px;
+    padding-bottom: 170px;
   }
   .NouveautesList .divButtons button {
-    width: 10%;
+    width: 9.2%;
+    font-size: 0.9em;
+    margin: 0.15%;
   }
 }

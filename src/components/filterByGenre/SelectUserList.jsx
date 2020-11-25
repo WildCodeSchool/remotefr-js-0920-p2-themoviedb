@@ -23,10 +23,10 @@ function SelectUserList(props) {
               handleLike={handleLike}
             />
           ))}
-        <button type="button" className="btn" onClick={Increment}>
-          Suivant
-        </button>
       </div>
+      <button type="button" className="btnSuivant" onClick={Increment}>
+        Page suivante
+      </button>
     </div>
   );
 }
