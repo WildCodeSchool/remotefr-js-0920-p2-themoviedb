@@ -10,7 +10,7 @@ import ListGenre from '../../Data/ListGenre';
 import MySelectionOfMoviesList from './MySelectionOfMoviesList';
 
 function FilterByGenre(props) {
-  const { match } = props;
+  const { match, handleLike, like } = props;
   const { url } = match;
   const dataUrl = url.split('/');
 
@@ -31,6 +31,12 @@ function FilterByGenre(props) {
     .replace(/Science fiction/g, 'Science-fiction');
   const SelectGenre = genreFilmSelected(emotion);
 
+  // get the search page in the API
+  const [page, setPage] = useState(1);
+  const Increment = () => {
+    setPage(page + 1);
+  };
+
   // get the list of movies and tv from the TMDB API
   const [arrayResult, setArrayResult] = useState([]);
 
@@ -49,70 +55,84 @@ function FilterByGenre(props) {
   const getMovieList = () => {
     const { runtime } = props;
 
-    const filterGenre = `&with_genres=${withMovieGenres
-      .toString()
-      .replace(/,/g, '|')}`;
+    if (withMovieGenres.length !== 0 && withMovieGenres !== undefined) {
+      const filterGenre = `&with_genres=${withMovieGenres
+        .toString()
+        .replace(/,/g, '|')}`;
 
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1${filterGenre}&with_runtime.lte=${runtime}&with_original_language=fr`,
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        setArrayResultMovie(data.results);
-        setArrayResult(arrayResultTv.concat(data.results));
-      });
+      axios
+        .get(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&${filterGenre}&with_runtime.lte=${runtime}&with_original_language=fr`,
+        )
+        .then((response) => response.data)
+        .then((data) => {
+          setArrayResultMovie(data.results);
+          setArrayResult(arrayResultTv.concat(data.results));
+        });
+    }
   };
 
   const getIdsMovieGenreAndMovieList = (genreFilmSelect) => {
     const movieIds = genreFilmSelect[0].movie_genres_ids;
-    movieIds.map((movieId) =>
-      setWithMovieGenres((prevState) => {
-        const newGenre = prevState.includes(movieId)
-          ? prevState.filter((array) => array !== movieId)
-          : [...prevState, movieId];
-        return newGenre;
-      }),
-    );
+
+    if (movieIds !== []) {
+      movieIds.map(
+        (movieId) =>
+          setWithMovieGenres((prevState) => {
+            const newGenre = prevState.includes(movieId)
+              ? prevState.filter((array) => array !== movieId)
+              : [...prevState, movieId];
+            return newGenre;
+          }),
+        setArrayResultMovie([]),
+        setArrayResult(arrayResultTv),
+      );
+    }
   };
 
   useEffect(() => {
     getMovieList();
-  }, [withMovieGenres]);
+  }, [withMovieGenres, page]);
 
   const getTVList = () => {
     const { runtime } = props;
+    if (withTvGenres.length !== 0 && withTvGenres !== undefined) {
+      const filterGenre = `&with_genres=${withTvGenres
+        .toString()
+        .replace(/,/g, '|')}`;
 
-    const filterGenre = `&with_genres=${withTvGenres
-      .toString()
-      .replace(/,/g, '|')}`;
-
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&page=1&${filterGenre}&&with_runtime.lte=${runtime}&include_null_first_air_dates=false&with_original_language=fr`,
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        setArrayResultTv(data.results);
-        setArrayResult(arrayResultMovie.concat(data.results));
-      });
+      axios
+        .get(
+          `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&page=${page}&${filterGenre}&&with_runtime.lte=${runtime}&include_null_first_air_dates=false&with_original_language=fr`,
+        )
+        .then((response) => response.data)
+        .then((data) => {
+          setArrayResultTv(data.results);
+          setArrayResult(arrayResultMovie.concat(data.results));
+        });
+    }
   };
 
   const getIdsTVGenreAndMovieList = (genreFilmSelect) => {
     const tvIds = genreFilmSelect[0].tv_genres_ids;
-    tvIds.map((tvId) =>
-      setwithTvGenres((prevState) => {
-        const newGenre = prevState.includes(tvId)
-          ? prevState.filter((array) => array !== tvId)
-          : [...prevState, tvId];
-        return newGenre;
-      }),
-    );
+    if (tvIds !== []) {
+      tvIds.map(
+        (tvId) =>
+          setwithTvGenres((prevState) => {
+            const newGenre = prevState.includes(tvId)
+              ? prevState.filter((array) => array !== tvId)
+              : [...prevState, tvId];
+            return newGenre;
+          }),
+        setArrayResultTv([]),
+        setArrayResult(arrayResultMovie),
+      );
+    }
   };
 
   useEffect(() => {
     getTVList();
-  }, [withTvGenres]);
+  }, [withTvGenres, page]);
 
   const eventListener = (event) => {
     const { id } = event.target;
@@ -121,15 +141,15 @@ function FilterByGenre(props) {
     getIdsTVGenreAndMovieList(genreOfFilmSelected);
   };
 
-  const [like, setLike] = useState([]);
-  const handleLike = (movId) => {
-    setLike((prevState) => {
-      const newLike = prevState.like.includes(movId)
-        ? prevState.like.filter((m) => m !== movId)
-        : [...prevState.like, movId];
-      return { like: newLike };
-    });
-  };
+  // const [like, handleLike] = useState([]);
+  // const handleLike = (movId) => {
+  //   setLike((prevState) => {
+  //     const newLike = prevState.includes(movId)
+  //       ? prevState.filter((m) => m !== movId)
+  //       : [...prevState, movId];
+  //     return newLike;
+  //   });
+  // };
 
   useEffect(() => {
     getIdsMovieGenreAndMovieList(SelectGenre);
@@ -144,163 +164,16 @@ function FilterByGenre(props) {
         genreFilmSelected={SelectGenre[0]}
       />
 
-      <SelectUserList arrayResult={arrayResult} />
+      <SelectUserList
+        arrayResult={arrayResult}
+        handleLike={handleLike}
+        Increment={Increment}
+      />
 
-      <MySelectionOfMoviesList movieLiked={like} handleLike={handleLike} />
+      <MySelectionOfMoviesList arrayResult={arrayResult} movieLiked={like} />
     </div>
   );
 }
-
-// class FilterByGenre extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       listGenre: ListGenre,
-//       withMovieGenres: [],
-//       withTvGenres: [],
-//       arrayResultMovie: [],
-//       arrayResultTv: [],
-//       arrayResult: [],
-//       movieLiked: [],
-//     };
-//   }
-
-// const [like, setLike] = useState([]);
-// const handleLike = (movId) => {
-//   setLike((prevState) => {
-//     const newLike = prevState.like.includes(movId)
-//       ? prevState.like.filter((m) => m !== movId)
-//       : [...prevState.like, movId];
-//     return { like: newLike };
-//   });
-// };
-
-//   componentDidMount = () => {
-//     const { match } = this.props;
-//     const genre = match.params.genre
-//       .replace(/-/g, ' ')
-//       .replace(/Science fiction/g, 'Science-fiction');
-//     const genreFilmSelected = MovieGenreDetail.filter(
-//       (genreSelect) => genreSelect.name === genre,
-//     );
-//     const movieIds = genreFilmSelected[0].movie_genres_ids;
-//     movieIds.map((movieId) =>
-//       this.setState((prevState) => {
-//         const newGenre = prevState.withMovieGenres.includes(movieId)
-//           ? prevState.withMovieGenres.filter((array) => array !== movieId)
-//           : [...prevState.withMovieGenres, movieId];
-//         return { withMovieGenres: newGenre };
-//       }, this.getMovieList),
-//     );
-
-//     const tvIds = genreFilmSelected[0].tv_genres_ids;
-//     tvIds.map((tvId) =>
-//       this.setState((prevState) => {
-//         const newGenre = prevState.withTvGenres.includes(tvId)
-//           ? prevState.withTvGenres.filter((array) => array !== tvId)
-//           : [...prevState.withTvGenres, tvId];
-//         return { withTvGenres: newGenre };
-//       }, this.getTVList),
-//     );
-//   };
-
-//   getMovieList = () => {
-//     const { withMovieGenres, arrayResultTv } = this.state;
-//     const { runtime } = this.props;
-
-//     const filterGenre = `&with_genres=${withMovieGenres
-//       .toString()
-//       .replace(/,/g, '|')}`;
-
-//     const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1${filterGenre}&with_runtime.lte=${runtime}&with_original_language=fr`;
-
-//     axios
-//       .get(url)
-//       .then((response) => response.data)
-//       .then((data) => {
-//         this.setState({
-//           arrayResultMovie: data.results,
-//           arrayResult: arrayResultTv.concat(data.results),
-//         });
-//       });
-//   };
-
-//   getTVList = () => {
-//     const { withTvGenres, arrayResultMovie } = this.state;
-//     const { runtime } = this.props;
-
-//     const filterGenre = `&with_genres=${withTvGenres
-//       .toString()
-//       .replace(/,/g, '|')}`;
-//     const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&sort_by=popularity.desc&page=1&${filterGenre}&&with_runtime.lte=${runtime}&include_null_first_air_dates=false&with_original_language=fr`;
-
-//     axios
-//       .get(url)
-//       .then((response) => response.data)
-//       .then((data) => {
-//         this.setState({
-//           arrayResultTv: data.results,
-//           arrayResult: arrayResultMovie.concat(data.results),
-//         });
-//       });
-//   };
-
-//   eventListener = (event) => {
-//     const { id } = event.target;
-//     const genreFilmSelected = MovieGenreDetail.filter(
-//       (genre) => genre.name === id,
-//     );
-//     const movieIds = genreFilmSelected[0].movie_genres_ids;
-//     movieIds.map((movieId) =>
-//       this.setState((prevState) => {
-//         const newGenre = prevState.withMovieGenres.includes(movieId)
-//           ? prevState.withMovieGenres.filter((array) => array !== movieId)
-//           : [...prevState.withMovieGenres, movieId];
-//         return { withMovieGenres: newGenre };
-//       }, this.getMovieList),
-//     );
-
-//     const tvIds = genreFilmSelected[0].tv_genres_ids;
-//     tvIds.map((tvId) =>
-//       this.setState((prevState) => {
-//         const newGenre = prevState.withTvGenres.includes(tvId)
-//           ? prevState.withTvGenres.filter((array) => array !== tvId)
-//           : [...prevState.withTvGenres, tvId];
-//         return { withTvGenres: newGenre };
-//       }, this.getTVList),
-//     );
-//   };
-
-//   render() {
-//     const { match } = this.props;
-//     const { url } = match;
-//     const dataUrl = url.split('/');
-
-//     // retrieve the genre selected by the user from the url
-//     const emotion = dataUrl[4]
-//       .replace(/-/g, ' ')
-//       .replace(/Science fiction/g, 'Science-fiction');
-
-//     const genreFilmSelected = MovieGenreDetail.filter(
-//       (genre) => genre.name === emotion,
-//     );
-
-//     const { listGenre, arrayResult, movieLiked } = this.state;
-//     return (
-//       <div className="FilterByGenre">
-//         <GenreList
-//           listGenre={listGenre}
-//           eventListener={this.eventListener}
-//           genreFilmSelected={genreFilmSelected[0]}
-//         />
-
-//         <SelectUserList arrayResult={arrayResult} />
-
-//         <MySelectionOfMoviesList movieLiked={movieLiked} />
-//       </div>
-//     );
-//   }
-// }
 
 FilterByGenre.propTypes = {
   runtime: PropTypes.number.isRequired,
@@ -313,6 +186,12 @@ FilterByGenre.propTypes = {
       genre: PropTypes.string,
     }),
   }).isRequired,
+  handleLike: PropTypes.func.isRequired,
+  like: PropTypes.arrayOf(PropTypes.number),
+};
+
+FilterByGenre.defaultProps = {
+  like: [],
 };
 
 export default withRouter(FilterByGenre);

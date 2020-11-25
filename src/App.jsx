@@ -28,10 +28,20 @@ class App extends React.Component {
       runtime: 120,
       selectWithWho: '',
       data: Data,
+      like: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleLike = (mov) => {
+    this.setState((prevState) => {
+      const newLike = prevState.like.includes(mov)
+        ? prevState.like.filter((m) => m !== mov)
+        : [...prevState.like, mov];
+      return { like: newLike };
+    });
+  };
 
   handleChange(event) {
     const { name } = event.target;
@@ -73,8 +83,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { startTime, endTime, runtime, selectWithWho, data } = this.state;
+    const {
+      startTime,
+      endTime,
+      runtime,
+      selectWithWho,
+      data,
+      like,
+    } = this.state;
     const { listNewMovies } = this.state;
+
     return (
       <div className={styles.content}>
         <Header />
@@ -88,7 +106,11 @@ class App extends React.Component {
           </Route>
 
           <Route path="/jeveuxtrouver/:who/:duree/:genre">
-            <FilterByGenre runtime={runtime} />
+            <FilterByGenre
+              runtime={runtime}
+              handleLike={this.handleLike}
+              like={like}
+            />
           </Route>
 
           <Route exact path="/jeveuxtrouver/En-Famille">
