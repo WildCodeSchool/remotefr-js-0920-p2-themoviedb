@@ -15,7 +15,6 @@ class Nouveautes extends React.Component {
     super(props);
     this.state = {
       zoomFilm: null,
-      setFavorite: false,
       favorite: false,
     };
   }
@@ -26,9 +25,16 @@ class Nouveautes extends React.Component {
     });
   };
 
+  setFavorite = () => {
+    const { favorite } = this.state;
+    this.setState({
+      favorite: !favorite,
+    });
+  };
+
   render() {
     const { title, posterPath, overview, voteAverage } = this.props;
-    const { zoomFilm, setFavorite, favorite } = this.state;
+    const { zoomFilm, favorite } = this.state;
     return (
       <div className={styles.newMovies}>
         <button
@@ -48,9 +54,7 @@ class Nouveautes extends React.Component {
           type="button"
           title="Ajouter à mes favoris"
           className={styles.favoriteSelected}
-          onClick={() => {
-            setFavorite(!favorite);
-          }}
+          onClick={this.setFavorite}
         >
           <span className={styles.favoriteHeart}>{favorite ? '💗' : '💛'}</span>
         </button>

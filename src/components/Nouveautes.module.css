@@ -55,7 +55,7 @@
   margin-top: 0em;
   font-size: 2em;
   width: 40%;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .newMovies .favoriteSelected:hover {
   filter: brightness(0.5) sepia(1) saturate(1000%);
