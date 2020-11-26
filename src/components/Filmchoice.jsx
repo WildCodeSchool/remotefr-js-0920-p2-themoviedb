@@ -155,7 +155,7 @@ class Filmchoice extends React.Component {
           </div>
 
           {/* film selectionné */}
-          <h2 className={choosenOne}> Les Elus </h2>
+          <h2 className={choosenOne}> Ma sélection </h2>
           <div className="theOne">
             {like.map((liked) => (
               <cards className="filmview">
