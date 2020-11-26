@@ -3,8 +3,10 @@ import './Filmchoice.css';
 import axios from 'axios';
 import Rating from 'react-rating';
 import Modal from 'react-modal';
+
 import apiKey from './apiKey';
 import FilmZoom from './FilmZoom';
+import SendMovies from './SendMovies';
 
 const customStyles = {
   overlay: {
@@ -25,13 +27,19 @@ class Filmchoice extends React.Component {
       clicked: 'view',
       choosenOne: 'invisible',
       zoomFilm: null,
+      share: false,
     };
     this.movieSearch = this.movieSearch.bind(this);
+    this.handleclick = this.handleclick.bind(this);
   }
   /** deuxième clès resolve ou elect
    * intialiser avec un tableau vide
    * enturer formulaire ave div  et map sur le tableau dans le state
    */
+
+  handleclick() {
+    this.setState({ share: true });
+  }
 
   fetchMovie = (event) => {
     event.preventDefault();
@@ -65,7 +73,15 @@ class Filmchoice extends React.Component {
   }
 
   render() {
-    const { value, results, like, clicked, choosenOne, zoomFilm } = this.state;
+    const {
+      value,
+      results,
+      like,
+      clicked,
+      choosenOne,
+      zoomFilm,
+      share,
+    } = this.state;
     return (
       <div className="research">
         <div className="selection">
@@ -172,7 +188,18 @@ class Filmchoice extends React.Component {
                 </button>
               </cards>
             ))}
+            <button type="button" className="btn" onClick={this.handleclick}>
+              Envoie ta sélection
+            </button>
 
+            <Modal
+              isOpen={!!share}
+              ariaHideApp={false}
+              style={customStyles}
+              onRequestClose={() => this.setState({ share: null })}
+            >
+              <SendMovies />
+            </Modal>
             <Modal
               isOpen={!!zoomFilm}
               style={customStyles}
