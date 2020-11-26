@@ -62,7 +62,7 @@ class FilmZoom extends React.Component {
               ''
             ) : (
               <a href={linkToMovieForKids} title="">
-                <button type="button">Filmpourenfants</button>
+                <button type="button">Filmspourenfants.net</button>
               </a>
             )}
             <h4>Disponible en vente :</h4>
