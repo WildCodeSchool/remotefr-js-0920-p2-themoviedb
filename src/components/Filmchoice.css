@@ -222,6 +222,10 @@ body {
   position: relative;
   top: 10px;
 }
+.moreinfo .btnFilmsPourEnfants:hover {
+  cursor: pointer;
+  background-color: #0472a5;
+}
 
 .moreinfo {
   font-size: 2.5em;

@@ -62,6 +62,7 @@ function SelectionByAge(props) {
         <MySelectionOfMoviesList
           arrayResult={arrayDataFilter}
           movieLiked={like}
+          handleLike={handleLike}
         />
       </div>
     </article>
