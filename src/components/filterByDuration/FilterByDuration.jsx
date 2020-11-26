@@ -11,20 +11,27 @@ class FilterByDuration extends React.Component {
     const { url } = match;
 
     return (
-      <form className="container" onSubmit={this.handleSubmit}>
+      <form className="FilterByDuration" onSubmit={this.handleSubmit}>
         <h2>Je planifie ma soirée</h2>
-        <InputFormField
-          name="startTime"
-          value={startTime}
-          onChange={handleChange}
-        >
-          De :
-        </InputFormField>
-        <InputFormField name="endTime" value={endTime} onChange={handleChange}>
-          à :
-        </InputFormField>
-
-        <ButtonFormField url={url} startTime={startTime} endTime={endTime} />
+        <article className="areaOfForm">
+          <InputFormField
+            id="startTime"
+            name="startTime"
+            value={startTime}
+            onChange={handleChange}
+          >
+            Début du film à :
+          </InputFormField>
+          <InputFormField
+            id="endTime"
+            name="endTime"
+            value={endTime}
+            onChange={handleChange}
+          >
+            Fin du film à :
+          </InputFormField>
+          <ButtonFormField url={url} startTime={startTime} endTime={endTime} />
+        </article>
       </form>
     );
   }

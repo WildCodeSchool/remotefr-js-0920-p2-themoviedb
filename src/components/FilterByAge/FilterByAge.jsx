@@ -22,15 +22,13 @@ class FilterByAge extends React.Component {
     const { match } = this.props;
     return (
       <article className={stylesFilterByAge.FilterByAge}>
-        <div className={stylesFilterByAge.bigButton}>En Famille</div>
+        <h2>En Famille</h2>
         <div className={stylesFilterByAge.bigButton}>
-          <p>Sélectionner l&apos;age du plus jeune</p>
+          <p>Sélectionner l&apos;âge du plus jeune</p>
           <AgeOfTheYoungest handleChange={this.handleChange} value={ageValue} />
-
           <Link to={`${match.url}/age-${ageValue}/Selection`} title="">
-            Suivant
+            <button type="button">Suivant</button>
           </Link>
-          <p> </p>
         </div>
       </article>
     );

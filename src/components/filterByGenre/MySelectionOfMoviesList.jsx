@@ -9,7 +9,7 @@ function MySelectionOfMoviesList(props) {
 
   return (
     <div className="MySelectionOfMoviesList">
-      <h2>Ma selection de film : </h2>
+      <h2>Tu as choisi&nbsp;: </h2>
       <div className="MySelectionOfMovie">
         {movieLiked.map((singleMovie) => (
           <MySelectionOfMovies
@@ -22,7 +22,9 @@ function MySelectionOfMoviesList(props) {
             posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${singleMovie.poster_path}`}
           />
         ))}
-        <Link to="/partage">Envoyer ma sélection</Link>
+        <button type="button" className="btn">
+          <Link to="/partage">Envoie ta sélection&nbsp;!</Link>
+        </button>
       </div>
     </div>
   );

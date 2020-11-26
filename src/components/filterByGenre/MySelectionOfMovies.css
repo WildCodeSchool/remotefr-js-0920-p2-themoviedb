@@ -1,22 +1,11 @@
-.cover {
-  width: 20%;
-  align-self: center;
-}
-.filmtitle {
-  align-self: center;
-}
-
 .MySelectionOfMovies {
-  /* flex-grow: 1;
-  width: 19%;
-  align-content: center; */
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   position: relative;
   top: 0;
-  width: 6.6em;
+  width: 22em;
   padding: 1%;
   color: #111;
   font-family: 'Montserrat', sans-serif;
@@ -24,10 +13,8 @@
   font-weight: bold;
   text-align: center;
 }
-
-.MySelectionOfMovies:hover {
-  background-color: #fff;
-  cursor: pointer;
+.MySelectionOfMovies p {
+  font-size: 2em;
 }
 .MySelectionOfMovies img {
   width: 100%;
