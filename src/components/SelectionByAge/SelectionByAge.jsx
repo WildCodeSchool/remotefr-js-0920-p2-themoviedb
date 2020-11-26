@@ -48,7 +48,7 @@ function SelectionByAge(props) {
   }, [firstResult, lastResult, MovieListForAge]);
 
   return (
-    <article className="Selection">
+    <article className="SelectionKids">
       <h2 className="pGenre">{`Tu as ${age} ans, cette sélection est faite pour toi`}</h2>
       <div className="SelectionByAge">
         <SelectUserList
