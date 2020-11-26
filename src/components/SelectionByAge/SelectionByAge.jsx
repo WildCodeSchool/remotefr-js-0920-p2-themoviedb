@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import apiKey from '../apiKey';
 import MySelectionOfMoviesList from '../filterByGenre/MySelectionOfMoviesList';
 import SelectUserList from '../filterByGenre/SelectUserList';
 import './SelectionByAge.css';

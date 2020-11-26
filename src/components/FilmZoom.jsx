@@ -1,15 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
+import axios from 'axios';
+import apiKey from './apiKey';
 
 class FilmZoom extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      streaming: {},
+    };
   }
+
+  getWatchProvidersMovie = () => {
+    const { id } = this.props;
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${apiKey}`,
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        if (data.results.FR !== undefined) {
+          this.setState({ streaming: data.results.FR });
+        }
+      });
+  };
+
+  componentDidMount = () => {
+    this.getWatchProvidersMovie();
+  };
 
   render() {
     const { titre, poster, synopsis, note } = this.props;
+    const { streaming } = this.state;
+
     return (
       <cards className="moreinfo">
         <h3 className="leTitre">
@@ -32,7 +56,39 @@ class FilmZoom extends React.Component {
           />
         </h3>
         <article>
-          <p className="resume">{synopsis}</p>
+          <div>
+            <p className="resume">{synopsis}</p>
+            <h4>Disponible en vente :</h4>
+            {streaming.buy === undefined
+              ? 'Information non disponible'
+              : streaming.buy.map((m) => (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
+                    alt={m.provider_name}
+                    className="logo"
+                  />
+                ))}
+            <h4>Disponible en location :</h4>
+            {streaming.rent === undefined
+              ? 'Information non disponible'
+              : streaming.rent.map((m) => (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
+                    alt={m.provider_name}
+                    className="logo"
+                  />
+                ))}
+            <h4>Disponible en streaming :</h4>
+            {streaming.flatrate === undefined
+              ? 'Information non disponible'
+              : streaming.flatrate.map((m) => (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
+                    alt={m.provider_name}
+                    className="logo"
+                  />
+                ))}
+          </div>
           <img
             alt="Cover"
             className="affiche"
@@ -48,6 +104,9 @@ FilmZoom.propTypes = {
   poster: PropTypes.string.isRequired,
   synopsis: PropTypes.string.isRequired,
   note: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
+
+FilmZoom.defaultProps = {};
 
 export default FilmZoom;
