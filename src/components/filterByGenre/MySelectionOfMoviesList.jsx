@@ -43,7 +43,7 @@ class MySelectionOfMoviesList extends React.Component {
   };
 
   render() {
-    const { movieLiked } = this.props;
+    const { movieLiked, handleLike } = this.props;
     const { share } = this.state;
     return (
       <div className="MySelectionOfMoviesList">
@@ -55,6 +55,8 @@ class MySelectionOfMoviesList extends React.Component {
               title={singleMovie.title}
               posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${singleMovie.poster_path}`}
               tagline={singleMovie.tagline}
+              handleLike={handleLike}
+              movie={singleMovie}
             />
           ))}
           <button type="button" className="btn" onClick={this.handleClickSend}>
@@ -91,6 +93,7 @@ MySelectionOfMoviesList.propTypes = {
       id: PropTypes.number,
     }),
   ),
+  handleLike: PropTypes.func.isRequired,
 };
 
 MySelectionOfMoviesList.defaultProps = {

@@ -12,7 +12,7 @@ function SelectionByAge(props) {
   const { url } = match;
   const dataUrl = url.split('/');
   // get age select
-  const age = parseInt(dataUrl[3].slice(-1), 10);
+  const age = parseInt(dataUrl[3].replace(/age-/g, ''), 10);
 
   // get the list of movies from the API by age
   const [MovieListForAge, setMovieListForAge] = useState([]);
@@ -48,7 +48,7 @@ function SelectionByAge(props) {
   }, [firstResult, lastResult, MovieListForAge]);
 
   return (
-    <article className="Selection">
+    <article className="SelectionKids">
       <h2 className="pGenre">{`Tu as ${age} ans, cette sélection est faite pour toi`}</h2>
       <div className="SelectionByAge">
         <SelectUserList

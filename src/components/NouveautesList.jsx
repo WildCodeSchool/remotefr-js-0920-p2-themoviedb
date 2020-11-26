@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Nouveautes from './Nouveautes';
+import MySelectionOfMoviesList from './filterByGenre/MySelectionOfMoviesList';
 import styles from './NouveautesList.module.css';
 import apiKey from './apiKey';
 
@@ -88,6 +90,7 @@ class NouveautesList extends React.Component {
 
   render() {
     const { listNewMovies, titleGenre } = this.state;
+    const { like, handleLike } = this.props;
 
     return (
       <article className={styles.NouveautesList}>
@@ -101,6 +104,8 @@ class NouveautesList extends React.Component {
               voteAverage={newMovie.vote_average}
               overview={newMovie.overview}
               key={newMovie.title}
+              handleLike={handleLike}
+              movie={newMovie}
             />
           ))}
         </div>
@@ -161,13 +166,30 @@ class NouveautesList extends React.Component {
             Western
           </button>
         </div>
+        <MySelectionOfMoviesList
+          arrayResult={listNewMovies}
+          movieLiked={like}
+          handleLike={handleLike}
+        />
       </article>
     );
   }
 }
 
+NouveautesList.propTypes = {
+  handleLike: PropTypes.func.isRequired,
+  like: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      first_air_date: PropTypes.string,
+      genre_ids: PropTypes.arrayOf(PropTypes.number),
+      id: PropTypes.number,
+    }),
+  ),
+};
+
 NouveautesList.defaultProps = {
-  titleGenre: '',
+  like: [],
 };
 
 export default NouveautesList;
