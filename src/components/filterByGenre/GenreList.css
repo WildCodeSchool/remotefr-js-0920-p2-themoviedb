@@ -79,13 +79,17 @@
   font-size: 0.8em;
   position: relative;
 }
-.FilterByGenre .MySelectionOfMoviesList .delete {
+.MySelectionOfMoviesList .delete {
   width: 32%;
   max-width: 100%;
   margin: 0.5%;
   padding: 0.3em 0;
-  font-size: 4em;
+  font-size: 3em !important;
   position: relative;
+  cursor: pointer;
+}
+.MySelectionOfMoviesList .delete:hover {
+  color: #333;
 }
 
 @media only screen and (min-width: 80em) {
