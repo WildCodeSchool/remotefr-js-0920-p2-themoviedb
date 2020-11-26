@@ -58,15 +58,7 @@ class SendMovies extends React.Component {
       <article className={styles.SendMovies}>
         <h2>
           J’ai choisi, <br />
-          je&nbsp;partage&nbsp;!{' '}
-          <button
-            type="button"
-            onClick={this.closeSendMovies}
-            onKeyDown={this.closeSendMoviesByKeyboard}
-            className={styles.close}
-          >
-            <img src="/fermer.svg" alt="Fermer la fenêtre d'envoi" />
-          </button>
+          je&nbsp;partage&nbsp;!
         </h2>
         <div className={styles.areaOfSendForm}>
           <form onSubmit={this.handleSubmit}>
