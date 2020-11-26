@@ -185,6 +185,7 @@ class Filmchoice extends React.Component {
                     poster={zoomFilm.poster_path}
                     synopsis={zoomFilm.overview}
                     note={zoomFilm.vote_average}
+                    id={zoomFilm.id}
                   />
                 )}
               </div>

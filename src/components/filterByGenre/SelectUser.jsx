@@ -56,6 +56,7 @@ function SelectUser(props) {
               poster={zoomFilm.poster_path}
               synopsis={zoomFilm.overview}
               note={zoomFilm.vote_average}
+              id={zoomFilm.id}
             />
           )}
           <button
