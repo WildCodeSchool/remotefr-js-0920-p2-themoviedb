@@ -43,6 +43,7 @@ class Nouveautes extends React.Component {
       voteAverage,
       handleLike,
       movie,
+      id,
     } = this.props;
     const { zoomFilm, favorite } = this.state;
     return (
@@ -85,6 +86,7 @@ class Nouveautes extends React.Component {
                 poster={posterPath}
                 synopsis={overview}
                 note={voteAverage}
+                id={id}
               />
             )}
           </div>
@@ -100,6 +102,7 @@ Nouveautes.propTypes = {
   overview: PropTypes.string.isRequired,
   voteAverage: PropTypes.number.isRequired,
   handleLike: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
   movie: PropTypes.shape({
     backdrop_path: PropTypes.string,
   }).isRequired,

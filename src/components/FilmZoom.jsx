@@ -58,9 +58,9 @@ class FilmZoom extends React.Component {
         <article>
           <div>
             <p className="resume">{synopsis}</p>
-            <h4>Disponible en vente :</h4>
+            {streaming.buy === undefined ? '' : <h4>Disponible en vente :</h4>}
             {streaming.buy === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.buy.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -68,9 +68,13 @@ class FilmZoom extends React.Component {
                     className="logo"
                   />
                 ))}
-            <h4>Disponible en location :</h4>
+            {streaming.rent === undefined ? (
+              ''
+            ) : (
+              <h4>Disponible en location :</h4>
+            )}
             {streaming.rent === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.rent.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -78,9 +82,13 @@ class FilmZoom extends React.Component {
                     className="logo"
                   />
                 ))}
-            <h4>Disponible en streaming :</h4>
+            {streaming.flatrate === undefined ? (
+              ''
+            ) : (
+              <h4>Disponible en streaming :</h4>
+            )}
             {streaming.flatrate === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.flatrate.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
