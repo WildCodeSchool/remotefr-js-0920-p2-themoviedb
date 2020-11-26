@@ -14,29 +14,25 @@ class FilmZoom extends React.Component {
 
   getWatchProvidersMovie = () => {
     const { id } = this.props;
-    console.log(id);
-
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${apiKey}`,
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log('data.result', data.results.FR);
-        this.setState({ streaming: data.results.FR });
+        if (data.results.FR !== undefined) {
+          this.setState({ streaming: data.results.FR });
+        }
       });
   };
 
   componentDidMount = () => {
-    console.log('componentDidMount');
     this.getWatchProvidersMovie();
   };
 
   render() {
     const { titre, poster, synopsis, note } = this.props;
     const { streaming } = this.state;
-
-    console.log(streaming);
 
     return (
       <cards className="moreinfo">
@@ -64,7 +60,7 @@ class FilmZoom extends React.Component {
             <p className="resume">{synopsis}</p>
             <h4>Disponible en vente :</h4>
             {streaming.buy === undefined
-              ? ''
+              ? 'Information non disponible'
               : streaming.buy.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -74,7 +70,7 @@ class FilmZoom extends React.Component {
                 ))}
             <h4>Disponible en location :</h4>
             {streaming.rent === undefined
-              ? ''
+              ? 'Information non disponible'
               : streaming.rent.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -84,7 +80,7 @@ class FilmZoom extends React.Component {
                 ))}
             <h4>Disponible en streaming :</h4>
             {streaming.flatrate === undefined
-              ? ''
+              ? 'Information non disponible'
               : streaming.flatrate.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
