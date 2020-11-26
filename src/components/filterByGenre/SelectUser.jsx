@@ -14,7 +14,14 @@ const customStyles = {
 
 function SelectUser(props) {
   // handleLike={handleLike}
-  const { posterPath, originalTitle, originalName, movie, handleLike } = props;
+  const {
+    posterPath,
+    originalTitle,
+    originalName,
+    movie,
+    handleLike,
+    linkToMovieForKids,
+  } = props;
 
   const title = originalTitle === '' ? originalName : originalTitle;
 
@@ -62,6 +69,7 @@ function SelectUser(props) {
               synopsis={zoomFilm.overview}
               note={zoomFilm.vote_average}
               id={zoomFilm.id}
+              linkToMovieForKids={linkToMovieForKids}
             />
           )}
           <button
@@ -83,11 +91,13 @@ SelectUser.propTypes = {
   originalName: PropTypes.string,
   movie: PropTypes.shape().isRequired,
   handleLike: PropTypes.func.isRequired,
+  linkToMovieForKids: PropTypes.string,
 };
 
 SelectUser.defaultProps = {
   originalTitle: '',
   originalName: '',
+  linkToMovieForKids: undefined,
 };
 
 export default SelectUser;

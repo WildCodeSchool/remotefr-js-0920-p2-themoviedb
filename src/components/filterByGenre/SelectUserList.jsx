@@ -5,7 +5,7 @@ import './GenreList.css';
 import './SelectUserList.css';
 
 function SelectUserList(props) {
-  const { arrayResult, handleLike, Increment } = props;
+  const { arrayResult, handleLike, Increment, linkToMovieForKids } = props;
 
   return (
     <div className="SelectUserList">
@@ -21,6 +21,7 @@ function SelectUserList(props) {
               posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${movie.poster_path}`}
               movie={movie}
               handleLike={handleLike}
+              linkToMovieForKids={linkToMovieForKids}
             />
           ))}
       </div>
@@ -40,6 +41,11 @@ SelectUserList.propTypes = {
   ).isRequired,
   handleLike: PropTypes.func.isRequired,
   Increment: PropTypes.func.isRequired,
+  linkToMovieForKids: PropTypes.string,
+};
+
+SelectUserList.defaultProps = {
+  linkToMovieForKids: undefined,
 };
 
 export default SelectUserList;
