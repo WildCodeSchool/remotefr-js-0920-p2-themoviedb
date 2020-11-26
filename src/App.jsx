@@ -16,6 +16,7 @@ import SendMovies from './components/SendMovies';
 import WithWhoList from './components/filterByWho/WithWhoList';
 import FilterByAge from './components/FilterByAge/FilterByAge';
 import ListEmotions from './components/FilterByEmotion/ListEmotion';
+import SelectionByAge from './components/SelectionByAge/SelectionByAge';
 
 const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
 
@@ -103,6 +104,10 @@ class App extends React.Component {
 
           <Route path="/nouveautes">
             <NouveautesList listNewMovies={listNewMovies} />
+          </Route>
+
+          <Route path="/jeveuxtrouver/En-Famille/:Age/Selection">
+            <SelectionByAge handleLike={this.handleLike} like={like} />
           </Route>
 
           <Route path="/jeveuxtrouver/:who/:duree/:genre">
