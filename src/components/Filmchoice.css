@@ -178,11 +178,11 @@ body {
   margin-bottom: 0%;
 }
 
-.evaluation {
+.research .evaluation {
   width: 100%;
 }
 
-.delete {
+.research .delete {
   width: 10%;
   background-color: transparent;
   padding: 0;
@@ -209,11 +209,18 @@ body {
   padding-left: 1em;
   display: flex !important;
   flex-wrap: nowrap;
+  font-size: 0.3em;
 }
 .moreinfo .evaluation img {
   position: relative;
-  top: -15px;
   width: auto;
+}
+.moreinfo .evaluation > span > span {
+  position: relative;
+}
+.moreinfo .evaluation > span {
+  position: relative;
+  top: 10px;
 }
 
 .moreinfo {
