@@ -103,7 +103,11 @@ class App extends React.Component {
           </Route>
 
           <Route path="/nouveautes">
-            <NouveautesList listNewMovies={listNewMovies} />
+            <NouveautesList
+              listNewMovies={listNewMovies}
+              handleLike={this.handleLike}
+              like={like}
+            />
           </Route>
 
           <Route path="/jeveuxtrouver/En-Famille/:Age/Selection">
