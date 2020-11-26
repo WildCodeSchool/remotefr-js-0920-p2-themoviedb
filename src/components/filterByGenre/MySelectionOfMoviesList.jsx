@@ -59,6 +59,9 @@ class MySelectionOfMoviesList extends React.Component {
               movie={singleMovie}
             />
           ))}
+          <button type="button" className="btn" onClick={this.handleClickSend}>
+            Envoie ta sélection&nbsp;!
+          </button>
         </div>
         <Modal
           isOpen={!!share}
