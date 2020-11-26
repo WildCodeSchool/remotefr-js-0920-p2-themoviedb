@@ -268,6 +268,17 @@ body {
   padding-bottom: 50vh;
 }
 
+.moreinfo > article > div > a > button {
+  width: 100%;
+  background-color: rgb(0, 103, 129);
+  color: #fff;
+  border: none;
+  font-family: 'Mouse Memoirs', sans-serif;
+  margin-top: 0.5em;
+  font-size: 1em;
+  padding: 0.3em;
+}
+
 @media only screen and (min-width: 768px) {
   .moreinfo h3 {
     padding-left: 1em;
