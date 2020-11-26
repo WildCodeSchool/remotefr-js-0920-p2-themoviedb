@@ -295,6 +295,9 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
+  .moreinfo > article > div {
+    padding-bottom: 70vh;
+  }
   .moreinfo h3 {
     padding-left: 1em;
     padding-bottom: 0;
@@ -331,9 +334,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .moreinfo h3 {
-    padding-bottom: 0.1em;
-  }
   .view {
     display: flex;
     flex-direction: row;
