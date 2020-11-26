@@ -39,13 +39,19 @@ class Filmchoice extends React.Component {
    * enturer formulaire ave div  et map sur le tableau dans le state
    */
 
-  fetchMovie = (event) => {
-    event.preventDefault();
-    this.setState({ clicked: 'view' });
-    const { value } = this.state;
-    const url = `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${apiKey}`;
-    axios.get(url).then((response) => {
-      this.setState({ results: response.data.results });
+  handleclick() {
+    this.setState({ share: true });
+  }
+
+  moreInfo = (liked) => {
+    this.setState({
+      zoomFilm: liked,
+    });
+  };
+
+  closeSendMovies = () => {
+    this.setState({
+      share: false,
     });
   };
 
@@ -60,16 +66,14 @@ class Filmchoice extends React.Component {
     });
   };
 
-  moreInfo = (liked) => {
-    this.setState({
-      zoomFilm: liked,
-    });
-  };
+  fetchMovie = (event) => {
+    event.preventDefault();
+    this.setState({ clicked: 'view' });
+    const { value } = this.state;
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=fr&query=${value}&page=1&include_adult=false`;
 
-
-  closeSendMovies = () => {
-    this.setState({
-      share: false,
+    axios.get(url).then((response) => {
+      this.setState({ results: response.data.results });
     });
   };
 
@@ -81,13 +85,8 @@ class Filmchoice extends React.Component {
     }
   };
 
-
   movieSearch(event) {
     this.setState({ value: event.target.value });
-  }
-
-  handleclick() {
-    this.setState({ share: true });
   }
 
   render() {
@@ -157,7 +156,7 @@ class Filmchoice extends React.Component {
           </div>
 
           {/* film selectionné */}
-          <h2 className={choosenOne}> Les Elus </h2>
+          <h2 className={choosenOne}> Ma sélection </h2>
           <div className="theOne">
             {like.map((liked) => (
               <cards className="filmview">
@@ -206,9 +205,6 @@ class Filmchoice extends React.Component {
                 </button>
               </cards>
             ))}
-            <button type="button" className="btn" onClick={this.handleclick}>
-              Envoie ta sélection
-            </button>
 
             <Modal
               isOpen={!!share}
@@ -244,6 +240,13 @@ class Filmchoice extends React.Component {
               </div>
             </Modal>
           </div>
+          <button
+            type="button"
+            className="btnchoice"
+            onClick={this.handleclick}
+          >
+            Envoie ta sélection
+          </button>
         </div>
       </div>
     );

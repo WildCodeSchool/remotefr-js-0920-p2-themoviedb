@@ -7,7 +7,7 @@ import AgeOfTheYoungest from './AgeOfTheYoungest';
 class FilterByAge extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ageValue: 1 };
+    this.state = { ageValue: 2 };
     this.handleChange = this.handleChange.bind(this);
   }
 
