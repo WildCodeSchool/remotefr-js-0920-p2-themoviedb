@@ -36,7 +36,14 @@ class Nouveautes extends React.Component {
   };
 
   render() {
-    const { title, posterPath, overview, voteAverage } = this.props;
+    const {
+      title,
+      posterPath,
+      overview,
+      voteAverage,
+      handleLike,
+      movie,
+    } = this.props;
     const { zoomFilm, favorite } = this.state;
     return (
       <div className={styles.newMovies}>
@@ -57,7 +64,10 @@ class Nouveautes extends React.Component {
           type="button"
           title="Ajouter à mes favoris"
           className={styles.favoriteSelected}
-          onClick={this.setFavorite}
+          onClick={() => {
+            this.setFavorite();
+            handleLike(movie);
+          }}
         >
           <span className={styles.favoriteHeart}>{favorite ? '💗' : '💛'}</span>
         </button>
@@ -89,6 +99,10 @@ Nouveautes.propTypes = {
   posterPath: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
   voteAverage: PropTypes.number.isRequired,
+  handleLike: PropTypes.func.isRequired,
+  movie: PropTypes.shape({
+    backdrop_path: PropTypes.string,
+  }).isRequired,
 };
 
 export default Nouveautes;

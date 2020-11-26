@@ -26,7 +26,7 @@ class FilterByAge extends React.Component {
         <div className={stylesFilterByAge.bigButton}>
           <p>Sélectionner l&apos;âge du plus jeune</p>
           <AgeOfTheYoungest handleChange={this.handleChange} value={ageValue} />
-          <Link to={`${match.url}/age-${ageValue}/`} title="">
+          <Link to={`${match.url}/age-${ageValue}/Selection`} title="">
             <button type="button">Suivant</button>
           </Link>
         </div>

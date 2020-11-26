@@ -6,8 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 260%;
-  overflow-y: scroll;
+  padding-bottom: 200px;
 }
 
 .SendMovies h2 {
@@ -25,14 +24,17 @@
   padding-top: 10em;
   padding-bottom: 0.2em;
 }
-.SendMovies .close {
-  position: relative;
+.close {
+  position: absolute;
   width: 60px;
   transform: skewY(3deg);
   background: none;
   border: none;
+  z-index: 200;
+  right: 1%;
+  top: 2%;
 }
-.SendMovies .close img {
+.close img {
   width: 100%;
   cursor: pointer;
   padding-right: 0.5em;
@@ -44,7 +46,7 @@
   transition: filter 0.5s;
 }
 
-.SendMovies .close img:hover {
+.close img:hover {
   filter: brightness(0%);
   -webkit-filter: brightness(100%);
   -moz-filter: brightness(100%);
@@ -65,11 +67,14 @@
   margin-bottom: 0;
   padding-bottom: 3em;
   font-family: 'Monserrat', sans-serif;
+  position: relative;
+  overflow-y: auto;
 }
 
 .SendMovies .areaOfSendForm form {
   width: 98%;
   padding: 1em;
+  height: 120%;
 }
 
 .SendMovies .areaOfSendForm form div {
@@ -129,14 +134,17 @@
   text-align: center;
   margin: 0 0 1em 0;
 }
+.btnSend {
+  height: 2em;
+}
 
 @media only screen and (min-width: 60em) {
   .SendMovies h2 {
     top: -2em;
     height: 4em;
   }
-  .SendMovies .close {
-    top: 0em;
+  .close {
+    top: 1em;
   }
 }
 
