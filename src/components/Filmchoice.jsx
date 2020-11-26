@@ -70,7 +70,8 @@ class Filmchoice extends React.Component {
     event.preventDefault();
     this.setState({ clicked: 'view' });
     const { value } = this.state;
-    const url = `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=${apiKey}`;
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=fr&query=${value}&page=1&include_adult=false`;
+
     axios.get(url).then((response) => {
       this.setState({ results: response.data.results });
     });
