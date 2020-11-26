@@ -51,8 +51,9 @@ body {
 
 /** sugestions de résultats*/
 .resultat {
-  width: 30%;
-  margin-bottom: 3%;
+  width: 45%;
+  margin-bottom: 30%;
+  position: relative;
 }
 .titre {
   font-size: 70%;
@@ -67,7 +68,7 @@ body {
 .bouton {
   z-index: 10;
   border: none;
-
+  background-color: transparent;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -75,19 +76,19 @@ body {
   height: 16em;
 }
 .icon {
-  width: 80%;
+  width: auto;
+  height: 1.5em;
 }
 
 .rating {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  width: 100%;
 }
 .rating span {
   margin: 0;
   width: 15px;
 }
 .view {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -96,7 +97,8 @@ body {
   position: absolute;
   height: 100%;
   overflow-y: scroll;
-  background-color: #fff;
+  background-color: rgb(255, 238, 0);
+  z-index: 500;
 }
 
 /* séléction */
@@ -104,6 +106,8 @@ body {
 .selection {
   overflow-y: scroll;
   position: relative;
+  height: 150vh;
+  padding-bottom: 7vh;
 }
 .note {
   font-size: 60%;
@@ -114,9 +118,8 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: space-around;
   justify-content: center;
-  align-items: flex-start;
+
   height: 100vh;
   position: relative;
 
@@ -124,7 +127,7 @@ body {
 }
 .filmview {
   width: 40vw;
-  height: 35vh;
+  height: 25vh;
   background-color: rgb(255, 238, 0);
   background-size: 100%;
   display: flex;
@@ -134,7 +137,6 @@ body {
   margin: 2%;
   margin-bottom: 0;
   position: relative;
-
   margin-top: 0;
 }
 .cover {
@@ -145,8 +147,8 @@ body {
   margin: 0;
   color: black;
   font-size: 90%;
-  margin-bottom: 8%;
-  align-self: center;
+  margin-bottom: 10%;
+  right: 10%;
 }
 .more {
   height: 15vh;
@@ -155,10 +157,14 @@ body {
 .vote {
   margin: 0;
   align-self: center;
-
   font-size: 60%;
   margin-bottom: 0%;
 }
+
+.evaluation {
+  width: 100%;
+}
+
 .delete {
   width: 10%;
   background-color: transparent;
@@ -168,7 +174,8 @@ body {
   color: black;
   align-self: flex-start;
   position: absolute;
-  right: 1em;
+  right: 10%;
+  top: -1 em;
   text-align: right;
 }
 
@@ -270,14 +277,14 @@ body {
 }
 
 .visible {
-  text-align: center;
   background-color: black;
   color: white;
   width: 100%;
   margin-top: 0;
   margin-bottom: 0%;
+  font-size: 0.4em;
 
-  font-size: 0.5em;
+  text-align: center;
 }
 
 .more {
