@@ -12,11 +12,13 @@ class SelectGenre extends React.Component {
 
   componentDidMount = () => {
     const { id, genreFilmSelected } = this.props;
-    const genreName = genreFilmSelected.name;
-    const { selectGenre } = this.state;
-    const genre = !selectGenre;
-    if (id === genreName) {
-      this.setState({ selectGenre: genre });
+    if (genreFilmSelected !== undefined) {
+      const genreName = genreFilmSelected.name;
+      const { selectGenre } = this.state;
+      const genre = !selectGenre;
+      if (id === genreName) {
+        this.setState({ selectGenre: genre });
+      }
     }
   };
 
@@ -55,8 +57,12 @@ SelectGenre.propTypes = {
     name: PropTypes.string,
     movie_genres_ids: PropTypes.arrayOf(PropTypes.number),
     tv_genres_ids: PropTypes.arrayOf(PropTypes.number),
-  }).isRequired,
+  }),
   eventListener: PropTypes.func.isRequired,
+};
+
+SelectGenre.defaultProps = {
+  genreFilmSelected: undefined,
 };
 
 export default SelectGenre;

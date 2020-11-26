@@ -31,7 +31,7 @@ class FilmZoom extends React.Component {
   };
 
   render() {
-    const { titre, poster, synopsis, note } = this.props;
+    const { titre, poster, synopsis, note, linkToMovieForKids } = this.props;
     const { streaming } = this.state;
 
     return (
@@ -58,7 +58,18 @@ class FilmZoom extends React.Component {
         <article>
           <div>
             <p className="resume">{synopsis}</p>
+
+            {linkToMovieForKids === undefined ? (
+              ''
+            ) : (
+              <a href={linkToMovieForKids} title="">
+                <button type="button">Filmspourenfants.net</button>
+              </a>
+            )}
+            <h4>Disponible en vente :</h4>
+
             {streaming.buy === undefined ? '' : <h4>Disponible en vente :</h4>}
+
             {streaming.buy === undefined
               ? ''
               : streaming.buy.map((m) => (
@@ -108,13 +119,19 @@ class FilmZoom extends React.Component {
   }
 }
 FilmZoom.propTypes = {
-  titre: PropTypes.string.isRequired,
+  titre: PropTypes.string,
   poster: PropTypes.string.isRequired,
-  synopsis: PropTypes.string.isRequired,
-  note: PropTypes.number.isRequired,
+  synopsis: PropTypes.string,
+  note: PropTypes.number,
   id: PropTypes.number.isRequired,
+  linkToMovieForKids: PropTypes.string,
 };
 
-FilmZoom.defaultProps = {};
+FilmZoom.defaultProps = {
+  synopsis: undefined,
+  linkToMovieForKids: undefined,
+  titre: undefined,
+  note: undefined,
+};
 
 export default FilmZoom;
