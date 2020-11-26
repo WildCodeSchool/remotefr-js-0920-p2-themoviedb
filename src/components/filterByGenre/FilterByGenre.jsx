@@ -142,16 +142,6 @@ function FilterByGenre(props) {
     getIdsTVGenreAndMovieList(genreOfFilmSelected);
   };
 
-  // const [like, handleLike] = useState([]);
-  // const handleLike = (movId) => {
-  //   setLike((prevState) => {
-  //     const newLike = prevState.includes(movId)
-  //       ? prevState.filter((m) => m !== movId)
-  //       : [...prevState, movId];
-  //     return newLike;
-  //   });
-  // };
-
   useEffect(() => {
     getIdsMovieGenreAndMovieList(SelectGenre);
     getIdsTVGenreAndMovieList(SelectGenre);
@@ -171,7 +161,11 @@ function FilterByGenre(props) {
         Increment={Increment}
       />
 
-      <MySelectionOfMoviesList arrayResult={arrayResult} movieLiked={like} />
+      <MySelectionOfMoviesList
+        arrayResult={arrayResult}
+        movieLiked={like}
+        handleLike={handleLike}
+      />
     </div>
   );
 }
