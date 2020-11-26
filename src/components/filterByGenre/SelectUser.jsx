@@ -7,6 +7,9 @@ const customStyles = {
   overlay: {
     zIndex: 100,
   },
+  content: {
+    padding: 0,
+  },
 };
 
 function SelectUser(props) {
@@ -24,7 +27,7 @@ function SelectUser(props) {
 
   return (
     <div className="SelectUser">
-      <button type="button" className="more" onClick={() => OpenModal(movie)}>
+      <button type="button" onClick={() => OpenModal(movie)}>
         <img src={posterPath} alt="filmcover" className="cover" />
         <p className="titre">{title}</p>
       </button>
@@ -36,7 +39,9 @@ function SelectUser(props) {
           handleLike(movie);
         }}
       >
-        <span className={favorite ? 'is-favorite' : ''}>&#9733;</span>
+        <span className={favorite ? 'is-favorite' : ''}>
+          {favorite ? '💗' : '💛'}
+        </span>
       </button>
 
       <Modal

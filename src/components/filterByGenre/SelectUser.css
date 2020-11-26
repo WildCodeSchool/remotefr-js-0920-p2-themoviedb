@@ -1,33 +1,43 @@
 .SelectUser {
-  /* flex-grow: 1;
-  width: 19%;
-  align-content: center; */
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-end;
   justify-content: flex-start;
   position: relative;
   top: 0;
   width: 6.6em;
   padding: 1%;
   color: #111;
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.45em;
-  font-weight: bold;
   text-align: center;
+  background: none;
+  border: none;
 }
-
+.SelectUser button:first-child {
+  padding: 0.2em;
+}
+.SelectUser button:first-child:hover {
+  background-color: #fff;
+}
 .SelectUser:hover {
   background-color: #fff;
+  cursor: pointer;
+}
+
+.SelectUser button {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 .SelectUser img {
   width: 100%;
   padding: 0 0 0.2em 0;
 }
+
 .SelectUser p {
-  padding: 0;
-  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 @media only screen and (min-width: 80em) {
@@ -37,10 +47,16 @@
   }
 }
 
-span {
-  color: gray;
+.SelectUser span {
+  position: absolute;
+  top: -0.3em;
+  right: 0.5em;
+  margin-top: 0em;
+  font-size: 2em;
+  width: 40%;
+  opacity: 0.8;
 }
 
-span.is-favorite {
+.SelectUser span.is-favorite {
   color: red;
 }

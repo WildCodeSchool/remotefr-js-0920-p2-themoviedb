@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 1em;
   margin-bottom: 0;
@@ -40,15 +40,10 @@
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
   cursor: pointer;
 }
+.MySelectionOfMoviesList .MySelectionOfMovie .btn a {
+  color: inherit;
+}
 
 .MySelectionOfMoviesList .MySelectionOfMovie .btn:hover {
   background-color: #0472a5;
-}
-
-.cover {
-  width: 20%;
-  align-self: center;
-}
-.filmtitle {
-  align-self: center;
 }
