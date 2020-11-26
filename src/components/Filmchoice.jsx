@@ -39,10 +39,6 @@ class Filmchoice extends React.Component {
    * enturer formulaire ave div  et map sur le tableau dans le state
    */
 
-  handleclick() {
-    this.setState({ share: true });
-  }
-
   moreInfo = (liked) => {
     this.setState({
       zoomFilm: liked,
@@ -84,6 +80,10 @@ class Filmchoice extends React.Component {
       });
     }
   };
+
+  handleclick() {
+    this.setState({ share: true });
+  }
 
   movieSearch(event) {
     this.setState({ value: event.target.value });

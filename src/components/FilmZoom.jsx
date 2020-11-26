@@ -66,7 +66,6 @@ class FilmZoom extends React.Component {
                 <button type="button">Filmspourenfants.net</button>
               </a>
             )}
-            <h4>Disponible en vente :</h4>
 
             {streaming.buy === undefined ? '' : <h4>Disponible en vente :</h4>}
 
