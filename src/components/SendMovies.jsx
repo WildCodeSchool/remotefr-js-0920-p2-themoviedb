@@ -14,7 +14,7 @@ class SendMovies extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    alert('Ton message a bien été envoyé à tes amis ! Bonne soirée film ;)');
+    // alert('Ton message a bien été envoyé à tes amis ! Bonne soirée film ;)');
   };
 
   handleChange = (event) => {

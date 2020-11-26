@@ -83,7 +83,14 @@ class MySelectionOfMoviesList extends React.Component {
 }
 
 MySelectionOfMoviesList.propTypes = {
-  movieLiked: PropTypes.arrayOf(PropTypes.number),
+  movieLiked: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ),
 };
 
 MySelectionOfMoviesList.defaultProps = {

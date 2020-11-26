@@ -188,7 +188,14 @@ FilterByGenre.propTypes = {
     }),
   }).isRequired,
   handleLike: PropTypes.func.isRequired,
-  like: PropTypes.arrayOf(PropTypes.number),
+  like: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      first_air_date: PropTypes.string,
+      genre_ids: PropTypes.arrayOf(PropTypes.number),
+      id: PropTypes.number,
+    }),
+  ),
 };
 
 FilterByGenre.defaultProps = {

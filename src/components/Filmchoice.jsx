@@ -66,6 +66,7 @@ class Filmchoice extends React.Component {
     });
   };
 
+
   closeSendMovies = () => {
     this.setState({
       share: false,
@@ -79,6 +80,7 @@ class Filmchoice extends React.Component {
       });
     }
   };
+
 
   movieSearch(event) {
     this.setState({ value: event.target.value });
