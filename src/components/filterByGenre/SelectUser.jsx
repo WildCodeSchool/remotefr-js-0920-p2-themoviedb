@@ -53,11 +53,7 @@ function SelectUser(props) {
         <div className="details">
           {zoomFilm && (
             <Zoom
-              titre={
-                zoomFilm.original_title === ''
-                  ? zoomFilm.original_name
-                  : zoomFilm.original_title
-              }
+              titre={title !== '' ? title : zoomFilm.name}
               poster={zoomFilm.poster_path}
               synopsis={zoomFilm.overview}
               note={zoomFilm.vote_average}
