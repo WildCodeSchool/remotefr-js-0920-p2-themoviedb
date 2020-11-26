@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import MySelectionOfMovies from './MySelectionOfMovies';
 import './MySelectionOfMoviesList.css';
 
@@ -19,7 +20,7 @@ function MySelectionOfMoviesList(props) {
           />
         ))}
         <button type="button" className="btn">
-          Envoie ta sélection&nbsp;!
+          <Link to="/partage">Envoie ta sélection&nbsp;!</Link>
         </button>
       </div>
     </div>
