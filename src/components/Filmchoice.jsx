@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import apiKey from './apiKey';
 import FilmZoom from './FilmZoom';
 import SendMovies from './SendMovies';
+import styles from './SendMovies.module.css';
 
 const customStyles = {
   overlay: {
@@ -14,8 +15,7 @@ const customStyles = {
   },
   content: {
     overflow: 'hidden',
-    paddingLeft: 0,
-    paddingRight: 0,
+    padding: 0,
   },
 };
 
@@ -66,12 +66,28 @@ class Filmchoice extends React.Component {
     });
   };
 
-  handleclick() {
-    this.setState({ share: true });
-  }
+
+  closeSendMovies = () => {
+    this.setState({
+      share: false,
+    });
+  };
+
+  closeSendMoviesByKeyboard = (event) => {
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      this.setState({
+        share: false,
+      });
+    }
+  };
+
 
   movieSearch(event) {
     this.setState({ value: event.target.value });
+  }
+
+  handleclick() {
+    this.setState({ share: true });
   }
 
   render() {
@@ -200,6 +216,14 @@ class Filmchoice extends React.Component {
               style={customStyles}
               onRequestClose={() => this.setState({ share: null })}
             >
+              <button
+                type="button"
+                onClick={this.closeSendMovies}
+                onKeyDown={this.closeSendMoviesByKeyboard}
+                className={styles.close}
+              >
+                <img src="/fermer.svg" alt="Fermer la fenêtre d'envoi" />
+              </button>
               <SendMovies />
             </Modal>
             <Modal
