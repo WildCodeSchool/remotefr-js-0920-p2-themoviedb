@@ -39,10 +39,6 @@ class Filmchoice extends React.Component {
    * enturer formulaire ave div  et map sur le tableau dans le state
    */
 
-  handleclick() {
-    this.setState({ share: true });
-  }
-
   fetchMovie = (event) => {
     event.preventDefault();
     this.setState({ clicked: 'view' });
@@ -69,6 +65,10 @@ class Filmchoice extends React.Component {
       zoomFilm: liked,
     });
   };
+
+  handleclick() {
+    this.setState({ share: true });
+  }
 
   movieSearch(event) {
     this.setState({ value: event.target.value });

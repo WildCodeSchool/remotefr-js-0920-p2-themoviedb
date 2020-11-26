@@ -14,9 +14,12 @@ function MySelectionOfMoviesList(props) {
         {movieLiked.map((singleMovie) => (
           <MySelectionOfMovies
             key={singleMovie.id}
-            title={singleMovie.title}
+            title={
+              singleMovie.title === undefined
+                ? singleMovie.name
+                : singleMovie.title
+            }
             posterPath={`https://image.tmdb.org/t/p/w440_and_h660_face${singleMovie.poster_path}`}
-            tagline={singleMovie.tagline}
           />
         ))}
         <button type="button" className="btn">
@@ -28,7 +31,14 @@ function MySelectionOfMoviesList(props) {
 }
 
 MySelectionOfMoviesList.propTypes = {
-  movieLiked: PropTypes.arrayOf(PropTypes.number),
+  movieLiked: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ),
 };
 
 MySelectionOfMoviesList.defaultProps = {
