@@ -106,6 +106,7 @@ class NouveautesList extends React.Component {
               key={newMovie.title}
               handleLike={handleLike}
               movie={newMovie}
+              id={newMovie.id}
             />
           ))}
         </div>

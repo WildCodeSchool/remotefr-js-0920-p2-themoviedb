@@ -248,11 +248,20 @@ body {
   padding-left: 0.4em;
   padding-top: 2em;
   margin-bottom: 0.1em;
+  padding-bottom: 0.5em;
 }
 
 .moreinfo h3 .titre {
   text-align: left;
   padding-right: 4%;
+}
+
+.moreinfo h4 {
+  font-family: 'Mouse Memoirs', sans-serif;
+  margin: 7% 7% 0 7%;
+}
+.moreinfo .logo {
+  margin-left: 7%;
 }
 
 .moreinfo article {
@@ -273,7 +282,7 @@ body {
   font-family: 'Monserrat', sans-serif;
   font-size: 0.5em;
   text-align: justify;
-  width: 100%;
+  width: 86%;
   max-width: 800px;
   padding: 7%;
 }
@@ -286,8 +295,12 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
+  .moreinfo > article > div {
+    padding-bottom: 70vh;
+  }
   .moreinfo h3 {
     padding-left: 1em;
+    padding-bottom: 0;
   }
   .moreinfo .resume {
     padding: 1%;
