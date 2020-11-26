@@ -13,7 +13,9 @@ const customStyles = {
     zIndex: 100,
   },
   content: {
-    padding: 0,
+    overflow: 'hidden',
+    paddingLeft: 0,
+    paddingRight: 0,
   },
 };
 
