@@ -24,7 +24,7 @@
   font-size: 100%;
   padding-left: 1em;
   margin-bottom: 0.1em;
-  padding-top: 1.9em;
+  padding-top: 2.3em;
 }
 .FilterByGenre .GenreList h2 {
   font-size: 1.2em;
@@ -53,7 +53,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-content: flex-start;
   background-color: #111;
   color: #fff;

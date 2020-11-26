@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import styles from './SendMovies.module.css';
 
 const customStyles = {
@@ -93,7 +94,9 @@ class SendMovies extends React.Component {
               onKeyDown={this.closeSendMoviesByKeyboard}
               className={styles.close}
             >
-              <img src="/fermer.svg" alt="Fermer la fenêtre d'envoi" />
+              <Link to="/">
+                <img src="/fermer.svg" alt="Fermer la fenêtre d'envoi" />
+              </Link>
             </button>
           </h2>
           <div className={styles.areaOfSendForm}>
