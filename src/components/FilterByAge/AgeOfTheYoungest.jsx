@@ -8,7 +8,7 @@ function AgeOfTheYoungest(props) {
     <Slider
       name="ageValue"
       value={value}
-      min={1}
+      min={2}
       max={18}
       onChange={handleChange}
     />
