@@ -49,7 +49,7 @@ const Western = {
 const DATA_EMOTION_BY_WHO = {
   Family: {
     name: 'En Famille',
-    list_genres_name: [ComediesGenre, Cartoons, Fantasy],
+    list_genres_name: [ComediesGenre, Cartoons, Fantasy, Western],
   },
   Friends: {
     name: 'Entre amis',
@@ -68,7 +68,6 @@ const DATA_EMOTION_BY_WHO = {
       Thriller,
       Fantasy,
       WarHistory,
-      Western,
     ],
   },
 };
