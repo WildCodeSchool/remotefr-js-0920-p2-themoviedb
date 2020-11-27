@@ -1,0 +1,206 @@
+.SendMovies {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -11em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 200px;
+}
+
+.SendMovies h2 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 3em;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 10em;
+  padding-bottom: 0.2em;
+}
+.close {
+  position: absolute;
+  width: 60px;
+  transform: skewY(3deg);
+  background: none;
+  border: none;
+  z-index: 200;
+  right: 1%;
+  top: 2%;
+}
+.close img {
+  width: 100%;
+  cursor: pointer;
+  padding-right: 0.5em;
+  filter: brightness(50%);
+  -webkit-filter: brightness(0%);
+  -moz-filter: brightness(0%);
+  -o-filter: brightness(0%);
+  -ms-filter: brightness(0%);
+  transition: filter 0.5s;
+}
+
+.close img:hover {
+  filter: brightness(0%);
+  -webkit-filter: brightness(100%);
+  -moz-filter: brightness(100%);
+  -o-filter: brightness(100%);
+  -ms-filter: brightness(100%);
+  transition: filter 0.5s;
+}
+
+.SendMovies .areaOfSendForm {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+  padding-bottom: 3em;
+  font-family: 'Monserrat', sans-serif;
+  position: relative;
+  overflow-y: auto;
+}
+
+.SendMovies .areaOfSendForm form {
+  width: 98%;
+  padding: 1em;
+  height: 120%;
+}
+
+.SendMovies .areaOfSendForm form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 0 0.5em 0;
+}
+
+.SendMovies .areaOfSendForm form label {
+  width: 100%;
+  font-size: 0.5em;
+}
+
+.SendMovies .areaOfSendForm input,
+.SendMovies .areaOfSendForm textarea {
+  width: 98%;
+  padding: 1%;
+  font-size: 1em;
+  font-family: 'Monserrat', sans-serif;
+}
+
+.SendMovies .areaOfSendForm input {
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.SendMovies textarea {
+  height: 8em;
+  text-align: left;
+  resize: none;
+}
+
+.SendMovies .areaOfSendForm button {
+  width: 100%;
+  background-color: rgb(0, 103, 129);
+  color: #fff;
+  border: none;
+  font-family: 'Mouse Memoirs', sans-serif;
+  margin-top: 1em;
+  font-size: 1em;
+  padding: 0.3em;
+  -webkit-box-shadow: 0px 25px 20px 3px rgba(87, 37, 37, 0.3);
+  -moz-box-shadow: 0px 25px 20px 3px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
+  cursor: pointer;
+}
+
+.SendMovies .areaOfSendForm button:hover {
+  background-color: #0472a5;
+}
+
+.SendMovies .requiredFields {
+  font-size: 0.4em;
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+.btnSend {
+  height: 2em;
+}
+
+@media only screen and (min-width: 60em) {
+  .SendMovies h2 {
+    top: -2em;
+    height: 4em;
+  }
+  .close {
+    top: 1em;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .SendMovies {
+    top: -5em;
+    height: 200%;
+    overflow: hidden;
+  }
+
+  .SendMovies h2 {
+    padding-top: 100px;
+    font-size: 1.6em;
+    padding-bottom: 0;
+  }
+
+  .SendMovies .areaOfSendForm {
+    padding-bottom: 16em;
+  }
+
+  .SendMovies input,
+  .SendMovies textarea {
+    width: 40%;
+  }
+
+  .SendMovies .areaOfSendForm form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .SendMovies .areaOfSendForm form div:nth-child(1),
+  .SendMovies .areaOfSendForm form div:nth-child(2),
+  .SendMovies .areaOfSendForm form div:nth-child(3) {
+    width: 32%;
+  }
+  .SendMovies .areaOfSendForm form div:nth-child(2) {
+    margin: 0 1%;
+  }
+  .divEmail {
+    order: 1;
+  }
+  .divMessage {
+    order: 3;
+  }
+  .divEmails {
+    order: 2;
+  }
+  .btnSend {
+    order: 4;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .SendMovies {
+    overflow: scrollY;
+  }
+}

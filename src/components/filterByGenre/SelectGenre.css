@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
+
+.divButtons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-start;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  top: 0;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.divButtons .btn {
+  cursor: pointer;
+  border: none;
+  padding: 0.5em;
+  margin: 0 1em 0.5em 0;
+}
+.divButtons .btn:hover {
+  background-color: rgb(0, 103, 129);
+}
+
+.divButtons .status-active {
+  background-color: #40e0d0;
+}
+.divButtons .status-active:hover {
+  color: #fff;
+}
+
+.status-inactive {
+  background-color: #808080;
+  opacity: 0.3;
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   height="49.269928"
+   width="474.15283"
+   id="svg48"
+   version="1.1"
+   viewBox="0 0 474.15284 49.269929">
+  <metadata
+     id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs52" />
+  <g
+     transform="rotate(7.0528955,472.14932,29.096655)"
+     id="g1050">
+    <path
+       id="path18"
+       fill-rule="evenodd"
+       d="M 470.49595,0 0,58.19331 6.1187,107.0646 476.61465,48.87128 Z"
+       style="stroke-width:0.999999" />
+    <path
+       id="path20"
+       fill-rule="evenodd"
+       fill="#ffffff"
+       d="M 470.28164,46.88001 425.26576,52.44757 396.13851,11.96901 441.1544,6.40145 Z"
+       style="stroke-width:0.640811" />
+    <path
+       id="path22"
+       fill-rule="evenodd"
+       fill="#ffffff"
+       d="M 355.01074,61.1367 309.99485,66.70426 280.86761,26.2257 325.8835,20.65814 Z"
+       style="stroke-width:0.640811" />
+    <path
+       id="path24"
+       fill-rule="evenodd"
+       fill="#ffffff"
+       d="M 239.73983,75.39339 194.72395,80.96095 165.5967,40.48239 210.61259,34.91483 Z"
+       style="stroke-width:0.640811" />
+    <path
+       id="path26"
+       fill-rule="evenodd"
+       fill="#ffffff"
+       d="M 124.46893,89.65009 79.45304,95.21765 50.3258,54.73909 95.34168,49.17153 Z"
+       style="stroke-width:0.640811" />
+    <path
+       id="path28"
+       stroke-width="2.76636"
+       stroke="#ffffff"
+       fill-rule="evenodd"
+       fill="#ffffff"
+       d="M 40.44094,76.76528 A 9.9101905,9.850013 0.00570209 1 1 20.77295,79.19787 9.9101905,9.850013 0.00570209 1 1 40.44094,76.76528 Z" />
+  </g>
+</svg>

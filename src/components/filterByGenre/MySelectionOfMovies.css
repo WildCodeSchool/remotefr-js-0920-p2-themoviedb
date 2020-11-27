@@ -1,0 +1,29 @@
+.MySelectionOfMovies {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  top: 0;
+  width: 22em;
+  padding: 1%;
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.45em;
+  font-weight: bold;
+  text-align: center;
+}
+.MySelectionOfMovies p {
+  font-size: 2em;
+}
+.MySelectionOfMovies img {
+  width: 100%;
+  padding: 0 0 0.2em 0;
+}
+
+@media only screen and (min-width: 80em) {
+  .MySelectionOfMovies {
+    width: 9%;
+    padding: 0.5%;
+  }
+}

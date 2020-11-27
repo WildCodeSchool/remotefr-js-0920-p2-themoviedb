@@ -1,0 +1,106 @@
+.NouveautesList {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.NouveautesList > h2 {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 3.5em;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 1.5em;
+}
+
+.NouveautesList .areaOfNouveautes {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.NouveautesList h3 {
+  width: 100%;
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: center;
+  background-color: rgb(255, 238, 0);
+  font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.NouveautesList .divButtons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: flex-start;
+  background-color: rgb(255, 238, 0);
+  color: #000;
+  font-family: 'Monserrat', sans-serif;
+  height: auto;
+  margin: 0;
+  padding: 0 0.5em 2em 0.5em;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.NouveautesList .divButtons p {
+  width: 100%;
+  margin: 0.8em;
+}
+
+.NouveautesList .divButtons button {
+  width: 32%;
+  max-width: 100%;
+  margin: 0.5%;
+  padding: 0.3em 0;
+  font-size: 0.8em;
+  position: relative;
+  cursor: pointer;
+  background-color: #45b3a8;
+  border: none;
+}
+.NouveautesList .divButtons button:hover {
+  background-color: #7cebe0;
+  box-shadow: 0px 0px 20px #fff;
+}
+
+@media only screen and (min-width: 60em) {
+  .NouveautesList > h2 {
+    height: 4em;
+  }
+}
+
+@media only screen and (min-width: 80em) {
+  .NouveautesList {
+    top: -4em;
+    height: 110%;
+  }
+  .NouveautesList > h2 {
+    padding-top: 110px;
+    font-size: 1.6em;
+  }
+  .NouveautesList .divButtons button {
+    width: 9.2%;
+    font-size: 0.9em;
+    margin: 0.15%;
+  }
+}

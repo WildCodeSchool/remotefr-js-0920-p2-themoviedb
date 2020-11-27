@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mouse+Memoirs&display=swap');
+
+.FilterByGenre {
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.FilterByGenre .GenreList {
+  background-color: rgb(255, 238, 0);
+  color: #111;
+  font-family: 'Mouse Memoirs', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: auto;
+  font-size: 100%;
+  padding-left: 1em;
+  margin-bottom: 0.1em;
+  padding-top: 2.3em;
+}
+.FilterByGenre .GenreList h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+.FilterByGenre .GenreList .AreaOfButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.FilterByGenre .SelectUserList {
+  width: 100%;
+  background-color: rgb(255, 238, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.FilterByGenre .MySelectionOfMoviesList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  top: 0;
+  height: auto;
+  margin-top: 0em;
+  padding: 0.5em;
+  font-size: 0.5em;
+  text-align: center;
+  padding-bottom: 100px;
+}
+.FilterByGenre .MySelectionOfMoviesList p {
+  width: 100%;
+  margin: 0.8em;
+}
+
+.FilterByGenre .MySelectionOfMoviesList button {
+  width: 32%;
+  max-width: 100%;
+  margin: 0.5%;
+  padding: 0.3em 0;
+  font-size: 0.8em;
+  position: relative;
+}
+.MySelectionOfMoviesList .delete {
+  width: 32%;
+  max-width: 100%;
+  margin: 0.5%;
+  padding: 0.3em 0;
+  font-size: 3em !important;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.MySelectionOfMoviesList .delete:hover {
+  color: #333;
+}
+
+@media only screen and (min-width: 80em) {
+  .FilterByGenre .GenreList h2 {
+    font-size: 1.7em;
+  }
+}
