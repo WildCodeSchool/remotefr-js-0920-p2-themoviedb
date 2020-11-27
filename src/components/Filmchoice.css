@@ -6,20 +6,21 @@ body {
 /** barre de recherche **/
 
 .btnchoice {
-  width: 100%;
+  width: 90%;
+  margin: 0em 1em 8em 1em;
+  position: relative;
   height: 3em;
   background-color: rgb(0, 103, 129);
   color: #fff;
   border: none;
   font-family: 'Mouse Memoirs', sans-serif;
-
-  font-size: 2em;
+  font-size: 1em;
   padding: 0.3em;
   -webkit-box-shadow: 0px 25px 20px 3px rgba(87, 37, 37, 0.3);
   -moz-box-shadow: 0px 25px 20px 3px rgba(0, 0, 0, 0.3);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=25, Color='rgba(0, 0, 0, 0.300)', Positive='true');
   cursor: pointer;
-  margin: 0;
+  top: 9vh;
 }
 
 .research {
@@ -36,6 +37,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  background-color: rgb(255, 238, 0);
 }
 
 .searchbar {
@@ -46,6 +48,9 @@ body {
   background-size: cover;
   height: 4em;
   align-items: center;
+  -webkit-box-shadow: 0px -25px 20px 3px rgba(87, 37, 37, 0.3);
+  -moz-box-shadow: 0px -25px 20px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px -25px 20px 3px rgba(0, 0, 0, 0.3);
 }
 .bar {
   width: 35%;
@@ -69,10 +74,15 @@ body {
 /** sugestions de résultats*/
 .resultat {
   width: 45%;
-  margin-bottom: 10%;
+  margin-bottom: 5vh;
   position: relative;
-
 }
+.resultat h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  margin: 0.2em 0;
+}
+
 .titre {
   font-size: 70%;
   margin: 0;
@@ -80,7 +90,6 @@ body {
 }
 .mini {
   width: 100%;
-  border-radius: 8px;
 }
 
 .bouton {
@@ -91,7 +100,9 @@ body {
   text-decoration: none;
   display: inline-block;
   border-radius: 8px;
-  height: 16em;
+  height: 100%;
+  background: none;
+  border: none;
 }
 .icon {
   width: auto;
@@ -103,7 +114,7 @@ body {
 }
 .rating span {
   margin: 0;
-  width: 15px;
+  width: auto;
 }
 .view {
   width: 100vw;
@@ -113,10 +124,11 @@ body {
   align-content: space-between;
   justify-content: center;
   position: absolute;
-  height: 100%;
+  height: auto;
   overflow-y: scroll;
   background-color: rgb(255, 238, 0);
   z-index: 500;
+  padding-bottom: 10vh;
 }
 
 /* séléction */
@@ -138,14 +150,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 
-  height: 70%;
+  height: 90%;
   position: relative;
-
+  margin-bottom: 10em;
   background-color: rgb(255, 238, 0);
 }
 .filmview {
-  width: 40vw;
-  height: 25vh;
+  height: 100%;
   background-color: rgb(255, 238, 0);
   background-size: 100%;
   display: flex;
@@ -164,8 +175,8 @@ body {
 .filmtitle {
   margin: 0;
   color: black;
-  font-size: 90%;
-  margin-bottom: 10%;
+  font-size: 2em;
+  margin: 0.8em;
   right: 10%;
 }
 .more {
@@ -188,13 +199,16 @@ body {
   background-color: transparent;
   padding: 0;
   border: none;
-  font-size: 0.5em;
+  font-size: 1em;
   color: black;
   align-self: flex-start;
-  position: absolute;
-  right: 10%;
-  top: -1 em;
+  position: relative;
+  right: 2em;
   text-align: right;
+}
+.research .delete:hover {
+  cursor: pointer;
+  color: #444;
 }
 
 /* css film details */
@@ -335,8 +349,8 @@ body {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0%;
-  font-size: 0.4em;
-
+  font-size: 1em;
+  font-family: 'Mouse Memoirs', sans-serif;
   text-align: center;
 }
 
@@ -357,20 +371,26 @@ body {
     height: 60vh;
   }
 
+  .btnchoice {
+    font-size: 1.5em;
+    top: 2px;
+  }
+  .theOne {
+    padding-bottom: 60vh;
+  }
   .resultat {
     width: 18%;
   }
   .bouton {
     width: 100%;
-    margin-bottom: 13vh;
   }
   .mini {
     width: 80%;
   }
   .filmview {
-    width: 20%;
   }
   .theOne {
+    height: 110%;
   }
 }
 

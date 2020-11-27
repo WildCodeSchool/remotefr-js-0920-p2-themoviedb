@@ -168,13 +168,6 @@ class Filmchoice extends React.Component {
               <cards className="filmview">
                 <button
                   type="button"
-                  className="delete"
-                  onClick={() => this.movieSelect(liked)}
-                >
-                  ✂
-                </button>
-                <button
-                  type="button"
                   className="more"
                   onClick={() => this.moreInfo(liked)}
                 >
@@ -208,6 +201,13 @@ class Filmchoice extends React.Component {
                     }
                     readonly
                   />
+                </button>
+                <button
+                  type="button"
+                  className="delete"
+                  onClick={() => this.movieSelect(liked)}
+                >
+                  ✂
                 </button>
               </cards>
             ))}
@@ -245,14 +245,14 @@ class Filmchoice extends React.Component {
                 )}
               </div>
             </Modal>
+            <button
+              type="button"
+              className="btnchoice"
+              onClick={this.handleclick}
+            >
+              Envoie ta sélection
+            </button>
           </div>
-          <button
-            type="button"
-            className="btnchoice"
-            onClick={this.handleclick}
-          >
-            Envoie ta sélection
-          </button>
         </div>
       </div>
     );
