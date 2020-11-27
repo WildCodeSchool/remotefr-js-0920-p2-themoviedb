@@ -149,6 +149,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
   height: 90%;
   position: relative;
   margin-bottom: 10em;

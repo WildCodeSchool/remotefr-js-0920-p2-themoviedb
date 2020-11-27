@@ -17,6 +17,7 @@ import WithWhoList from './components/filterByWho/WithWhoList';
 import FilterByAge from './components/FilterByAge/FilterByAge';
 import ListEmotions from './components/FilterByEmotion/ListEmotion';
 import SelectionByAge from './components/SelectionByAge/SelectionByAge';
+import VoteForMovie from './components/VoteForMovies';
 
 const arrayData = { who: ['Entre amis', 'En Famille', 'En couple', 'Seul'] };
 
@@ -154,6 +155,10 @@ class App extends React.Component {
           <Route path="/contact">
             <Contact />
           </Route>
+          <Route path="/vote-pour-ton-film">
+            <VoteForMovie like={like} />
+          </Route>
+
           <Route path="/partage" component={SendMovies} />
           <Route path="/" component={FirstFilters} />
         </Switch>

@@ -1,0 +1,63 @@
+.candidate{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+
+
+  top: -4em;
+  height: 120%;
+  font-size: 2.5em;
+  transform: skewY(-3deg);
+  position: relative;
+  top: -2em;
+  
+  
+  
+  height: 100%;
+
+  
+}
+
+
+.maselection{
+    text-align: center;
+    background-color: black;
+    color: white;
+    
+}
+.filmselec{
+    margin:2%;
+    width: 30%;
+    margin-top: 8%;
+    
+    
+}
+
+.votefor{
+    background-color: rgb(255, 238, 0);;
+    height: 85vh;
+    overflow-y: scroll;
+    top: -4em;
+    
+}
+
+.plus{
+    background-color: grey;
+    border:none;
+}
+
+.voter{
+width: 100%;
+color: white;
+font-size: 2em;
+background-color: rgb(0, 103, 129);
+border:none;
+margin:0;
+}
+
+.filmtitre{
+    font-size: 0.5em;
+}

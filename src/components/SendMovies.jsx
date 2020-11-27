@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './SendMovies.module.css';
 
 class SendMovies extends React.Component {
@@ -120,7 +121,9 @@ class SendMovies extends React.Component {
             </div>
 
             <button className={styles.btnSend} type="submit">
-              J’envoie&nbsp;!
+              <Link to="/vote-pour-ton-film" title="vote-pour-ton-film">
+                J’envoie&nbsp;!
+              </Link>
             </button>
           </form>
           <p className={styles.requiredFields}>*Champs obligatoires</p>
