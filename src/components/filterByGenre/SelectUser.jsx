@@ -14,7 +14,14 @@ const customStyles = {
 
 function SelectUser(props) {
   // handleLike={handleLike}
-  const { posterPath, originalTitle, originalName, movie, handleLike } = props;
+  const {
+    posterPath,
+    originalTitle,
+    originalName,
+    movie,
+    handleLike,
+    linkToMovieForKids,
+  } = props;
 
   const title = originalTitle === '' ? originalName : originalTitle;
 
@@ -53,15 +60,12 @@ function SelectUser(props) {
         <div className="details">
           {zoomFilm && (
             <Zoom
-              titre={
-                zoomFilm.original_title === ''
-                  ? zoomFilm.original_name
-                  : zoomFilm.original_title
-              }
+              titre={title !== '' ? title : zoomFilm.name}
               poster={zoomFilm.poster_path}
               synopsis={zoomFilm.overview}
               note={zoomFilm.vote_average}
               id={zoomFilm.id}
+              linkToMovieForKids={linkToMovieForKids}
             />
           )}
           <button
@@ -83,11 +87,13 @@ SelectUser.propTypes = {
   originalName: PropTypes.string,
   movie: PropTypes.shape().isRequired,
   handleLike: PropTypes.func.isRequired,
+  linkToMovieForKids: PropTypes.string,
 };
 
 SelectUser.defaultProps = {
   originalTitle: '',
   originalName: '',
+  linkToMovieForKids: undefined,
 };
 
 export default SelectUser;

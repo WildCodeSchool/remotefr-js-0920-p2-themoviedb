@@ -31,7 +31,7 @@ class FilmZoom extends React.Component {
   };
 
   render() {
-    const { titre, poster, synopsis, note } = this.props;
+    const { titre, poster, synopsis, note, linkToMovieForKids } = this.props;
     const { streaming } = this.state;
 
     return (
@@ -58,9 +58,26 @@ class FilmZoom extends React.Component {
         <article>
           <div>
             <p className="resume">{synopsis}</p>
-            <h4>Disponible en vente :</h4>
+
+            {linkToMovieForKids === undefined ? (
+              ''
+            ) : (
+              <a
+                href={linkToMovieForKids}
+                title="Filmspourenfants.net"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button type="button" className="btnFilmsPourEnfants">
+                  Filmspourenfants.net
+                </button>
+              </a>
+            )}
+
+            {streaming.buy === undefined ? '' : <h4>Disponible en vente :</h4>}
+
             {streaming.buy === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.buy.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -68,9 +85,13 @@ class FilmZoom extends React.Component {
                     className="logo"
                   />
                 ))}
-            <h4>Disponible en location :</h4>
+            {streaming.rent === undefined ? (
+              ''
+            ) : (
+              <h4>Disponible en location :</h4>
+            )}
             {streaming.rent === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.rent.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -78,9 +99,13 @@ class FilmZoom extends React.Component {
                     className="logo"
                   />
                 ))}
-            <h4>Disponible en streaming :</h4>
+            {streaming.flatrate === undefined ? (
+              ''
+            ) : (
+              <h4>Disponible en streaming :</h4>
+            )}
             {streaming.flatrate === undefined
-              ? 'Information non disponible'
+              ? ''
               : streaming.flatrate.map((m) => (
                   <img
                     src={`https://image.tmdb.org/t/p/w500${m.logo_path}`}
@@ -100,13 +125,19 @@ class FilmZoom extends React.Component {
   }
 }
 FilmZoom.propTypes = {
-  titre: PropTypes.string.isRequired,
+  titre: PropTypes.string,
   poster: PropTypes.string.isRequired,
-  synopsis: PropTypes.string.isRequired,
-  note: PropTypes.number.isRequired,
+  synopsis: PropTypes.string,
+  note: PropTypes.number,
   id: PropTypes.number.isRequired,
+  linkToMovieForKids: PropTypes.string,
 };
 
-FilmZoom.defaultProps = {};
+FilmZoom.defaultProps = {
+  synopsis: undefined,
+  linkToMovieForKids: undefined,
+  titre: undefined,
+  note: undefined,
+};
 
 export default FilmZoom;

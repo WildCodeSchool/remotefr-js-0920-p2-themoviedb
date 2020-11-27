@@ -13,6 +13,8 @@ function SelectionByAge(props) {
   // get age select
   const age = parseInt(dataUrl[3].replace(/age-/g, ''), 10);
 
+  const linkToMovieForKids = 'https://www.filmspourenfants.net/';
+
   // get the list of movies from the API by age
   const [MovieListForAge, setMovieListForAge] = useState([]);
   const getMovieListForAge = () => {
@@ -54,11 +56,13 @@ function SelectionByAge(props) {
           arrayResult={arrayDataFilter}
           handleLike={handleLike}
           Increment={Increment}
+          linkToMovieForKids={linkToMovieForKids}
         />
 
         <MySelectionOfMoviesList
           arrayResult={arrayDataFilter}
           movieLiked={like}
+          handleLike={handleLike}
         />
       </div>
     </article>

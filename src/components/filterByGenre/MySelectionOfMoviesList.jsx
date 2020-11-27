@@ -93,11 +93,12 @@ MySelectionOfMoviesList.propTypes = {
       id: PropTypes.number,
     }),
   ),
-  handleLike: PropTypes.func.isRequired,
+  handleLike: PropTypes.func,
 };
 
 MySelectionOfMoviesList.defaultProps = {
   movieLiked: [],
+  handleLike: undefined,
 };
 
 export default MySelectionOfMoviesList;

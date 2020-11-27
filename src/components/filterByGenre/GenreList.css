@@ -87,6 +87,8 @@
   font-size: 3em !important;
   position: relative;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 .MySelectionOfMoviesList .delete:hover {
   color: #333;
