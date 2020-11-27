@@ -74,7 +74,11 @@ class FilmZoom extends React.Component {
               </a>
             )}
 
-            {streaming.buy === undefined ? '' : <h4>Disponible en vente :</h4>}
+            {streaming.buy === undefined ? (
+              ''
+            ) : (
+              <h4>Disponible en vente&nbsp;:</h4>
+            )}
 
             {streaming.buy === undefined
               ? ''
@@ -88,7 +92,7 @@ class FilmZoom extends React.Component {
             {streaming.rent === undefined ? (
               ''
             ) : (
-              <h4>Disponible en location :</h4>
+              <h4>Disponible en location&nbsp;:</h4>
             )}
             {streaming.rent === undefined
               ? ''
@@ -102,7 +106,7 @@ class FilmZoom extends React.Component {
             {streaming.flatrate === undefined ? (
               ''
             ) : (
-              <h4>Disponible en streaming :</h4>
+              <h4>Disponible en streaming&nbsp;:</h4>
             )}
             {streaming.flatrate === undefined
               ? ''
