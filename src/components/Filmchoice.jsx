@@ -3,7 +3,6 @@ import './Filmchoice.css';
 import axios from 'axios';
 import Rating from 'react-rating';
 import Modal from 'react-modal';
-
 import apiKey from './apiKey';
 import FilmZoom from './FilmZoom';
 import SendMovies from './SendMovies';
