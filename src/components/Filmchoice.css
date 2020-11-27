@@ -69,8 +69,9 @@ body {
 /** sugestions de résultats*/
 .resultat {
   width: 45%;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
   position: relative;
+
 }
 .titre {
   font-size: 70%;
@@ -137,7 +138,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 
-  height: 150vh;
+  height: 65vh;
   position: relative;
 
   background-color: rgb(255, 238, 0);
