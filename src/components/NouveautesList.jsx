@@ -32,7 +32,7 @@ class NouveautesList extends React.Component {
       pastMonth00 = (todayMonth00 - 6).toString().padStart(2, '0');
       pastYear00 = todayYear00;
     } else {
-      pastMonth00 = parseInt(todayMonth, 16) + 6;
+      pastMonth00 = (parseInt(todayMonth, 12) + 6).toString().padStart(2, '0');
       pastYear00 = todayYear00 - 1;
     }
 
@@ -63,7 +63,7 @@ class NouveautesList extends React.Component {
       pastMonth00 = (todayMonth00 - 6).toString().padStart(2, '0');
       pastYear00 = todayYear00;
     } else {
-      pastMonth00 = parseInt(todayMonth, 12) + 6;
+      pastMonth00 = (parseInt(todayMonth, 12) + 6).toString().padStart(2, '0');
       pastYear00 = todayYear00 - 1;
     }
 
